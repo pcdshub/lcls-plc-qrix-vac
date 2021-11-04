@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="PRG_3_LOG" Id="{48e166b6-5fab-41f0-8dbc-ebe24636762e}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM PRG_3_LOG
+VAR
+	  fbLogHandler: FB_LogHandler;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fbLogHandler();]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
