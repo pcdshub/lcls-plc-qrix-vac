@@ -65,5 +65,9 @@ xExtILK_OK_DET := 	(qRIXS_DET_GPI_01.PG.xPRESS_OK AND qRIXS_BLW_GFR_01.PG.xPRESS
 
 ]]></ST>
     </Implementation>
+    <LineIds Name="PRG_SPCA">
+      <LineId Id="3" Count="51" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
   </POU>
 </TcPlcObject>
