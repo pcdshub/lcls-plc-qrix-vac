@@ -5,7 +5,7 @@
     <CycleTime>10000</CycleTime>
     <Priority>20</Priority>
     <PouCall>
-      <Name>PRG_Roughing</Name>
+      <Name>Main</Name>
     </PouCall>
     <TaskFBGuid>{e34139b4-c14f-4e99-9df0-6907bb7f530c}</TaskFBGuid>
     <Fb_init>{64fb2b76-0005-46e3-8436-c12f79c36066}</Fb_init>

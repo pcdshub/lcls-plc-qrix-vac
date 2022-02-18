@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="Main" Id="{ecf97ee3-9889-4850-9da7-1b720e899e44}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Main
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[PRG_Roughing();]]></ST>
+    </Implementation>
+    <LineIds Name="Main">
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
