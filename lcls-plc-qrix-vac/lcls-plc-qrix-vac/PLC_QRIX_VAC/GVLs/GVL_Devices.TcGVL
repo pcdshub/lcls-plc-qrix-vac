@@ -52,7 +52,7 @@ fb_QRIX_PRO_01 : FB_EbaraDryPump;
 								 .q_xHV_DIS			:=	TIIB[qRIXS_PNL1_E4_EL2624]^Channel 1^Output
 	'}
 	{attribute 'pytmc' := '
-		pv: QRIXS:OPT:GCC:01
+		pv: QRIXS:DET:GCC:01
 		io: io
 	'}
 	qRIXS_DET_GCC_01: FB_MKS500;
