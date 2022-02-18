@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="PRG_Roughing" Id="{9373ef9e-5e95-4b75-81c2-b0e4a1795889}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM PRG_Roughing
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[// Roughing devices
+
+fb_QRIX_ROUGH_GPI_02();			// Roughing guage near BL 
+
+
+//VRC 02	
+fb_QRIX_ROUGH_VRC_02(i_xExtILK_OK := TRUE, i_xOverrideMode := xSystemOverrideMode, iq_stValve => );
+
+//VRC 01
+fb_QRIX_ROUGH_VRC_01(i_xExtILK_OK := TRUE, i_xOverrideMode := xSystemOverrideMode, iq_stValve => );
+]]></ST>
+    </Implementation>
+    <LineIds Name="PRG_Roughing">
+      <LineId Id="6" Count="1" />
+      <LineId Id="2" Count="0" />
+      <LineId Id="9" Count="2" />
+      <LineId Id="20" Count="0" />
+      <LineId Id="16" Count="1" />
+      <LineId Id="8" Count="0" />
+      <LineId Id="18" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

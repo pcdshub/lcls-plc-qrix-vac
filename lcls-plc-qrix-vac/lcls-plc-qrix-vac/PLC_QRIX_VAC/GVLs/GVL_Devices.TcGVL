@@ -23,9 +23,9 @@ fb_QRIX_ROUGH_GPI_12 : FB_MKS275;
 {attribute 'pytmc' := ' pv: QRIX:ROUGH:GPI:21 '}
 {attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[qRIXS_PNL1_E7_EL3174-0002]^AI Standard Channel 3^Value'}
 fb_QRIX_ROUGH_GPI_21 : FB_MKS275;
-{attribute 'pytmc' := ' pv: QRIX:ROUGH:GPI:22 '}
-{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[qRIXS_PNL1_E9_EL3174-0002]^AI Standard Channel 2^Value'}
-fb_QRIX_ROUGH_GPI_22 : FB_MKS275;
+{attribute 'pytmc' := ' pv: QRIX:ROUGH:GPI:02 '}
+{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[EL3174_00_09]^AI Standard Channel 1^Value'}
+fb_QRIX_ROUGH_GPI_02 : FB_MKS275;
 {attribute 'pytmc' := ' pv: QRIX:ROUGH:GPI:31 '}
 {attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[qRIXS_PNL1_E23_EL3174-0002]^AI Standard Channel 3^Value'}
 fb_QRIX_ROUGH_GPI_31 : FB_MKS275;
@@ -72,14 +72,14 @@ fb_QRIX_SC_VRC_10 : FB_VRC;
 							.i_xClsLS	:=	TIIB[qRIXS_PNL1_E12_EL1004]^Channel 2^Input;
 							.q_xCLS_DO	:=	TIIB[qRIXS_PNL1_E13_EL2004]^Channel 1^Output
 '}
-{attribute 'pytmc' := ' pv: QRIX:SC:VRC:11 '}
-fb_QRIX_SC_VRC_11 : FB_VRC;
+{attribute 'pytmc' := ' pv: QRIX:ROUGH:VRC:01 '}
+fb_QRIX_ROUGH_VRC_01 : FB_VRC;
 {attribute 'TcLinkTo' := 	'.i_xOpnLS	:=	TIIB[qRIXS_PNL1_E12_EL1004]^Channel 3^Input;
 							.i_xClsLS	:=	TIIB[qRIXS_PNL1_E12_EL1004]^Channel 4^Input;
 							.q_xCLS_DO	:=	TIIB[qRIXS_PNL1_E13_EL2004]^Channel 2^Output
 '}
-{attribute 'pytmc' := ' pv: QRIX:SC:VRC:21 '}
-fb_QRIX_SC_VRC_21 : FB_VRC;
+{attribute 'pytmc' := ' pv: QRIX:ROUGH:VRC:02 '}
+fb_QRIX_ROUGH_VRC_02 : FB_VRC;
 {attribute 'TcLinkTo' := 	'.i_xOpnLS	:=	TIIB[qRIXS_PNL1_E9_EL1004]^Channel 1^Input;
 							.i_xClsLS	:=	TIIB[qRIXS_PNL1_E9_EL1004]^Channel 2^Input;
 							.q_xCLS_DO	:=	TIIB[qRIXS_PNL1_E10_EL2004]^Channel 1^Output

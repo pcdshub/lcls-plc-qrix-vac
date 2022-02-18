@@ -1,17 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
   <Task Name="PlcTask" Id="{f72324a5-379e-4709-846d-b205d584fb1f}">
     <!--CycleTime in micro seconds.-->
     <CycleTime>10000</CycleTime>
     <Priority>20</Priority>
     <PouCall>
-      <Name>MAIN</Name>
+      <Name>PRG_Roughing</Name>
     </PouCall>
     <TaskFBGuid>{e34139b4-c14f-4e99-9df0-6907bb7f530c}</TaskFBGuid>
     <Fb_init>{64fb2b76-0005-46e3-8436-c12f79c36066}</Fb_init>
     <Fb_exit>{55d7f2fb-0a6c-4477-b886-2db724abaac3}</Fb_exit>
     <CycleUpdate>{dd843404-a376-4fd1-bd5a-96273880fee5}</CycleUpdate>
     <PostCycleUpdate>{df099775-1601-41fc-af3c-e091fa535cab}</PostCycleUpdate>
-    <ObjectProperties />
   </Task>
 </TcPlcObject>
