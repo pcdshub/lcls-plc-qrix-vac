@@ -309,7 +309,7 @@ fb_QRIX_ROUGH_VRO_01 : FB_VRO;
 
 	{attribute 'TcLinkTo' := }{	{'.i_iPRESS_{R}{	{:=}{	{TIIB[qRIXS_PNL1_E5_EL3174-0002]^AI Standard Channel 1^Value'}
 	{attribute 'pytmc' := '
-		pv: QRIXS:OPT:GPI:01
+		pv: QRIXS:OPT:GPI:02
 		io: io
 	'}
 	qRIXS_OPT_GPI_02: FB_MKS275;
@@ -349,7 +349,7 @@ fb_QRIX_ROUGH_VRO_01 : FB_VRO;
 								 .q_xHV_DIS			:=	TIIB[qRIXS_PNL1_E4_EL2624]^Channel 2^Output
 	'}
 	{attribute 'pytmc' := '
-		pv: QRIXS:DET:GCC:01
+		pv: QRIXS:DET:GCC:02
 		io: io
 	'}
 	qRIXS_DET_GCC_02: FB_MKS500;
