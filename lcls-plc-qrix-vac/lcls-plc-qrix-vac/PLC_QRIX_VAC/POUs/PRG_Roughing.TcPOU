@@ -12,10 +12,10 @@ fb_QRIX_ROUGH_GPI_02();			// Roughing guage near BL
 
 
 //VRC 02	
-fb_QRIX_ROUGH_VRC_02(i_xExtILK_OK := TRUE, i_xOverrideMode := xSystemOverrideMode, iq_stValve => );
+qRIXS_ROUGH_VRC_02(i_xExtILK_OK := TRUE, i_xOverrideMode := xSystemOverrideMode, iq_stValve => );
 
 //VRC 01
-fb_QRIX_ROUGH_VRC_01(i_xExtILK_OK := TRUE, i_xOverrideMode := xSystemOverrideMode, iq_stValve => );
+qRIXS_ROUGH_VRC_01(i_xExtILK_OK := TRUE, i_xOverrideMode := xSystemOverrideMode, iq_stValve => );
 ]]></ST>
     </Implementation>
     <LineIds Name="PRG_Roughing">

@@ -199,28 +199,6 @@
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Devices.fb_QRIX_ROUGH_VRC_01.i_xOpnLS</Name>
-					<Comment>
-						<![CDATA[IO]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Devices.fb_QRIX_ROUGH_VRC_01.i_xClsLS</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Devices.fb_QRIX_ROUGH_VRC_02.i_xOpnLS</Name>
-					<Comment>
-						<![CDATA[IO]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Devices.fb_QRIX_ROUGH_VRC_02.i_xClsLS</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
 					<Name>GVL_Devices.fb_QRIX_SC_VRC_31.i_xOpnLS</Name>
 					<Comment>
 						<![CDATA[IO]]>
@@ -306,28 +284,6 @@
 				</Var>
 				<Var>
 					<Name>GVL_Devices.qRIXS_SC_VRC_01.i_xClsLS</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Devices.qRIXS_SC_VRC_11.i_xOpnLS</Name>
-					<Comment>
-						<![CDATA[IO]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Devices.qRIXS_SC_VRC_11.i_xClsLS</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Devices.qRIXS_SC_VRC_21.i_xOpnLS</Name>
-					<Comment>
-						<![CDATA[IO]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Devices.qRIXS_SC_VRC_21.i_xClsLS</Name>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
@@ -565,6 +521,28 @@
 					</Comment>
 					<Type>BOOL</Type>
 				</Var>
+				<Var>
+					<Name>GVL_Devices.qRIXS_ROUGH_VRC_01.i_xOpnLS</Name>
+					<Comment>
+						<![CDATA[IO]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Devices.qRIXS_ROUGH_VRC_01.i_xClsLS</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Devices.qRIXS_ROUGH_VRC_02.i_xOpnLS</Name>
+					<Comment>
+						<![CDATA[IO]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Devices.qRIXS_ROUGH_VRC_02.i_xClsLS</Name>
+					<Type>BOOL</Type>
+				</Var>
 			</Vars>
 			<Vars VarGrpType="2">
 				<Name>PlcTask Outputs</Name>
@@ -601,14 +579,6 @@
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Devices.fb_QRIX_ROUGH_VRC_01.q_xOPN_DO</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Devices.fb_QRIX_ROUGH_VRC_02.q_xOPN_DO</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
 					<Name>GVL_Devices.fb_QRIX_SC_VRC_31.q_xOPN_DO</Name>
 					<Type>BOOL</Type>
 				</Var>
@@ -638,14 +608,6 @@
 				</Var>
 				<Var>
 					<Name>GVL_Devices.qRIXS_SC_VRC_01.q_xOPN_DO</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Devices.qRIXS_SC_VRC_11.q_xOPN_DO</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Devices.qRIXS_SC_VRC_21.q_xOPN_DO</Name>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
@@ -812,6 +774,14 @@
 					<Name>GVL_PMPS.fbFastFaultOutput2.q_xFastFaultOut</Name>
 					<Type>BOOL</Type>
 				</Var>
+				<Var>
+					<Name>GVL_Devices.qRIXS_ROUGH_VRC_01.q_xOPN_DO</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Devices.qRIXS_ROUGH_VRC_02.q_xOPN_DO</Name>
+					<Type>BOOL</Type>
+				</Var>
 			</Vars>
 			<Vars VarGrpType="8">
 				<Name>PlcTask Retains</Name>
@@ -839,12 +809,72 @@
 	</Project>
 	<Mappings>
 		<OwnerA Name="PLC_QRIX_VAC Instance">
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 17 (EK1200)^EL3174_00_09">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^B950_233_R03_DRL_01^EL1004_00_12">
+				<Link VarA="PlcTask Inputs^GVL_Devices.qRIXS_ROUGH_VRC_01.i_xClsLS" VarB="Channel 2^Input" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Devices.qRIXS_ROUGH_VRC_01.i_xOpnLS" VarB="Channel 1^Input" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Devices.qRIXS_ROUGH_VRC_02.i_xClsLS" VarB="Channel 4^Input" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Devices.qRIXS_ROUGH_VRC_02.i_xOpnLS" VarB="Channel 3^Input" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^B950_233_R03_DRL_01^EL2004_00_13">
+				<Link VarA="PlcTask Outputs^GVL_Devices.qRIXS_ROUGH_VRC_01.q_xOPN_DO" VarB="Channel 1^Output" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Devices.qRIXS_ROUGH_VRC_02.q_xOPN_DO" VarB="Channel 2^Output" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^B950_233_R03_DRL_01^EL3174_00_09">
 				<Link VarA="PlcTask Inputs^GVL_Devices.fb_QRIX_ROUGH_GPI_02.i_iPRESS_R" VarB="AI Standard Channel 1^Value" AutoLink="true"/>
 			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 17 (EK1200)^PMPS_FFO">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^B950_233_R03_DRL_01^PMPS_FFO">
 				<Link VarA="PlcTask Outputs^GVL_PMPS.fbFastFaultOutput1.q_xFastFaultOut" VarB="Channel 1^Output" AutoLink="true"/>
 				<Link VarA="PlcTask Outputs^GVL_PMPS.fbFastFaultOutput2.q_xFastFaultOut" VarB="Channel 2^Output" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^B950_233_WALL_S_DRL_04^EL1004_01_01">
+				<Link VarA="PlcTask Inputs^GVL_Devices.fb_QRIX_SC_VRC_10.i_xClsLS" VarB="Channel 2^Input" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Devices.fb_QRIX_SC_VRC_10.i_xOpnLS" VarB="Channel 1^Input" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^B950_233_WALL_S_DRL_04^EL1004_01_03">
+				<Link VarA="PlcTask Inputs^GVL_Devices.fb_QRIX_SC_VGC_03.i_xClsLS" VarB="Channel 4^Input" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Devices.fb_QRIX_SC_VGC_03.i_xOpnLS" VarB="Channel 3^Input" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^B950_233_WALL_S_DRL_04^EL1004_01_05">
+				<Link VarA="PlcTask Inputs^GVL_Devices.fb_QRIX_SC_VGC_04.i_xClsLS" VarB="Channel 2^Input" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Devices.fb_QRIX_SC_VGC_04.i_xOpnLS" VarB="Channel 1^Input" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Devices.fb_QRIX_SC_VGC_05.i_xClsLS" VarB="Channel 4^Input" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Devices.fb_QRIX_SC_VGC_05.i_xOpnLS" VarB="Channel 3^Input" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^B950_233_WALL_S_DRL_04^EL1004_01_09">
+				<Link VarA="PlcTask Inputs^GVL_Devices.fb_QRIX_SC_VRC_31.i_xClsLS" VarB="Channel 2^Input" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Devices.fb_QRIX_SC_VRC_31.i_xOpnLS" VarB="Channel 1^Input" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^B950_233_WALL_S_DRL_04^EL1004_01_13">
+				<Link VarA="PlcTask Inputs^GVL_Devices.QRIX_SC_PTM_10.i_xAtSpd" VarB="Channel 1^Input" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Devices.QRIX_SC_PTM_10.i_xFaultNC" VarB="Channel 3^Input" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^B950_233_WALL_S_DRL_04^EL1124_01_22">
+				<Link VarA="PlcTask Inputs^GVL_Devices.qRIXS_DET_GCC_01.i_xHV_ON" VarB="Channel 1^Input"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^B950_233_WALL_S_DRL_04^EL2004_01_04">
+				<Link VarA="PlcTask Outputs^GVL_Devices.fb_QRIX_SC_VGC_04.q_xOPN_DO" VarB="Channel 1^Output"/>
+				<Link VarA="PlcTask Outputs^GVL_Devices.fb_QRIX_SC_VGC_05.q_xOPN_DO" VarB="Channel 2^Output"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^B950_233_WALL_S_DRL_04^EL2004_01_12">
+				<Link VarA="PlcTask Inputs^GVL_Devices.QRIX_SC_PTM_10.i_xRemote" VarB="Channel 2^Output" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Devices.QRIX_SC_PTM_10.q_RunDO" VarB="Channel 1^Output" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^B950_233_WALL_S_DRL_04^EL3174-0002_01_23">
+				<Link VarA="PlcTask Inputs^GVL_Devices.fb_QRIX_ROUGH_GPI_31.i_iPRESS_R" VarB="AI Standard Channel 3^Value" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Devices.fb_QRIX_SC_GPI_01.i_iPRESS_R" VarB="AI Standard Channel 2^Value" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Devices.qRIXS_SC_GCC_01.i_iPRESS_R" VarB="AI Standard Channel 1^Value" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^B950_233_WALL_S_DRL_05^EL1004_02_01">
+				<Link VarA="PlcTask Inputs^GVL_Devices.fb_QRIX_SDS_VRC_01.i_xClsLS" VarB="Channel 2^Input" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Devices.fb_QRIX_SDS_VRC_01.i_xOpnLS" VarB="Channel 1^Input" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^B950_233_WALL_S_DRL_05^EL2004_02_02">
+				<Link VarA="PlcTask Outputs^GVL_Devices.fb_QRIX_SDS_VRC_01.q_xOPN_DO" VarB="Channel 1^Output"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^B950_233_WALL_S_DRL_05^EL3174-0002_02_13">
+				<Link VarA="PlcTask Inputs^GVL_Devices.fb_QRIX_ROUGH_GPI_03.i_iPRESS_R" VarB="AI Standard Channel 2^Value" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Devices.fb_QRIX_ROUGH_GPI_04.i_iPRESS_R" VarB="AI Standard Channel 3^Value" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Devices.fb_QRIX_SDS_GPI_01.i_iPRESS_R" VarB="AI Standard Channel 1^Value" AutoLink="true"/>
 			</OwnerB>
 		</OwnerA>
 	</Mappings>
