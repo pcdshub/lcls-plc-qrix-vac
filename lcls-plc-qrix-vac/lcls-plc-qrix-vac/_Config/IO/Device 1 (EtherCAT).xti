@@ -100,7 +100,7 @@
 			<Name>Image</Name>
 		</Image>
 		<Box BoxType="9099" Id="17">
-			<Name>Term 17 (EK1200)</Name>
+			<Name>B950_233_R03_DRL_01</Name>
 			<ImageId>1000</ImageId>
 			<EtherCAT PdiType="#x0100" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x04b02c52" RevisionNo="#x00001388" InfoDataState="false" PortPhys="49" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EK1200-5000 EtherCAT Power supply (2A E-Bus)" Desc="EK1200" PortABoxInfo="#x00ffffff"/>
 			<Box BoxType="9099" Id="18">
@@ -1263,7 +1263,7 @@ Bit1: Value smaller than Limit2]]>
 			</Box>
 		</Box>
 		<Box BoxType="9099" Id="33">
-			<Name>Term 33 (EK1100)</Name>
+			<Name>B950_233_WALL_S_DRL_04</Name>
 			<ImageId>1008</ImageId>
 			<EtherCAT SlaveType="1" PdiType="#x0d00" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x044c2c52" RevisionNo="#x00120000" PortPhys="305" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EK1100 EtherCAT Coupler (2A E-Bus)" Desc="EK1100" PortABoxInfo="#x01000020"/>
 			<Box BoxType="9099" Id="34">
@@ -5171,7 +5171,7 @@ Bit1: Value smaller than Limit2]]>
 			</Box>
 		</Box>
 		<Box BoxType="9099" Id="56">
-			<Name>Term 56 (EK1100)</Name>
+			<Name>B950_233_WALL_S_DRL_05</Name>
 			<ImageId>1008</ImageId>
 			<EtherCAT SlaveType="1" PdiType="#x0d00" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x044c2c52" RevisionNo="#x00120000" PortPhys="305" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EK1100 EtherCAT Coupler (2A E-Bus)" Desc="EK1100" PortABoxInfo="#x02000021"/>
 			<Box BoxType="9099" Id="57">
@@ -6880,7 +6880,7 @@ Bit1: Value smaller than Limit2]]>
 				</EtherCAT>
 			</Box>
 			<Box BoxType="9099" BoxFlags="#x00000020" Id="67">
-				<Name>EL3174-0002_02_11</Name>
+				<Name>EL3174-0002_02_13</Name>
 				<ImageId>1003</ImageId>
 				<EtherCAT SlaveType="2" PdiType="#x0405" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="7" FoeType="1" VendorId="#x00000002" ProductCode="#x0c663052" RevisionNo="#x00110002" InfoDataAddr="true" TimeoutMailbox2="2000" CheckRevisionNoType="3" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL3174-0002 4Ch. Ana. Input +/-10V, +/-20mA 16 Bit, Isolated Channels" Desc="EL3174-0002" PortABoxInfo="#x01000042">
 					<SyncMan>001080002600010001000000800080008000001026010000</SyncMan>

@@ -6,10 +6,19 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[PRG_Roughing();]]></ST>
+      <ST><![CDATA[///Calling programs
+PRG_Roughing();				
+PRG_SampleChamber(); 		
+PRG_SDS();
+//PRG_SPCA();
+PRG_2_PMPS();
+]]></ST>
     </Implementation>
     <LineIds Name="Main">
+      <LineId Id="12" Count="0" />
       <LineId Id="5" Count="0" />
+      <LineId Id="11" Count="0" />
+      <LineId Id="14" Count="3" />
     </LineIds>
   </POU>
 </TcPlcObject>

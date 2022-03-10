@@ -12,11 +12,14 @@ END_VAR
     <Implementation>
       <ST><![CDATA[
 //MKS 275 Gauges
+fb_QRIX_SC_GPI_01.M_SetBits(30518);
 fb_QRIX_SC_GPI_01(PG=>);
 fb_QRIX_ROUGH_GPI_11(PG=>);
 fb_QRIX_ROUGH_GPI_12(PG=>);
 fb_QRIX_ROUGH_GPI_21(PG=>);
-fb_QRIX_ROUGH_GPI_22(PG=>);
+fb_QRIX_ROUGH_GPI_31.M_SetBits(30518);
+fb_QRIX_ROUGH_GPI_31(PG=>);
+//fb_QRIX_ROUGH_GPI_22(PG=>);
 
 //ION Pumps
 qRIXS_SC_PIP_01(i_stGauge:=qRIXS_SC_GCC_01.IG, i_xOverrideMode:= xSystemOverrideMode);
@@ -67,7 +70,7 @@ fb_QRIX_SC_VGC_02(
 //VRC 10
 fb_QRIX_SC_VRC_10.i_xExtILK_OK := F_TurboGateValve_Protection_ILK( i_Turbo := QRIX_SC_PTM_10.iq_stPTM , 
 																   i_stISG := fb_QRIX_SC_GPI_01.PG, i_stBSG := fb_QRIX_ROUGH_GPI_11.PG,
-																	ScrollPump := fb_QRIX_PRO_01 );
+																	ScrollPump := fb_QRIX_PRO_01.stPump );
 																	
 fb_QRIX_SC_VRC_10(i_xOverrideMode:=xSystemOverrideMode , iq_stValve=> );
 
@@ -77,10 +80,13 @@ fb_QRIX_SC_VRC_10(i_xOverrideMode:=xSystemOverrideMode , iq_stValve=> );
     <LineIds Name="PRG_SampleChamber">
       <LineId Id="7" Count="0" />
       <LineId Id="2" Count="0" />
+      <LineId Id="126" Count="0" />
       <LineId Id="8" Count="0" />
       <LineId Id="113" Count="0" />
       <LineId Id="111" Count="0" />
       <LineId Id="106" Count="0" />
+      <LineId Id="128" Count="0" />
+      <LineId Id="127" Count="0" />
       <LineId Id="103" Count="1" />
       <LineId Id="10" Count="0" />
       <LineId Id="13" Count="1" />
