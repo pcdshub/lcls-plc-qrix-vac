@@ -165,7 +165,18 @@ QRIX_SC_PTM_20 : FB_PTM_Pfeiffer;
 							 .q_xReset			:=	TIIB[EL2794_01_15]^Channel 4^Output			 
 '}
 QRIX_SC_PTM_30 : FB_PTM_Pfeiffer;
-
+//PTM- Turbo Pump
+{attribute 'TcLinkTo' := 	'.i_xAtSpd			:=	TIIB[qRIXS_PLC_EP01_EP2338-0002]^Channel 1^Input;
+							 .i_xFaultNC		:=	TIIB[qRIXS_PLC_EP01_EP2338-0002]^Channel 2^Input;
+							 .i_xRemote			:=	TIIB[qRIXS_PLC_EP01_EP2338-0002]^Channel 3^Input;
+							 .q_RunDO			:=	TIIB[qRIXS_PLC_EP02_EP2624-0002]^Channel 1^Output;
+							 .q_xReset 			:=	TIIB[qRIXS_PLC_EP02_EP2624-0002]^Channel 2^Output				 
+'}
+{attribute 'pytmc' := '
+		pv: QRIX:SDS:PTM:10
+		io: io
+'}
+QRIX_SDS_PTM_10 : FB_PTM_Pfeiffer;
 // Gauges
 //GCC
 {attribute 'TcLinkTo' := 	'    .i_iPRESS_R		:=	TIIB[EL3174-0002_01_23]^AI Standard Channel 1^Value;
@@ -184,6 +195,31 @@ fb_QRIX_SC_GPI_01 : FB_MKS275;
 {attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[EL3174-0002_01_23]^AI Standard Channel 3^Value'}
 fb_QRIX_ROUGH_GPI_31 : FB_MKS275;
 
+	
+{attribute 'pytmc' := '
+	pv: QRIXS:SSL:GCP:20
+	io: io
+'}
+{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[EL3174-0002_01_24]^AI Standard Channel 1^Value'}
+qRIXS_SSL_GCP_20: FB_972;
+	
+{attribute 'pytmc' := '
+	pv: QRIXS:SSL:GCP:30
+	io: io
+'}
+{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[EL3174-0002_01_24]^AI Standard Channel 2^Value'}
+qRIXS_SSL_GCP_30: FB_972;
+
+//MKS-275 
+{attribute 'pytmc' := ' pv: QRIX:ROUGH:GPI:03 '}
+{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[EL3174-0002_02_13]^AI Standard Channel 2^Value'}
+fb_QRIX_ROUGH_GPI_03 : FB_MKS275;
+{attribute 'pytmc' := ' pv: QRIX:ROUGH:GPI:04 '}
+{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[EL3174-0002_02_13]^AI Standard Channel 3^Value'}
+fb_QRIX_ROUGH_GPI_04 : FB_MKS275;
+{attribute 'pytmc' := ' pv: QRIX:SDS:GPI:01 '}
+{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[EL3174-0002_02_13]^AI Standard Channel 1^Value'}
+fb_QRIX_SDS_GPI_01 : FB_MKS275;
 
 ////////Connected to B950-233-WALL-S-DRL-05
 //VRC
@@ -198,33 +234,12 @@ fb_QRIX_SDS_VRC_01 : FB_VRC;
 fb_QRIX_SDS_VVC_01 : FB_VVC;
 {attribute 'pytmc' := ' pv: QRIX:SDS:VVC:02 '}
 fb_QRIX_SDS_VVC_02 : FB_VVC;
-//PTM- Turbo Pump
-{attribute 'TcLinkTo' := 	'.i_xAtSpd			:=	TIIB[qRIXS_PLC_EP01_EP2338-0002]^Channel 1^Input;
-							 .i_xFaultNC		:=	TIIB[qRIXS_PLC_EP01_EP2338-0002]^Channel 2^Input;
-							 .i_xRemote			:=	TIIB[qRIXS_PLC_EP01_EP2338-0002]^Channel 3^Input;
-							 .q_RunDO			:=	TIIB[qRIXS_PLC_EP02_EP2624-0002]^Channel 1^Output;
-							 .q_xReset 			:=	TIIB[qRIXS_PLC_EP02_EP2624-0002]^Channel 2^Output				 
-'}
-{attribute 'pytmc' := '
-		pv: QRIX:SDS:PTM:10
-		io: io
-'}
-QRIX_SDS_PTM_10 : FB_PTM_Pfeiffer;
-//MKS-275 
-{attribute 'pytmc' := ' pv: QRIX:ROUGH:GPI:03 '}
-{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[EL3174-0002_02_13]^AI Standard Channel 2^Value'}
-fb_QRIX_ROUGH_GPI_03 : FB_MKS275;
-{attribute 'pytmc' := ' pv: QRIX:ROUGH:GPI:04 '}
-{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[EL3174-0002_02_13]^AI Standard Channel 3^Value'}
-fb_QRIX_ROUGH_GPI_04 : FB_MKS275;
-{attribute 'pytmc' := ' pv: QRIX:SDS:GPI:01 '}
-{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[EL3174-0002_02_13]^AI Standard Channel 1^Value'}
-fb_QRIX_SDS_GPI_01 : FB_MKS275;
+
 	
 
 
 
-/// Detector Chamber, Optics Tank & Spectrometer Arm
+
 //VRC
 {attribute 'TcLinkTo' := 	'.i_xOpnLS	:=	TIIB[qRIXS_PNL1_E1_EL1004]^Channel 1^Input;
 							 .i_xClsLS	:=	TIIB[qRIXS_PNL1_E1_EL1004]^Channel 2^Input;
@@ -257,162 +272,47 @@ qRIXS_SDS_VRC_31: FB_VRC;
 
 //Ion Pump Controller 
 {attribute 'pytmc' := '
-		pv: QRIXS:SC:PIP:01
-		io: io
-	'}
-	{attribute 'TcLinkTo' := 	'.q_xHVEna_DO	:=	TIIB[EL2794_00_04]^Channel 1^Output;
-								 .i_iPRESS		:=	TIIB[EL3064_00_03]^AI Standard Channel 1^Value;
-								 .i_xSP_DI		:=	TIIB[EL1004_00_05]^Channel 1^Input
-	'}
-	qRIXS_SC_PIP_01: FB_PIP_Gamma;
-	{attribute 'pytmc' := '
-		pv: QRIXS:SC:PIP:02
-		io: io
-	'}
-	{attribute 'TcLinkTo' := 	'.q_xHVEna_DO	:=	TIIB[EL2794_00_04]^Channel 2^Output;
-								 .i_iPRESS		:=	TIIB[EL3064_00_03]^AI Standard Channel 2^Value;
-								 .i_xSP_DI		:=	TIIB[EL1004_00_05]^Channel 2^Input
-	'}
-	qRIXS_SC_PIP_02: FB_PIP_Gamma;
+	pv: QRIXS:SC:PIP:01
+	io: io
+'}
+{attribute 'TcLinkTo' := 	'.q_xHVEna_DO	:=	TIIB[EL2794_00_04]^Channel 1^Output;
+							 .i_iPRESS		:=	TIIB[EL3064_00_03]^AI Standard Channel 1^Value;
+							 .i_xSP_DI		:=	TIIB[EL1004_00_05]^Channel 1^Input
+'}
+qRIXS_SC_PIP_01: FB_PIP_Gamma;
+{attribute 'pytmc' := '
+	pv: QRIXS:SC:PIP:02
+	io: io
+'}
+{attribute 'TcLinkTo' := 	'.q_xHVEna_DO	:=	TIIB[EL2794_00_04]^Channel 2^Output;
+							 .i_iPRESS		:=	TIIB[EL3064_00_03]^AI Standard Channel 2^Value;
+							 .i_xSP_DI		:=	TIIB[EL1004_00_05]^Channel 2^Input
+'}
+qRIXS_SC_PIP_02: FB_PIP_Gamma;
 	
-	{attribute 'pytmc' := '
-		pv: QRIXS:DET:PIP:01
-		io: io
-	'}
-	{attribute 'TcLinkTo' := 	'.q_xHVEna_DO	:=	TIIB[EL2794_00_04]^Channel 3^Output;
-								 .i_iPRESS		:=	TIIB[EL3064_00_03]^AI Standard Channel 3^Value;
-								 .i_xSP_DI		:=	TIIB[EL1004_00_05]^Channel 3^Input
-	'}
+{attribute 'pytmc' := '
+	pv: QRIXS:DET:PIP:01
+	io: io
+'}
+{attribute 'TcLinkTo' := 	'.q_xHVEna_DO	:=	TIIB[EL2794_00_04]^Channel 3^Output;
+							 .i_iPRESS		:=	TIIB[EL3064_00_03]^AI Standard Channel 3^Value;
+							 .i_xSP_DI		:=	TIIB[EL1004_00_05]^Channel 3^Input
+'}
 	
-	qRIXS_DET_PIP_01: FB_PIP_Gamma;
+qRIXS_DET_PIP_01: FB_PIP_Gamma;
 	
-	{attribute 'pytmc' := '
-		pv: QRIXS:DET:PIP:02
-		io: io
-	'}
-	{attribute 'TcLinkTo' := 	'.q_xHVEna_DO	:=	TIIB[EL2794_00_04]^Channel 4^Output;
-								 .i_iPRESS		:=	TIIB[EL3064_00_03]^AI Standard Channel 4^Value;
-								 .i_xSP_DI		:=	TIIB[EL1004_00_05]^Channel 4^Input
-	'}
-	qRIXS_DET_PIP_02: FB_PIP_Gamma;
+{attribute 'pytmc' := '
+	pv: QRIXS:DET:PIP:02
+	io: io
+'}
+{attribute 'TcLinkTo' := 	'.q_xHVEna_DO	:=	TIIB[EL2794_00_04]^Channel 4^Output;
+							 .i_iPRESS		:=	TIIB[EL3064_00_03]^AI Standard Channel 4^Value;
+							 .i_xSP_DI		:=	TIIB[EL1004_00_05]^Channel 4^Input
+'}
+qRIXS_DET_PIP_02: FB_PIP_Gamma;
 	
-//VGC
 
-	(* -- Normally Closed Valve with Readback -- *)
-	{attribute 'TcLinkTo' := 	'.i_xOpnLS	:=	TIIB[qRIXS_PNL1_E1_EL1004]^Channel 1^Input;
-								 .i_xClsLS	:=	TIIB[qRIXS_PNL1_E1_EL1004]^Channel 2^Input;
-								 .q_xOPN_DO	:=	TIIB[qRIXS_PNL1_E3_EL2004]^Channel 1^Output
-	'}
-	{attribute 'pytmc' := '
-		pv: QRIXS:OPT:VGC:01
-		io: io
-	'}
-	qRIXS_OPT_VGC_01: FB_VGC;
-		
-	{attribute 'TcLinkTo' := 	'.i_xOpnLS	:=	TIIB[qRIXS_PNL1_E1_EL1004]^Channel 3^Input;
-								 .i_xClsLS	:=	TIIB[qRIXS_PNL1_E1_EL1004]^Channel 4^Input;
-								 .q_xOPN_DO	:=	TIIB[qRIXS_PNL1_E3_EL2004]^Channel 2^Output
-	'}
-	{attribute 'pytmc' := '
-		pv: QRIXS:BLW:VRC:01
-		io: io
-	'}
-	qRIXS_BLW_VRC_01: FB_VRC;
-	
-	{attribute 'TcLinkTo' := 	'.i_xOpnLS	:=	TIIB[qRIXS_PNL1_E2_EL1004]^Channel 1^Input;
-								 .i_xClsLS	:=	TIIB[qRIXS_PNL1_E2_EL1004]^Channel 2^Input;
-								 .q_xOPN_DO	:=	TIIB[qRIXS_PNL1_E3_EL2004]^Channel 3^Output
-	'}
-	{attribute 'pytmc' := '
-		pv: QRIXS:DET:VRC:01
-		io: io
-	'}
-	qRIXS_DET_VRC_01: FB_VRC;
-	
-	
-(* MKS275 - Pirani *)
-	{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[qRIXS_PNL1_E5_EL3174-0002]^AI Standard Channel 1^Value'}
-	{attribute 'pytmc' := '
-		pv: QRIXS:OPT:GPI:01
-		io: io
-	'}
-	qRIXS_OPT_GPI_01: FB_MKS275;
 
-	
-	{attribute 'pytmc' := '
-		pv: QRIXS:SSL:GCP:20
-		io: io
-	'}
-	{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[EL3174-0002_01_24]^AI Standard Channel 1^Value'}
-	qRIXS_SSL_GCP_20: FB_972;
-	
-	{attribute 'pytmc' := '
-		pv: QRIXS:SSL:GCP:30
-		io: io
-	'}
-	{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[EL3174-0002_01_24]^AI Standard Channel 2^Value'}
-	qRIXS_SSL_GCP_30: FB_972;
-	
-	{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[qRIXS_PNL1_E5_EL3174-0002]^AI Standard Channel 2^Value'}
-	{attribute 'pytmc' := '
-		pv: QRIXS:DET:GPI:01
-		io: io
-	'}
-	qRIXS_DET_GPI_01: FB_MKS275;
-	
-	
-	(* MKS972 - Full range guage *)
-	{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[qRIXS_PNL1_E5_EL3174-0002]^AI Standard Channel 3^Value'}
-	{attribute 'pytmc' := '
-		pv: QRIXS:BLW:GFR:01
-		io: io
-	'}
-	qRIXS_BLW_GFR_01: FB_972;
-	
-// MKS500 - Cold cathode gauge 
-	{attribute 'TcLinkTo' := 	'.i_iPRESS_R		:=	TIIB[qRIXS_PNL1_E6_EL3174-0002]^AI Standard Channel 1^Value;
-								 .i_xHV_ON			:=	TIIB[qRIXS_PNL1_E8_EL1124]^Channel 1^Input;
-								 .i_xDisc_Active	:=	TIIB[qRIXS_PNL1_E8_EL1124]^Channel 2^Input;
-								 .q_xHV_DIS			:=	TIIB[qRIXS_PNL1_E4_EL2624]^Channel 1^Output
-	'}
-	{attribute 'pytmc' := '
-		pv: QRIXS:DET:GCC:01
-		io: io
-	'}
-	qRIXS_DET_GCC_01: FB_MKS500;
-	{attribute 'TcLinkTo' := 	'.i_iPRESS_R		:=	TIIB[qRIXS_PNL1_E6_EL3174-0002]^AI Standard Channel 1^Value;
-								 .i_xHV_ON			:=	TIIB[qRIXS_PNL1_E8_EL1124]^Channel 1^Input;
-								 .i_xDisc_Active	:=	TIIB[qRIXS_PNL1_E8_EL1124]^Channel 2^Input;
-								 .q_xHV_DIS			:=	TIIB[qRIXS_PNL1_E4_EL2624]^Channel 1^Output
-	'}
-	{attribute 'pytmc' := '
-		pv: QRIXS:OPT:GCC:01
-		io: io
-	'}
-	qRIXS_OPT_GCC_01: FB_MKS500;	
-	{attribute 'TcLinkTo' := 	'.i_iPRESS_R		:=	TIIB[qRIXS_PNL1_E6_EL3174-0002]^AI Standard Channel 2^Value;
-								 .i_xHV_ON			:=	TIIB[qRIXS_PNL1_E8_EL1124]^Channel 3^Input;
-								 .i_xDisc_Active	:=	TIIB[qRIXS_PNL1_E8_EL1124]^Channel 4^Input;
-								 .q_xHV_DIS			:=	TIIB[qRIXS_PNL1_E4_EL2624]^Channel 2^Output
-	'}
-	{attribute 'pytmc' := '
-		pv: QRIXS:SA:GCC:01
-		io: io
-	'}
-	qRIXS_SA_GCC_01: FB_MKS500;
-	{attribute 'TcLinkTo' := 	'.i_iPRESS_R		:=	TIIB[qRIXS_PNL1_E6_EL3174-0002]^AI Standard Channel 2^Value;
-								 .i_xHV_ON			:=	TIIB[qRIXS_PNL1_E8_EL1124]^Channel 3^Input;
-								 .i_xDisc_Active	:=	TIIB[qRIXS_PNL1_E8_EL1124]^Channel 4^Input;
-								 .q_xHV_DIS			:=	TIIB[qRIXS_PNL1_E4_EL2624]^Channel 2^Output
-	'}
-	{attribute 'pytmc' := '
-		pv: QRIXS:SA:GCC:02
-		io: io
-	'}
-	qRIXS_SA_GCC_02: FB_MKS500;
-	
-	
-	
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

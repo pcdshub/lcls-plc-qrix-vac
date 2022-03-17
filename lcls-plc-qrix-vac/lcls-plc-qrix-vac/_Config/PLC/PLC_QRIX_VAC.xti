@@ -853,46 +853,6 @@
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Devices.qRIXS_OPT_VGC_01.i_xOpnLS</Name>
-					<Comment>
-						<![CDATA[IO]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Devices.qRIXS_OPT_VGC_01.i_xClsLS</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Devices.qRIXS_BLW_VRC_01.i_xOpnLS</Name>
-					<Comment>
-						<![CDATA[IO]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Devices.qRIXS_BLW_VRC_01.i_xClsLS</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Devices.qRIXS_DET_VRC_01.i_xOpnLS</Name>
-					<Comment>
-						<![CDATA[IO]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Devices.qRIXS_DET_VRC_01.i_xClsLS</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Devices.qRIXS_OPT_GPI_01.i_iPRESS_R</Name>
-					<Comment>
-						<![CDATA[ input Pressure // Link to analog Input]]>
-					</Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
 					<Name>GVL_Devices.qRIXS_SSL_GCP_20.i_iPRESS_R</Name>
 					<Comment>
 						<![CDATA[ input Pressure // Link to analog Input]]>
@@ -907,98 +867,138 @@
 					<Type>INT</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Devices.qRIXS_DET_GPI_01.i_iPRESS_R</Name>
+					<Name>GVL_SA.qRIXS_OPT_VGC_01.i_xOpnLS</Name>
+					<Comment>
+						<![CDATA[IO]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_SA.qRIXS_OPT_VGC_01.i_xClsLS</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_SA.qRIXS_BLW_VRC_01.i_xOpnLS</Name>
+					<Comment>
+						<![CDATA[IO]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_SA.qRIXS_BLW_VRC_01.i_xClsLS</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_SA.qRIXS_DET_VRC_01.i_xOpnLS</Name>
+					<Comment>
+						<![CDATA[IO]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_SA.qRIXS_DET_VRC_01.i_xClsLS</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_SA.qRIXS_OPT_GPI_01.i_iPRESS_R</Name>
 					<Comment>
 						<![CDATA[ input Pressure // Link to analog Input]]>
 					</Comment>
 					<Type>INT</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Devices.qRIXS_BLW_GFR_01.i_iPRESS_R</Name>
+					<Name>GVL_SA.qRIXS_DET_GPI_01.i_iPRESS_R</Name>
 					<Comment>
 						<![CDATA[ input Pressure // Link to analog Input]]>
 					</Comment>
 					<Type>INT</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Devices.qRIXS_DET_GCC_01.i_iPRESS_R</Name>
+					<Name>GVL_SA.qRIXS_BLW_GFR_01.i_iPRESS_R</Name>
+					<Comment>
+						<![CDATA[ input Pressure // Link to analog Input]]>
+					</Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_SA.qRIXS_DET_GCC_01.i_iPRESS_R</Name>
 					<Comment>
 						<![CDATA[ Controls and I/Os]]>
 					</Comment>
 					<Type>INT</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Devices.qRIXS_DET_GCC_01.i_xHV_ON</Name>
+					<Name>GVL_SA.qRIXS_DET_GCC_01.i_xHV_ON</Name>
 					<Comment>
 						<![CDATA[  True when High Voltage is on  // 'TcLinkTo' (EL1124) ^Input]]>
 					</Comment>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Devices.qRIXS_DET_GCC_01.i_xDisc_Active</Name>
+					<Name>GVL_SA.qRIXS_DET_GCC_01.i_xDisc_Active</Name>
 					<Comment>
 						<![CDATA[ Discharge Current Active // 'TcLinkTo' (EL1124) ^Input]]>
 					</Comment>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Devices.qRIXS_OPT_GCC_01.i_iPRESS_R</Name>
+					<Name>GVL_SA.qRIXS_OPT_GCC_01.i_iPRESS_R</Name>
 					<Comment>
 						<![CDATA[ Controls and I/Os]]>
 					</Comment>
 					<Type>INT</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Devices.qRIXS_OPT_GCC_01.i_xHV_ON</Name>
+					<Name>GVL_SA.qRIXS_OPT_GCC_01.i_xHV_ON</Name>
 					<Comment>
 						<![CDATA[  True when High Voltage is on  // 'TcLinkTo' (EL1124) ^Input]]>
 					</Comment>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Devices.qRIXS_OPT_GCC_01.i_xDisc_Active</Name>
+					<Name>GVL_SA.qRIXS_OPT_GCC_01.i_xDisc_Active</Name>
 					<Comment>
 						<![CDATA[ Discharge Current Active // 'TcLinkTo' (EL1124) ^Input]]>
 					</Comment>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Devices.qRIXS_SA_GCC_01.i_iPRESS_R</Name>
+					<Name>GVL_SA.qRIXS_SA_GCC_01.i_iPRESS_R</Name>
 					<Comment>
 						<![CDATA[ Controls and I/Os]]>
 					</Comment>
 					<Type>INT</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Devices.qRIXS_SA_GCC_01.i_xHV_ON</Name>
+					<Name>GVL_SA.qRIXS_SA_GCC_01.i_xHV_ON</Name>
 					<Comment>
 						<![CDATA[  True when High Voltage is on  // 'TcLinkTo' (EL1124) ^Input]]>
 					</Comment>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Devices.qRIXS_SA_GCC_01.i_xDisc_Active</Name>
+					<Name>GVL_SA.qRIXS_SA_GCC_01.i_xDisc_Active</Name>
 					<Comment>
 						<![CDATA[ Discharge Current Active // 'TcLinkTo' (EL1124) ^Input]]>
 					</Comment>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Devices.qRIXS_SA_GCC_02.i_iPRESS_R</Name>
+					<Name>GVL_SA.qRIXS_SA_GCC_02.i_iPRESS_R</Name>
 					<Comment>
 						<![CDATA[ Controls and I/Os]]>
 					</Comment>
 					<Type>INT</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Devices.qRIXS_SA_GCC_02.i_xHV_ON</Name>
+					<Name>GVL_SA.qRIXS_SA_GCC_02.i_xHV_ON</Name>
 					<Comment>
 						<![CDATA[  True when High Voltage is on  // 'TcLinkTo' (EL1124) ^Input]]>
 					</Comment>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Devices.qRIXS_SA_GCC_02.i_xDisc_Active</Name>
+					<Name>GVL_SA.qRIXS_SA_GCC_02.i_xDisc_Active</Name>
 					<Comment>
 						<![CDATA[ Discharge Current Active // 'TcLinkTo' (EL1124) ^Input]]>
 					</Comment>
@@ -1365,40 +1365,40 @@
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Devices.qRIXS_OPT_VGC_01.q_xOPN_DO</Name>
+					<Name>GVL_SA.qRIXS_OPT_VGC_01.q_xOPN_DO</Name>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Devices.qRIXS_BLW_VRC_01.q_xOPN_DO</Name>
+					<Name>GVL_SA.qRIXS_BLW_VRC_01.q_xOPN_DO</Name>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Devices.qRIXS_DET_VRC_01.q_xOPN_DO</Name>
+					<Name>GVL_SA.qRIXS_DET_VRC_01.q_xOPN_DO</Name>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Devices.qRIXS_DET_GCC_01.q_xHV_DIS</Name>
+					<Name>GVL_SA.qRIXS_DET_GCC_01.q_xHV_DIS</Name>
 					<Comment>
 						<![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]>
 					</Comment>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Devices.qRIXS_OPT_GCC_01.q_xHV_DIS</Name>
+					<Name>GVL_SA.qRIXS_OPT_GCC_01.q_xHV_DIS</Name>
 					<Comment>
 						<![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]>
 					</Comment>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Devices.qRIXS_SA_GCC_01.q_xHV_DIS</Name>
+					<Name>GVL_SA.qRIXS_SA_GCC_01.q_xHV_DIS</Name>
 					<Comment>
 						<![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]>
 					</Comment>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Devices.qRIXS_SA_GCC_02.q_xHV_DIS</Name>
+					<Name>GVL_SA.qRIXS_SA_GCC_02.q_xHV_DIS</Name>
 					<Comment>
 						<![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]>
 					</Comment>
@@ -1424,6 +1424,13 @@
 					<InOut>7</InOut>
 				</Var>
 			</Vars>
+			<UnrestoredVarLinks ImportTime="2022-03-17T14:12:21">
+				<OwnerA Name="InputDst" Prefix="TIPC^PLC_QRIX_VAC^PLC_QRIX_VAC Instance" Type="1">
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^B950_233_WALL_S_DRL_04^EL1124_01_22">
+						<Link VarA="GVL_Devices.qRIXS_DET_GCC_01.i_xHV_ON" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="Channel 1^Input" Size="1" RestoreInfo="ANotFound"/>
+					</OwnerB>
+				</OwnerA>
+			</UnrestoredVarLinks>
 			<TaskPouOids>
 				<TaskPouOid Prio="20" OTCID="#x08502001"/>
 			</TaskPouOids>
@@ -1506,7 +1513,6 @@
 				<Link VarA="PlcTask Inputs^GVL_Devices.QRIX_SC_PTM_30.i_xFaultNC" VarB="Channel 3^Input" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^B950_233_WALL_S_DRL_04^EL1124_01_22">
-				<Link VarA="PlcTask Inputs^GVL_Devices.qRIXS_DET_GCC_01.i_xHV_ON" VarB="Channel 1^Input"/>
 				<Link VarA="PlcTask Inputs^GVL_Devices.qRIXS_SC_GCC_01.i_xDisc_Active" VarB="Channel 2^Input" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^GVL_Devices.qRIXS_SC_GCC_01.i_xHV_ON" VarB="Channel 1^Input" AutoLink="true"/>
 			</OwnerB>
