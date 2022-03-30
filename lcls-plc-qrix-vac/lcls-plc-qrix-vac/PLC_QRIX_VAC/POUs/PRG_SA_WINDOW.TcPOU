@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="PRG_SA_WINDOW" Id="{7abc0b72-bfc7-40b5-9fc5-6d9e0631f363}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM PRG_SA_WINDOW
+VAR
+		xFirstPass		: BOOL;
+	fbFSInit		: R_TRIG;
+	
+	state			: E_STATES;
+
+	bExtPress : BOOL;
+
+	g_FastFaultOutputNA: FB_HardwareFFOutput;
+	g_fbArbiterNA: FB_Arbiter(2);
+
+	xExtILK_OK_BLW: INT;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fbFSInit( CLK := TRUE, Q => xFirstPass);
+(* On first PLC pass, put valve into init state*)
+IF xFirstPass THEN
+	state:= E_STATES.INIT;
+	xSystemOverrideMode_Valve := FALSE;
+	SetupMode_Valve := FALSE;
+END_IF
+bExtPress:= qRIXS_SA_GCP_01.PG.xAT_VAC;
+
+
+//STATE ACTIONS
+CASE state OF
+
+ E_STATES.INIT: 
+		qRIXS_SC_VGC_04.M_Set_OPN_SW(FALSE); //Isolation Valve closed
+		qRIXS_SA_VRC_01.M_Set_CLS_SW(FALSE); // Window valve OPEN
+		qRIXS_SC_VGC_04.i_xOverrideMode := qRIXS_SA_VRC_01.i_xOverrideMode := FALSE;
+		//Transition
+		if (qRIXS_SC_VGC_04.M_IsClosed() AND qRIXS_SA_VRC_01.M_IsOpen()) THEN
+			state:= E_STATES.NOT_SAFE;
+		END_IF
+		
+E_STATES.NOT_SAFE: // System is not allowed to actuate, i.e all interlocks are in effect
+	qRIXS_SC_VGC_04.M_Set_OPN_SW(qRIXS_SC_VGC_04.iq_stValve.q_xOPN_DO );
+ 	//C_1.i_xExt_OK := VGC_1.i_xEPS_OPN_OK := VGC_1.i_xEPS_CLS_OK:= FALSE; 
+	qRIXS_SA_VRC_01.i_xExtILK_OK:= FALSE; 
+	qRIXS_SC_VGC_04.i_xOverrideMode := qRIXS_SA_VRC_01.i_xOverrideMode := FALSE;
+
+	//Transition
+	//IF (US_GCC.IG.xAT_VAC AND DS_GCC.IG.xAT_VAC) THEN state:= E_STATES.READY; END_IF
+	IF (bExtPress AND qRIXS_SC_GCC_01.IG.xAT_VAC) THEN state:= E_STATES.READY; END_IF
+	
+	
+	
+ E_STATES.READY: // OK to MOVE
+ 	// Release the external interlock so the differential pressure inlk is in effect
+ 	qRIXS_SC_VGC_04.i_xExt_OK:= qRIXS_SC_VGC_04.i_xEPS_OK :=TRUE;
+	//permission to insert window valve only when US vacuum is good??
+	qRIXS_SA_VRC_01.i_xExtILK_OK:= bExtPress;
+	// Valves  alternate positions.
+	If (qRIXS_SA_VRC_01.M_IsClosed()) THEN  qRIXS_SC_VGC_04.M_Set_OPN_SW(TRUE);
+	ELSIF (qRIXS_SA_VRC_01.M_IsOpen()) THEN qRIXS_SC_VGC_04.M_Set_OPN_SW(FALSE);
+	END_IF
+	
+// bOverride := TRUE;
+ E_STATES.OVERRIDE: 
+	// Override Mode is enabled for all valves
+ 	qRIXS_SC_VGC_04.i_xOverrideMode :=qRIXS_SA_VRC_01.i_xOverrideMode := TRUE;
+	// Exit of Override mode always goes back to init
+ 	IF NOT(xSystemOverrideMode_Valve) THEN state:= E_STATES.INIT; END_IF
+	
+	
+ E_STATES.SETUP: 
+	// Window valve remains retracted
+ 	qRIXS_SA_VRC_01.i_xExtILK_OK := FALSE; 
+	// Isolation valves operates like standard gate valves 
+	qRIXS_SC_VGC_04.i_xExt_OK := TRUE;
+	// exit to init just to be safe?
+	IF NOT(SetupMode_Valve) THEN state:= E_STATES.INIT; END_IF
+END_CASE
+
+
+// STATE TRANSITIONS
+// the system can go to setup state from any other state except override
+IF (SetupMode_Valve) AND (state<>E_STATES.OVERRIDE) THEN state:= E_STATES.SETUP; 
+// the system can go to override state from any other state except setup
+ELSIF (xSystemOverrideMode_Valve) AND (state<>E_STATES.SETUP) THEN state:= E_STATES.OVERRIDE;
+//Loss of at vac signal makes the system go to init/not safe to move state
+ELSIF (NOT bExtPress) OR (NOT qRIXS_SC_GCC_01.IG.xAT_VAC) THEN state:= E_STATES.INIT;
+//ELSIF (NOT US_GCC.IG.xAT_VAC) OR (NOT DS_GCC.IG.xAT_VAC) THEN state:= E_STATES.INIT;
+END_IF 
+
+
+
+
+qRIXS_SC_VGC_04(
+	i_stUSG:= qRIXS_SC_GCC_01.IG , 
+	i_stDSG:= qRIXS_OPT_GCC_01.IG , 
+	i_xDis_DPIlk:= FALSE , 
+	i_xPMPS_OK:= TRUE , 
+	i_xEPS_OK:= , 
+	i_xExt_OK:= , 
+	i_xOverrideMode:= , 
+	i_xReset:= , 
+	i_xIsAperture:= TRUE, 
+	i_sDevName:= , 
+	i_nTransitionRootID:= ,
+	iq_stValve=> , 
+	xMPS_OK=> , 
+	io_fbFFHWO:=g_FastFaultOutputNA , 
+	fbArbiter:= g_fbArbiterNA
+);
+
+
+qRIXS_SA_VRC_01(
+	i_xExtILK_OK:= , 
+	i_xOverrideMode:= , 
+	iq_stValve=> , 
+	io_fbFFHWO:= g_FastFaultOutputNA , 
+	fbArbiter:= g_fbArbiterNA, 
+	i_xPMPS_OK:= TRUE, 
+	i_xIsAperture:= TRUE , 
+	i_sDevName:= , 
+	i_nTransitionRootID:= );
+	
+	
+//VGC_W(i_xExtILK_OK:= , 
+//	i_xOverrideMode:= ,
+ //   iq_stValve=> );
+
+
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
-  <POU Name="PRG_SPCA" Id="{e7638e88-1503-4577-9ef9-851b12b29e9b}" SpecialFunc="None">
-    <Declaration><![CDATA[PROGRAM PRG_SPCA
+  <POU Name="PRG_SPA" Id="{e7638e88-1503-4577-9ef9-851b12b29e9b}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM PRG_SPA
 VAR
 	xExtILK_OK_OPT : BOOL := True;
 	xExtILK_OK_BLW : BOOL;
@@ -21,7 +21,7 @@ END_VAR
 	qRIXS_DET_GPI_01(PG=>);
 
 (* Full Range Gauges *)
-	qRIXS_BLW_GFR_01(PG=>);
+	qRIXS_SA_GCP_01(PG=>);
 
 (* Cold Cathode Gauges *)
 	qRIXS_OPT_GCC_01(PG:=qRIXS_OPT_GPI_01.PG, IG=>, bEP:=FALSE);
@@ -41,7 +41,11 @@ END_VAR
 	);
 // *)
 // (*
-	qRIXS_BLW_VRC_01(
+// Calc pressure Difference
+xExtILK_OK_BLW := 	( qRIXS_OPT_VGC_01.iq_stValve.i_xClsLS AND qRIXS_OPT_GPI_01.PG.xPRESS_OK AND qRIXS_SA_GCP_01.PG.xPRESS_OK AND (qRIXS_OPT_GPI_01.PG.rPRESS - qRIXS_SA_GCP_01.PG.rPRESS) < iPressTorrerance)
+					OR (qRIXS_OPT_GCC_01.IG.xPRESS_OK AND qRIXS_SA_GCP_01.PG.xPRESS_OK AND (qRIXS_OPT_GCC_01.IG.rPRESS - qRIXS_SA_GCP_01.PG.rPRESS) < iPressTorrerance);
+
+qRIXS_SA_VWC_01(
 		i_xExtILK_OK := xExtILK_OK_BLW,
 		i_xOverrideMode:=xSystemOverrideMode,
 		iq_stValve =>
@@ -56,18 +60,11 @@ END_VAR
 // *)
 
 
-// Calc pressure Difference
-xExtILK_OK_BLW := 	( qRIXS_OPT_VGC_01.iq_stValve.i_xClsLS AND qRIXS_OPT_GPI_01.PG.xPRESS_OK AND qRIXS_BLW_GFR_01.PG.xPRESS_OK AND (qRIXS_OPT_GPI_01.PG.rPRESS - qRIXS_BLW_GFR_01.PG.rPRESS) < iPressTorrerance)
-					OR (qRIXS_OPT_GCC_01.IG.xPRESS_OK AND qRIXS_BLW_GFR_01.PG.xPRESS_OK AND (qRIXS_OPT_GCC_01.IG.rPRESS - qRIXS_BLW_GFR_01.PG.rPRESS) < iPressTorrerance);
-xExtILK_OK_DET := 	(qRIXS_DET_GPI_01.PG.xPRESS_OK AND qRIXS_BLW_GFR_01.PG.xPRESS_OK AND (qRIXS_DET_GPI_01.PG.rPRESS - qRIXS_BLW_GFR_01.PG.rPRESS) < iPressTorrerance)
-					OR (qRIXS_DET_GCC_01.IG.xPRESS_OK AND qRIXS_BLW_GFR_01.PG.xPRESS_OK AND (qRIXS_DET_GCC_01.IG.rPRESS - qRIXS_BLW_GFR_01.PG.rPRESS) < iPressTorrerance);
+xExtILK_OK_DET := 	(qRIXS_DET_GPI_01.PG.xPRESS_OK AND qRIXS_SA_GCP_01.PG.xPRESS_OK AND (qRIXS_DET_GPI_01.PG.rPRESS - qRIXS_SA_GCP_01.PG.rPRESS) < iPressTorrerance)
+					OR (qRIXS_DET_GCC_01.IG.xPRESS_OK AND qRIXS_SA_GCP_01.PG.xPRESS_OK AND (qRIXS_DET_GCC_01.IG.rPRESS - qRIXS_SA_GCP_01.PG.rPRESS) < iPressTorrerance);
 
 
 ]]></ST>
     </Implementation>
-    <LineIds Name="PRG_SPCA">
-      <LineId Id="3" Count="51" />
-      <LineId Id="2" Count="0" />
-    </LineIds>
   </POU>
 </TcPlcObject>
