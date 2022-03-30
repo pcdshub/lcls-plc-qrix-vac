@@ -21,10 +21,10 @@
 								 .q_xOPN_DO	:=	TIIB[qRIXS_PNL1_E3_EL2004]^Channel 2^Output
 	'}
 	{attribute 'pytmc' := '
-		pv: QRIXS:BLW:VRC:01
+		pv: QRIXS:SA:VWC:01
 		io: io
 	'}
-	qRIXS_BLW_VRC_01: FB_VRC;
+	qRIXS_SA_VWC_01: FB_VRC;
 	
 	{attribute 'TcLinkTo' := 	'.i_xOpnLS	:=	TIIB[qRIXS_PNL1_E2_EL1004]^Channel 1^Input;
 								 .i_xClsLS	:=	TIIB[qRIXS_PNL1_E2_EL1004]^Channel 2^Input;
@@ -56,10 +56,10 @@ qRIXS_DET_GPI_01: FB_MKS275;
 	(* MKS972 - Full range guage *)
 	{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[qRIXS_PNL1_E5_EL3174-0002]^AI Standard Channel 3^Value'}
 	{attribute 'pytmc' := '
-		pv: QRIXS:BLW:GFR:01
+		pv: QRIXS:SA:GCP:01
 		io: io
 	'}
-	qRIXS_BLW_GFR_01: FB_972;
+	qRIXS_SA_GCP_01: FB_972;
 	
 // MKS500 - Cold cathode gauge 
 	{attribute 'TcLinkTo' := 	'.i_iPRESS_R		:=	TIIB[qRIXS_PNL1_E6_EL3174-0002]^AI Standard Channel 1^Value;
@@ -82,7 +82,7 @@ qRIXS_DET_GPI_01: FB_MKS275;
 		io: io
 	'}
 	qRIXS_OPT_GCC_01: FB_MKS500;	
-	{attribute 'TcLinkTo' := 	'.i_iPRESS_R		:=	TIIB[qRIXS_PNL1_E6_EL3174-0002]^AI Standard Channel 2^Value;
+	(*{attribute 'TcLinkTo' := 	'.i_iPRESS_R		:=	TIIB[qRIXS_PNL1_E6_EL3174-0002]^AI Standard Channel 2^Value;
 								 .i_xHV_ON			:=	TIIB[qRIXS_PNL1_E8_EL1124]^Channel 3^Input;
 								 .i_xDisc_Active	:=	TIIB[qRIXS_PNL1_E8_EL1124]^Channel 4^Input;
 								 .q_xHV_DIS			:=	TIIB[qRIXS_PNL1_E4_EL2624]^Channel 2^Output
@@ -101,7 +101,7 @@ qRIXS_DET_GPI_01: FB_MKS275;
 		pv: QRIXS:SA:GCC:02
 		io: io
 	'}
-	qRIXS_SA_GCC_02: FB_MKS500;
+	qRIXS_SA_GCC_02: FB_MKS500;*)
 	
 	
 	
