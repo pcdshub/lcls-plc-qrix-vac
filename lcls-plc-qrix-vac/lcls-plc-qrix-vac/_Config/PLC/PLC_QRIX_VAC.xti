@@ -921,27 +921,6 @@
 					<Type>INT</Type>
 				</Var>
 				<Var>
-					<Name>GVL_SA.qRIXS_DET_GCC_01.i_iPRESS_R</Name>
-					<Comment>
-						<![CDATA[ Controls and I/Os]]>
-					</Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_SA.qRIXS_DET_GCC_01.i_xHV_ON</Name>
-					<Comment>
-						<![CDATA[  True when High Voltage is on  // 'TcLinkTo' (EL1124) ^Input]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_SA.qRIXS_DET_GCC_01.i_xDisc_Active</Name>
-					<Comment>
-						<![CDATA[ Discharge Current Active // 'TcLinkTo' (EL1124) ^Input]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
 					<Name>GVL_SA.qRIXS_OPT_GCC_01.i_iPRESS_R</Name>
 					<Comment>
 						<![CDATA[ Controls and I/Os]]>
@@ -957,6 +936,27 @@
 				</Var>
 				<Var>
 					<Name>GVL_SA.qRIXS_OPT_GCC_01.i_xDisc_Active</Name>
+					<Comment>
+						<![CDATA[ Discharge Current Active // 'TcLinkTo' (EL1124) ^Input]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_SA.qRIXS_DET_GCC_01.i_iPRESS_R</Name>
+					<Comment>
+						<![CDATA[ Controls and I/Os]]>
+					</Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_SA.qRIXS_DET_GCC_01.i_xHV_ON</Name>
+					<Comment>
+						<![CDATA[  True when High Voltage is on  // 'TcLinkTo' (EL1124) ^Input]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_SA.qRIXS_DET_GCC_01.i_xDisc_Active</Name>
 					<Comment>
 						<![CDATA[ Discharge Current Active // 'TcLinkTo' (EL1124) ^Input]]>
 					</Comment>
@@ -1346,14 +1346,14 @@
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_SA.qRIXS_DET_GCC_01.q_xHV_DIS</Name>
+					<Name>GVL_SA.qRIXS_OPT_GCC_01.q_xHV_DIS</Name>
 					<Comment>
 						<![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]>
 					</Comment>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_SA.qRIXS_OPT_GCC_01.q_xHV_DIS</Name>
+					<Name>GVL_SA.qRIXS_DET_GCC_01.q_xHV_DIS</Name>
 					<Comment>
 						<![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]>
 					</Comment>
@@ -1577,6 +1577,11 @@
 				<Link VarA="PlcTask Inputs^GVL_Devices.qRIXS_SC_VRC_31.i_xClsLS" VarB="Channel 2^Input" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^GVL_Devices.qRIXS_SC_VRC_31.i_xOpnLS" VarB="Channel 1^Input" AutoLink="true"/>
 			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^B950_233_WALL_S_DRL_04^EL1004_01_13">
+				<Link VarA="PlcTask Inputs^GVL_Devices.qRIXS_SC_PTM_10.i_xAtSpd" VarB="Channel 1^Input" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Devices.qRIXS_SC_PTM_10.i_xFaultNC" VarB="Channel 3^Input" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Devices.qRIXS_SC_PTM_10.i_xRemote" VarB="Channel 2^Input" AutoLink="true"/>
+			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^B950_233_WALL_S_DRL_04^EL1004_01_16">
 				<Link VarA="PlcTask Inputs^GVL_Devices.qRIXS_SC_PTM_20.i_xAtSpd" VarB="Channel 2^Input" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^GVL_Devices.qRIXS_SC_PTM_20.i_xFaultNC" VarB="Channel 1^Input" AutoLink="true"/>
@@ -1603,6 +1608,11 @@
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^B950_233_WALL_S_DRL_04^EL2004_01_10">
 				<Link VarA="PlcTask Outputs^GVL_Devices.qRIXS_SC_VRC_31.q_xOPN_DO" VarB="Channel 1^Output" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^B950_233_WALL_S_DRL_04^EL2004_01_12">
+				<Link VarA="PlcTask Outputs^GVL_Devices.qRIXS_SC_PTM_10.q_PumpingStation" VarB="Channel 3^Output" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Devices.qRIXS_SC_PTM_10.q_RunDO" VarB="Channel 1^Output" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Devices.qRIXS_SC_PTM_10.q_xRemote" VarB="Channel 2^Output" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^B950_233_WALL_S_DRL_04^EL2624_01_18">
 				<Link VarA="PlcTask Outputs^GVL_Devices.qRIXS_SC_GCC_01.q_xHV_DIS" VarB="Channel 1^Output" AutoLink="true"/>
@@ -1643,7 +1653,7 @@
 				<Link VarA="PlcTask Outputs^GVL_SA.qRIXS_SA_VWC_01.q_xOPN_DO" VarB="Channel 2^Output" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^qRIXS_PNL1_E0_EK1100^qRIXS_PNL1_E4_EL2624">
-				<Link VarA="PlcTask Outputs^GVL_SA.qRIXS_DET_GCC_01.q_xHV_DIS" VarB="Channel 1^Output" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_SA.qRIXS_DET_GCC_01.q_xHV_DIS" VarB="Channel 2^Output" AutoLink="true"/>
 				<Link VarA="PlcTask Outputs^GVL_SA.qRIXS_OPT_GCC_01.q_xHV_DIS" VarB="Channel 1^Output" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^qRIXS_PNL1_E0_EK1100^qRIXS_PNL1_E5_EL3174-0002">
@@ -1652,12 +1662,12 @@
 				<Link VarA="PlcTask Inputs^GVL_SA.qRIXS_SA_GCP_01.i_iPRESS_R" VarB="AI Standard Channel 3^Value" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^qRIXS_PNL1_E0_EK1100^qRIXS_PNL1_E6_EL3174-0002">
-				<Link VarA="PlcTask Inputs^GVL_SA.qRIXS_DET_GCC_01.i_iPRESS_R" VarB="AI Standard Channel 1^Value" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_SA.qRIXS_DET_GCC_01.i_iPRESS_R" VarB="AI Standard Channel 2^Value" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^GVL_SA.qRIXS_OPT_GCC_01.i_iPRESS_R" VarB="AI Standard Channel 1^Value" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^qRIXS_PNL1_E0_EK1100^qRIXS_PNL1_E8_EL1124">
-				<Link VarA="PlcTask Inputs^GVL_SA.qRIXS_DET_GCC_01.i_xDisc_Active" VarB="Channel 2^Input" AutoLink="true"/>
-				<Link VarA="PlcTask Inputs^GVL_SA.qRIXS_DET_GCC_01.i_xHV_ON" VarB="Channel 1^Input" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_SA.qRIXS_DET_GCC_01.i_xDisc_Active" VarB="Channel 4^Input" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_SA.qRIXS_DET_GCC_01.i_xHV_ON" VarB="Channel 3^Input" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^GVL_SA.qRIXS_OPT_GCC_01.i_xDisc_Active" VarB="Channel 2^Input" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^GVL_SA.qRIXS_OPT_GCC_01.i_xHV_ON" VarB="Channel 1^Input" AutoLink="true"/>
 			</OwnerB>

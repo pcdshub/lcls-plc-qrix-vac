@@ -224,6 +224,13 @@ qRIXS_SDS_VRC_31: FB_VRC;
 		pv: QRIXS:SC:PTM:10
 		io: io
 '}
+{attribute 'TcLinkTo' := 	'.i_xAtSpd			:=	TIIB[EL1004_01_13]^Channel 1^Input;
+							 .i_xRemote		    :=	TIIB[EL1004_01_13]^Channel 2^Input;
+							 .i_xFaultNC		:=	TIIB[EL1004_01_13]^Channel 3^Input;
+							 .q_RunDO			:=	TIIB[EL2004_01_12]^Channel 1^Output;	
+							 .q_xRemote			:=	TIIB[EL2004_01_12]^Channel 2^Output;
+							.q_PumpingStation	:=	TIIB[EL2004_01_12]^Channel 3^Output		 
+'}
 qRIXS_SC_PTM_10 : FB_PTM_Pfeiffer;
 {attribute 'TcLinkTo' := 	'.i_xAtSpd			:=	TIIB[EL1004_01_16]^Channel 2^Input;
 							 .i_xFaultNC		:=	TIIB[EL1004_01_16]^Channel 1^Input;
@@ -283,7 +290,7 @@ qRIXS_SC_PIP_01: FB_PIP_Gamma;
 qRIXS_SC_PIP_02: FB_PIP_Gamma;
 	
 {attribute 'pytmc' := '
-	pv: QRIXS:DET:PIP:01
+	pv: QRIXS:OPT:PIP:01
 	io: io
 '}
 {attribute 'TcLinkTo' := 	'.q_xHVEna_DO	:=	TIIB[EL2794_00_04]^Channel 3^Output;
@@ -294,7 +301,7 @@ qRIXS_SC_PIP_02: FB_PIP_Gamma;
 qRIXS_OPT_PIP_01: FB_PIP_Gamma;
 	
 {attribute 'pytmc' := '
-	pv: QRIXS:DET:PIP:02
+	pv: QRIXS:DET:PIP:01
 	io: io
 '}
 {attribute 'TcLinkTo' := 	'.q_xHVEna_DO	:=	TIIB[EL2794_00_04]^Channel 4^Output;
