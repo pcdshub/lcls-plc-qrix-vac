@@ -42,6 +42,9 @@
 		<Box File="qRIXS_PNL1_E0_EK1100.xti" Id="105">
 			<EtherCAT PortABoxInfo="#x02000038"/>
 		</Box>
-		<EtherCAT EnableVirtualSwitch="true" MaxSwitchPorts="2" MaxSwitchFrames="120"/>
+		<EtherCAT EnableVirtualSwitch="true" MaxSwitchPorts="2" MaxSwitchFrames="120">
+			<SyncUnit Name="Sample Chamber" NoDeleteIfUnused="true"/>
+			<SyncUnit Name="Spectrometer Arm" NoDeleteIfUnused="true"/>
+		</EtherCAT>
 	</Device>
 </TcSmItem>
