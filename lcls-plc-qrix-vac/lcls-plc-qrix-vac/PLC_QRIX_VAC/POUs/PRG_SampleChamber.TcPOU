@@ -49,8 +49,14 @@ qRIXS_SC_PIP_02(i_stGauge:=qRIXS_SC_GPI_01.PG, i_xOverrideMode:= xSystemOverride
 //Pfiffer Turbo 
 
 //VVC
-qRIXS_SC_VVC_01(i_xExtILK_OK := TRUE, i_xOverrideMode := xSystemOverrideMode, iq_stValve => );
-qRIXS_SC_VVC_02(i_xExtILK_OK := TRUE, i_xOverrideMode := xSystemOverrideMode, iq_stValve => );
+qRIXS_SC_VVC_01.i_xExtILK_OK := qRIXS_SC_PTM_10.iq_stPTM.eState = E_PumpState.pumpSTOPPED
+							AND qRIXS_SC_PTM_20.iq_stPTM.eState = E_PumpState.pumpSTOPPED
+							AND qRIXS_SC_PTM_30.iq_stPTM.eState = E_PumpState.pumpSTOPPED;
+qRIXS_SC_VVC_01(i_xExtILK_OK := , i_xOverrideMode := xSystemOverrideMode, iq_stValve => );
+qRIXS_SC_VVC_02.i_xExtILK_OK := qRIXS_SC_PTM_10.iq_stPTM.eState = E_PumpState.pumpSTOPPED
+							AND qRIXS_SC_PTM_20.iq_stPTM.eState = E_PumpState.pumpSTOPPED
+							AND qRIXS_SC_PTM_30.iq_stPTM.eState = E_PumpState.pumpSTOPPED;
+qRIXS_SC_VVC_02(i_xExtILK_OK := , i_xOverrideMode := xSystemOverrideMode, iq_stValve => );
 
 //VGC Valves 
 ///VGC on Beamline 
