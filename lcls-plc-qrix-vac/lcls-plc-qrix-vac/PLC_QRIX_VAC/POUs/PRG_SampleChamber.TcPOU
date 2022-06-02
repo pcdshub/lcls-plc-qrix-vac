@@ -43,8 +43,8 @@ qRIXS_SSL_GCP_30.M_SetBits(30518);
 qRIXS_SSL_GCP_30();
 
 //ION Pumps
-qRIXS_SC_PIP_01(i_stGauge:=qRIXS_SC_GCC_01.IG, i_xOverrideMode:= xSystemOverrideMode);
-qRIXS_SC_PIP_02(i_stGauge:=qRIXS_SC_GCC_01.IG, i_xOverrideMode:= xSystemOverrideMode);
+qRIXS_SC_PIP_01(i_stGauge:=qRIXS_SC_GPI_01.PG, i_xOverrideMode:= xSystemOverrideMode);
+qRIXS_SC_PIP_02(i_stGauge:=qRIXS_SC_GPI_01.PG, i_xOverrideMode:= xSystemOverrideMode);
 
 //Pfiffer Turbo 
 
