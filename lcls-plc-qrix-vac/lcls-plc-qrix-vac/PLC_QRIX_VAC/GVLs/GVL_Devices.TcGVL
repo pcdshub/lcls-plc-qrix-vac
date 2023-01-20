@@ -107,7 +107,7 @@ qRIXS_ROUGH_GPI_01 : FB_MKS275;
 
 //VRO
 {attribute 'pytmc' := ' pv: QRIXS:ROUGH:VRO:01 '}
-{attribute 'TcLinkTo' := 	'.q_xOPN_DO	:=	TIIB[EL2212_03_E4]^DOX Control Channel 1^Control^Output '}
+{attribute 'TcLinkTo' := 	'.q_xOPN_DO	:=	TIIB[EL2212_03_04]^DOX Control Channel 1^Control^Output'}
 QRIX_ROUGH_VRO_01 : FB_VVC;
 
 
