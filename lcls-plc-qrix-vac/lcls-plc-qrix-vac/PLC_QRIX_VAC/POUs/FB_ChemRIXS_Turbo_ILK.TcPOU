@@ -3,22 +3,22 @@
   <POU Name="FB_ChemRIXS_Turbo_ILK" Id="{aec3d1d6-1fd1-4003-aa2e-6283ccf339ab}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK FB_ChemRIXS_Turbo_ILK
 VAR_INPUT
-	i_stValve : ST_ValveBase;
-	i_stPump : ST_PTM;
-	tDelay : TIME;
+    i_stValve : ST_ValveBase;
+    i_stPump : ST_PTM;
+    tDelay : TIME;
 END_VAR
 VAR_OUTPUT
-	bILK : BOOL;
+    bILK : BOOL;
 END_VAR
 VAR
-	tofDelay : TOF;
+    tofDelay : TOF;
 END_VAR]]></Declaration>
     <Implementation>
       <ST><![CDATA[tofDelay.IN := i_stValve.i_xOpnLS OR (i_stPump.eState = pumpSTOPPED); // Start timer when valve closes (IN goes low)
 tofDelay.PT := tDelay;
 tofDelay();
 bILK := tofDelay.Q; // Assign turbopump output to timer output. When the valve is closed the turbo pump ILK will go False after time elapses.
-			        // Intended to be connected to pump OK to run bit.]]></ST>
+                    // Intended to be connected to pump OK to run bit.]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>
