@@ -7,6 +7,11 @@ VAR
 	iWatchdog: UDINT;
 	RIX_TV4K2_GFS_1:FB_TGCC_ADS;
 	RIX_IM5K2_PPM_GCC_1:FB_TGCC_ADS;
+	
+	//PTM interlocks
+	qRIXS_SC_PTM_10_ILK : FB_ChemRIXS_Turbo_ILK;
+	qRIXS_SC_PTM_20_ILK : FB_ChemRIXS_Turbo_ILK;
+	qRIXS_SC_PTM_30_ILK : FB_ChemRIXS_Turbo_ILK;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -43,14 +48,20 @@ qRIXS_SSL_GCP_30.M_SetBits(30518);
 qRIXS_SSL_GCP_30();
 
 //ION Pumps
-qRIXS_SC_PIP_01(i_stGauge:=qRIXS_SC_GCC_01.IG, i_xOverrideMode:= xSystemOverrideMode);
-qRIXS_SC_PIP_02(i_stGauge:=qRIXS_SC_GCC_01.IG, i_xOverrideMode:= xSystemOverrideMode);
+qRIXS_SC_PIP_01(i_stGauge:=qRIXS_SC_GPI_01.PG, i_xOverrideMode:= xSystemOverrideMode);
+qRIXS_SC_PIP_02(i_stGauge:=qRIXS_SC_GPI_01.PG, i_xOverrideMode:= xSystemOverrideMode);
 
 //Pfiffer Turbo 
 
 //VVC
-qRIXS_SC_VVC_01(i_xExtILK_OK := TRUE, i_xOverrideMode := xSystemOverrideMode, iq_stValve => );
-qRIXS_SC_VVC_02(i_xExtILK_OK := TRUE, i_xOverrideMode := xSystemOverrideMode, iq_stValve => );
+qRIXS_SC_VVC_01.i_xExtILK_OK := qRIXS_SC_PTM_10.iq_stPTM.eState = E_PumpState.pumpSTOPPED
+							AND qRIXS_SC_PTM_20.iq_stPTM.eState = E_PumpState.pumpSTOPPED
+							AND qRIXS_SC_PTM_30.iq_stPTM.eState = E_PumpState.pumpSTOPPED;
+qRIXS_SC_VVC_01(i_xExtILK_OK := , i_xOverrideMode := xSystemOverrideMode, iq_stValve => );
+qRIXS_SC_VVC_02.i_xExtILK_OK := qRIXS_SC_PTM_10.iq_stPTM.eState = E_PumpState.pumpSTOPPED
+							AND qRIXS_SC_PTM_20.iq_stPTM.eState = E_PumpState.pumpSTOPPED
+							AND qRIXS_SC_PTM_30.iq_stPTM.eState = E_PumpState.pumpSTOPPED;
+qRIXS_SC_VVC_02(i_xExtILK_OK := , i_xOverrideMode := xSystemOverrideMode, iq_stValve => );
 
 //VGC Valves 
 ///VGC on Beamline 
@@ -89,10 +100,11 @@ qRIXS_SC_VGC_02(
 	fbArbiter:= GVL_PMPS.fbArbiter );
 	
 //VRC 10
-qRIXS_SC_VRC_10.i_xExtILK_OK := F_TurboGateValve_Protection_ILK( i_Turbo := qRIXS_SC_PTM_10.iq_stPTM , 
+qRIXS_SC_VRC_10.i_xExtILK_OK := qRIXS_SC_PTM_10.iq_stPTM.eState = E_PumpState.pumpRUNNING;
+(*F_TurboGateValve_Protection_ILK( i_Turbo := qRIXS_SC_PTM_10.iq_stPTM , 
 																   i_stISG := qRIXS_SC_GPI_01.PG, i_stBSG := qRIXS_ROUGH_GPI_11.PG,
 																	ScrollPump := qRIXS_PRO_01.stPump );
-																	
+*)														
 qRIXS_SC_VRC_10(i_xOverrideMode:=xSystemOverrideMode , iq_stValve=> );
 
 //VRC 20
@@ -110,11 +122,18 @@ qRIXS_SC_VRC_30.i_xExtILK_OK := F_TurboGateValve_Protection_ILK( i_Turbo := qRIX
 																	
 qRIXS_SC_VRC_30(i_xOverrideMode:=xSystemOverrideMode , iq_stValve=> );
 
-qRIXS_SC_PTM_10(i_xExtIlkOK:=TRUE);
+//PTM ILK
+//qRIXS_SC_PTM_10_ILK(i_stValve:=qRIXS_ROUGH_VRC_02.iq_stValve, i_stPump:=qRIXS_SC_PTM_10.iq_stPTM, tDelay:=T#200S, bILK=>);
+qRIXS_SC_PTM_10(i_xExtIlkOK:=(*qRIXS_SC_PTM_10_ILK.bILK 
+				AND *)F_TurboExtILKLogic_2(Turbo:=qRIXS_SC_PTM_10.iq_stPTM,BackingGauge:=qRIXS_ROUGH_GPI_02.PG, InletGauge:=qRIXS_SC_GPI_01.PG, ScrollPump:= qRIXS_PRO_01.stPump) );
 
-qRIXS_SC_PTM_20(i_xExtIlkOK:=TRUE);
+//qRIXS_SC_PTM_20_ILK(i_stValve:=qRIXS_ROUGH_VRC_02.iq_stValve, i_stPump:=qRIXS_SC_PTM_20.iq_stPTM, tDelay:=T#200S, bILK=>);
+qRIXS_SC_PTM_20(i_xExtIlkOK:=(*qRIXS_SC_PTM_20_ILK.bILK 
+				AND *)F_TurboExtILKLogic_2(Turbo:=qRIXS_SC_PTM_20.iq_stPTM,BackingGauge:=qRIXS_ROUGH_GPI_02.PG, InletGauge:=qRIXS_SSL_GCP_20.PG, ScrollPump:= qRIXS_PRO_01.stPump) );
 
-qRIXS_SC_PTM_30(i_xExtIlkOK:=TRUE);
+//qRIXS_SC_PTM_30_ILK(i_stValve:=qRIXS_ROUGH_VRC_02.iq_stValve, i_stPump:=qRIXS_SC_PTM_30.iq_stPTM, tDelay:=T#200S, bILK=>);
+qRIXS_SC_PTM_30(i_xExtIlkOK:=(*qRIXS_SC_PTM_30_ILK.bILK 
+			AND*) F_TurboExtILKLogic_2(Turbo:=qRIXS_SC_PTM_30.iq_stPTM,BackingGauge:=qRIXS_ROUGH_GPI_02.PG, InletGauge:=qRIXS_SSL_GCP_30.PG, ScrollPump:= qRIXS_PRO_01.stPump) );
 
 ]]></ST>
     </Implementation>

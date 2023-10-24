@@ -7,15 +7,27 @@ END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[// Roughing devices
-
+//MKS 275 Gauges
+qRIXS_ROUGH_GPI_01.M_SetBits(30518);
+qRIXS_ROUGH_GPI_01();			// Roughing guage near pro
+qRIXS_ROUGH_GPI_02.M_SetBits(30518);
 qRIXS_ROUGH_GPI_02();			// Roughing guage near BL 
 
 
-//VRC 02	
-qRIXS_ROUGH_VRC_02(i_xExtILK_OK := TRUE, i_xOverrideMode := xSystemOverrideMode, iq_stValve => );
+//VRC 02	backing Main Sample Chamber
+qRIXS_ROUGH_VRC_02(i_xExtILK_OK :=  qRIXS_PRO_01.stPump.eState = E_PumpState.pumpRUNNING, i_xOverrideMode := xSystemOverrideMode, iq_stValve => );
 
-//VRC 01
-qRIXS_ROUGH_VRC_01(i_xExtILK_OK := TRUE, i_xOverrideMode := xSystemOverrideMode, iq_stValve => );
+//VRC 01 backing Sample Delivery Chamber
+qRIXS_ROUGH_VRC_01(i_xExtILK_OK := qRIXS_PRO_01.stPump.eState = E_PumpState.pumpRUNNING, i_xOverrideMode := xSystemOverrideMode, iq_stValve => );
+
+
+qRIXS_PRO_01(i_stBPGauge := qRIXS_ROUGH_GPI_01.PG, i_xVlvOpn := TRUE, i_xExtIlkOK := TRUE);
+
+
+if( qRIXS_PRO_01.stPump.eState = pumpSTARTING ) OR ( qRIXS_PRO_01.stPump.eState = pumpRUNNING )
+ THEN QRIX_ROUGH_VRO_01.M_Open(TRUE); 
+END_IF
+QRIX_ROUGH_VRO_01(i_xExtILK_OK:= (qRIXS_PRO_01.stPump.eState = pumpRUNNING  OR  qRIXS_PRO_01.stPump.eState = pumpSTARTING ), i_xOverrideMode:= , iq_stValve=> );
 ]]></ST>
     </Implementation>
   </POU>
