@@ -3,7 +3,7 @@
   <POU Name="PRG_3_LOG" Id="{48e166b6-5fab-41f0-8dbc-ebe24636762e}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_3_LOG
 VAR
-	  fbLogHandler: FB_LogHandler;
+      fbLogHandler: FB_LogHandler;
 END_VAR
 ]]></Declaration>
     <Implementation>
