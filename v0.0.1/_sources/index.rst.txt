@@ -1,0 +1,30 @@
+lcls-plc-qrix-vac
+-----------------
+
+.. toctree::
+    :maxdepth: 2
+    :caption: lcls-plc-qrix-vac
+
+    lcls-plc-qrix-vac_pragmas
+    lcls-plc-qrix-vac_nc
+    lcls-plc-qrix-vac_ethercat
+    lcls-plc-qrix-vac_boxes
+    lcls-plc-qrix-vac_links
+
+
+.. toctree::
+    :maxdepth: 2
+    :caption: PLC_QRIX_VAC
+
+    lcls-plc-qrix-vac_PLC_QRIX_VAC_summary
+    lcls-plc-qrix-vac_PLC_QRIX_VAC_epics
+    lcls-plc-qrix-vac_PLC_QRIX_VAC_source
+
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
