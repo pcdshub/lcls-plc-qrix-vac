@@ -1,20 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
-  <POU Name="Main" Id="{ecf97ee3-9889-4850-9da7-1b720e899e44}" SpecialFunc="None">
-    <Declaration><![CDATA[PROGRAM Main
+  <POU Name="MAIN" Id="{0ab7ae4a-80a5-45af-86d5-145d6341ef1d}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
 VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[///Calling programs
-PRG_Roughing();
-PRG_SampleChamber();
-PRG_SA_WINDOW();
+PRG_Roughing();				
+PRG_SampleChamber(); 
+PRG_SA_WINDOW();		
 //PRG_SDS();
 PRG_SPA();
 PRG_2_PMPS();
 PRG_3_LOG();
-
 ]]></ST>
     </Implementation>
   </POU>

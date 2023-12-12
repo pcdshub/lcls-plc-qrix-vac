@@ -11,6 +11,9 @@
 				<Task Id="3" Priority="20" CycleTime="100000" AmsPort="350" DisableFpExceptions="true" AdtTasks="true">
 					<Name>PlcTask</Name>
 				</Task>
+				<Task Id="4" Priority="21" CycleTime="100000" AmsPort="351" AdtTasks="true">
+					<Name>CommTask</Name>
+				</Task>
 			</Tasks>
 		</System>
 		<Plc>

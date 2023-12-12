@@ -11,7 +11,7 @@ END_VAR
 qRIXS_ROUGH_GPI_01.M_SetBits(30518);
 qRIXS_ROUGH_GPI_01();			// Roughing guage near pro
 qRIXS_ROUGH_GPI_02.M_SetBits(30518);
-qRIXS_ROUGH_GPI_02();			// Roughing guage near BL
+qRIXS_ROUGH_GPI_02();			// Roughing guage near BL 
 
 
 //VRC 02	backing Main Sample Chamber
@@ -25,7 +25,7 @@ qRIXS_PRO_01(i_stBPGauge := qRIXS_ROUGH_GPI_01.PG, i_xVlvOpn := TRUE, i_xExtIlkO
 
 
 if( qRIXS_PRO_01.stPump.eState = pumpSTARTING ) OR ( qRIXS_PRO_01.stPump.eState = pumpRUNNING )
- THEN QRIX_ROUGH_VRO_01.M_Open(TRUE);
+ THEN QRIX_ROUGH_VRO_01.M_Open(TRUE); 
 END_IF
 QRIX_ROUGH_VRO_01(i_xExtILK_OK:= (qRIXS_PRO_01.stPump.eState = pumpRUNNING  OR  qRIXS_PRO_01.stPump.eState = pumpSTARTING ), i_xOverrideMode:= , iq_stValve=> );
 ]]></ST>
