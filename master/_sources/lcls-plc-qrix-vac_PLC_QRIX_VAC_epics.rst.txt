@@ -917,7 +917,7 @@ LCLS_General.ST_PendingEvent
       - | io: input
 
 
-                                                                            
+                                                                             
 LCLS_Vacuum.FB_972
 ^^^^^^^^^^^^^^^^^^
 
@@ -2996,8 +2996,8 @@ LCLS_Vacuum.FB_VRC_NO
     * - $(PREFIX):CLS_OK_RBV
       - bi
       - $(SYMBOL).iq_stValve.xCLS_OK
-      - | field: ONAM CLOSE
-        | field: ZNAM OPEN
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
         | io: input
 
 
@@ -3056,16 +3056,16 @@ LCLS_Vacuum.FB_VRC_NO
     * - $(PREFIX):FORCE_CLS
       - bo
       - $(SYMBOL).iq_stValve.pv_xOvrdCls
-      - | field: ONAM CLOSE
-        | field: ZNAM OPEN
+      - | field: ONAM FORCE CLOSE
+        | field: ZNAM FALSE
         | io: output
 
 
     * - $(PREFIX):FORCE_CLS_RBV
       - bi
       - $(SYMBOL).iq_stValve.pv_xOvrdCls
-      - | field: ONAM CLOSE
-        | field: ZNAM OPEN
+      - | field: ONAM FORCE CLOSE
+        | field: ZNAM FALSE
         | io: output
 
 
@@ -3236,8 +3236,8 @@ LCLS_Vacuum.FB_VRC_NO_FFO
     * - $(PREFIX):CLS_OK_RBV
       - bi
       - $(SYMBOL).iq_stValve.xCLS_OK
-      - | field: ONAM CLOSE
-        | field: ZNAM OPEN
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
         | io: input
 
 
@@ -3296,16 +3296,16 @@ LCLS_Vacuum.FB_VRC_NO_FFO
     * - $(PREFIX):FORCE_CLS
       - bo
       - $(SYMBOL).iq_stValve.pv_xOvrdCls
-      - | field: ONAM CLOSE
-        | field: ZNAM OPEN
+      - | field: ONAM FORCE CLOSE
+        | field: ZNAM FALSE
         | io: output
 
 
     * - $(PREFIX):FORCE_CLS_RBV
       - bi
       - $(SYMBOL).iq_stValve.pv_xOvrdCls
-      - | field: ONAM CLOSE
-        | field: ZNAM OPEN
+      - | field: ONAM FORCE CLOSE
+        | field: ZNAM FALSE
         | io: output
 
 
@@ -3440,7 +3440,7 @@ LCLS_Vacuum.FB_VVC
     * - $(PREFIX):FORCE_OPN
       - bo
       - $(SYMBOL).iq_stValve.xOvrdOpn
-      - | field: ONAM OPEN
+      - | field: ONAM FORCE OPEN
         | field: ZNAM FALSE
         | io: output
 
@@ -3448,7 +3448,7 @@ LCLS_Vacuum.FB_VVC
     * - $(PREFIX):FORCE_OPN_RBV
       - bi
       - $(SYMBOL).iq_stValve.xOvrdOpn
-      - | field: ONAM OPEN
+      - | field: ONAM FORCE OPEN
         | field: ZNAM FALSE
         | io: output
 
@@ -3501,227 +3501,7 @@ LCLS_Vacuum.FB_VVC
         | io: output
 
 
- 
-LCLS_Vacuum.LCLS_Vacuum_Serial.ST_PfeifferControl
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. list-table::
-    :header-rows: 1
-    :align: center
-
-    * - Record
-      - Type
-      - Description
-      - Pragma
-    * - $(PREFIX):ADDR
-      - longout
-      - $(SYMBOL).iSerialAddress
-      - | io: output
-
-
-    * - $(PREFIX):ADDR_RBV
-      - longin
-      - $(SYMBOL).iSerialAddress
-      - | io: output
-
-
-    * - $(PREFIX):COMM_EN
-      - bo
-      - $(SYMBOL).xEnableComm
-      - | io: output
-
-
-    * - $(PREFIX):COMM_EN_RBV
-      - bi
-      - $(SYMBOL).xEnableComm
-      - | io: output
-
-
-    * - $(PREFIX):ERR_RST
-      - bo
-      - $(SYMBOL).xErrorAck_009
-      - | io: output
-
-
-    * - $(PREFIX):ERR_RST_RBV
-      - bi
-      - $(SYMBOL).xErrorAck_009
-      - | io: output
-
-
-    * - $(PREFIX):EXT_ILK_OK_RBV
-      - bi
-      - $(SYMBOL).xPumpingStation_010
-      - | field: ONAM ILK OK
-        | field: ZNAM ILK ACTIVE
-        | io: input
-
-
-    * - $(PREFIX):ILK_OK_RBV
-      - bi
-      - $(SYMBOL).xIlk
-      - | field: ONAM ILK OK
-        | field: ZNAM ILK ACTIVE
-        | io: input
-
-
-    * - $(PREFIX):RUN_DO_RBV
-      - bi
-      - $(SYMBOL).xMotorPump_023
-      - | io: input
-
-
-    * - $(PREFIX):RUN_SW
-      - bo
-      - $(SYMBOL).xRunSW
-      - | io: output
-
-
-    * - $(PREFIX):RUN_SW_RBV
-      - bi
-      - $(SYMBOL).xRunSW
-      - | io: output
-
-
-    * - $(PREFIX):SetPumpSpeed_RBV
-      - longin
-      - $(SYMBOL).iSetRotationSpeed_707
-      - | io: input
-
-
- 
-LCLS_Vacuum.LCLS_Vacuum_Serial.ST_PfeifferStatus
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. list-table::
-    :header-rows: 1
-    :align: center
-
-    * - Record
-      - Type
-      - Description
-      - Pragma
-    * - $(PREFIX):DriveCurrent_RBV
-      - ai
-      - $(SYMBOL).lrDriveCurrent_310
-      - | io: input
-
-
-    * - $(PREFIX):DrivePower_RBV
-      - longin
-      - $(SYMBOL).diDrivePower_316
-      - | io: input
-
-
-    * - $(PREFIX):ErrorCode_RBV
-      - longin
-      - $(SYMBOL).iErrorCode_303
-      - | io: input
-
-
-    * - $(PREFIX):ErrorMessage_RBV
-      - waveform
-      - $(SYMBOL).sErrorCode_303
-      - | io: input
-
-
-    * - $(PREFIX):ExcessPumpTemp_RBV
-      - bi
-      - $(SYMBOL).xExcessTempPump_305
-      - | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - $(PREFIX):GasMode_RBV
-      - longin
-      - $(SYMBOL).iGasMode_027
-      - | io: input
-
-
-    * - $(PREFIX):Power_RBV
-      - longin
-      - $(SYMBOL).uiPowerPct_708
-      - | io: input
-
-
-    * - $(PREFIX):PumpAccelerating_RBV
-      - bi
-      - $(SYMBOL).xPumpAccelerating_307
-      - | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - $(PREFIX):PumpingStation_RBV
-      - bi
-      - $(SYMBOL).xPumpingStation_010
-      - | field: ONAM ILK OK
-        | field: ZNAM ILK ACTIVE
-        | io: input
-
-
-    * - $(PREFIX):PumpingStation_RBV
-      - bi
-      - $(SYMBOL).xMotorPump_023
-      - | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - $(PREFIX):PumpSpeed_RBV
-      - longin
-      - $(SYMBOL).diActiveRotationSpeed_309
-      - | io: input
-
-
-    * - $(PREFIX):TempBearing_RBV
-      - longin
-      - $(SYMBOL).diTempBearng_342
-      - | io: input
-
-
-    * - $(PREFIX):TempElect_RBV
-      - longin
-      - $(SYMBOL).diTempElec_326
-      - | io: input
-
-
-    * - $(PREFIX):TempMotor_RBV
-      - longin
-      - $(SYMBOL).diTempMotor_346
-      - | io: input
-
-
-    * - $(PREFIX):TempPump_RBV
-      - longin
-      - $(SYMBOL).diTempPmpBot_330
-      - | io: input
-
-
-    * - $(PREFIX):Timeout_RBV
-      - bi
-      - $(SYMBOL).xTimeout
-      - | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - $(PREFIX):TotationSpeedAttn_RBV
-      - bi
-      - $(SYMBOL).xRotationSpeedAttn_306
-      - | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - $(PREFIX):WarningCode_RBV
-      - longin
-      - $(SYMBOL).iWarningCode_303
-      - | io: input
-
-
-                                        
+              
 LCLS_Vacuum.ST_EbaraDryPump
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -5559,8 +5339,8 @@ LCLS_Vacuum.ST_VRC_NO
     * - $(PREFIX):CLS_OK_RBV
       - bi
       - $(SYMBOL).xCLS_OK
-      - | field: ONAM CLOSE
-        | field: ZNAM OPEN
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
         | io: input
 
 
@@ -5619,16 +5399,16 @@ LCLS_Vacuum.ST_VRC_NO
     * - $(PREFIX):FORCE_CLS
       - bo
       - $(SYMBOL).pv_xOvrdCls
-      - | field: ONAM CLOSE
-        | field: ZNAM OPEN
+      - | field: ONAM FORCE CLOSE
+        | field: ZNAM FALSE
         | io: output
 
 
     * - $(PREFIX):FORCE_CLS_RBV
       - bi
       - $(SYMBOL).pv_xOvrdCls
-      - | field: ONAM CLOSE
-        | field: ZNAM OPEN
+      - | field: ONAM FORCE CLOSE
+        | field: ZNAM FALSE
         | io: output
 
 
@@ -5763,7 +5543,7 @@ LCLS_Vacuum.ST_VVC
     * - $(PREFIX):FORCE_OPN
       - bo
       - $(SYMBOL).xOvrdOpn
-      - | field: ONAM OPEN
+      - | field: ONAM FORCE OPEN
         | field: ZNAM FALSE
         | io: output
 
@@ -5771,7 +5551,7 @@ LCLS_Vacuum.ST_VVC
     * - $(PREFIX):FORCE_OPN_RBV
       - bi
       - $(SYMBOL).xOvrdOpn
-      - | field: ONAM OPEN
+      - | field: ONAM FORCE OPEN
         | field: ZNAM FALSE
         | io: output
 
@@ -5824,7 +5604,227 @@ LCLS_Vacuum.ST_VVC
         | io: output
 
 
-       
+      
+LCLS_Vacuum_Serial.ST_PfeifferControl
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. list-table::
+    :header-rows: 1
+    :align: center
+
+    * - Record
+      - Type
+      - Description
+      - Pragma
+    * - $(PREFIX):ADDR
+      - longout
+      - $(SYMBOL).iSerialAddress
+      - | io: output
+
+
+    * - $(PREFIX):ADDR_RBV
+      - longin
+      - $(SYMBOL).iSerialAddress
+      - | io: output
+
+
+    * - $(PREFIX):COMM_EN
+      - bo
+      - $(SYMBOL).xEnableComm
+      - | io: output
+
+
+    * - $(PREFIX):COMM_EN_RBV
+      - bi
+      - $(SYMBOL).xEnableComm
+      - | io: output
+
+
+    * - $(PREFIX):ERR_RST
+      - bo
+      - $(SYMBOL).xErrorAck_009
+      - | io: output
+
+
+    * - $(PREFIX):ERR_RST_RBV
+      - bi
+      - $(SYMBOL).xErrorAck_009
+      - | io: output
+
+
+    * - $(PREFIX):EXT_ILK_OK_RBV
+      - bi
+      - $(SYMBOL).xPumpingStation_010
+      - | field: ONAM ILK OK
+        | field: ZNAM ILK ACTIVE
+        | io: input
+
+
+    * - $(PREFIX):ILK_OK_RBV
+      - bi
+      - $(SYMBOL).xIlk
+      - | field: ONAM ILK OK
+        | field: ZNAM ILK ACTIVE
+        | io: input
+
+
+    * - $(PREFIX):RUN_DO_RBV
+      - bi
+      - $(SYMBOL).xMotorPump_023
+      - | io: input
+
+
+    * - $(PREFIX):RUN_SW
+      - bo
+      - $(SYMBOL).xRunSW
+      - | io: output
+
+
+    * - $(PREFIX):RUN_SW_RBV
+      - bi
+      - $(SYMBOL).xRunSW
+      - | io: output
+
+
+    * - $(PREFIX):SetPumpSpeed_RBV
+      - longin
+      - $(SYMBOL).iSetRotationSpeed_707
+      - | io: input
+
+
+ 
+LCLS_Vacuum_Serial.ST_PfeifferStatus
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. list-table::
+    :header-rows: 1
+    :align: center
+
+    * - Record
+      - Type
+      - Description
+      - Pragma
+    * - $(PREFIX):DriveCurrent_RBV
+      - ai
+      - $(SYMBOL).lrDriveCurrent_310
+      - | io: input
+
+
+    * - $(PREFIX):DrivePower_RBV
+      - longin
+      - $(SYMBOL).diDrivePower_316
+      - | io: input
+
+
+    * - $(PREFIX):ErrorCode_RBV
+      - longin
+      - $(SYMBOL).iErrorCode_303
+      - | io: input
+
+
+    * - $(PREFIX):ErrorMessage_RBV
+      - waveform
+      - $(SYMBOL).sErrorCode_303
+      - | io: input
+
+
+    * - $(PREFIX):ExcessPumpTemp_RBV
+      - bi
+      - $(SYMBOL).xExcessTempPump_305
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - $(PREFIX):GasMode_RBV
+      - longin
+      - $(SYMBOL).iGasMode_027
+      - | io: input
+
+
+    * - $(PREFIX):Power_RBV
+      - longin
+      - $(SYMBOL).uiPowerPct_708
+      - | io: input
+
+
+    * - $(PREFIX):PumpAccelerating_RBV
+      - bi
+      - $(SYMBOL).xPumpAccelerating_307
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - $(PREFIX):PumpingStation_RBV
+      - bi
+      - $(SYMBOL).xPumpingStation_010
+      - | field: ONAM ILK OK
+        | field: ZNAM ILK ACTIVE
+        | io: input
+
+
+    * - $(PREFIX):PumpingStation_RBV
+      - bi
+      - $(SYMBOL).xMotorPump_023
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - $(PREFIX):PumpSpeed_RBV
+      - longin
+      - $(SYMBOL).diActiveRotationSpeed_309
+      - | io: input
+
+
+    * - $(PREFIX):TempBearing_RBV
+      - longin
+      - $(SYMBOL).diTempBearng_342
+      - | io: input
+
+
+    * - $(PREFIX):TempElect_RBV
+      - longin
+      - $(SYMBOL).diTempElec_326
+      - | io: input
+
+
+    * - $(PREFIX):TempMotor_RBV
+      - longin
+      - $(SYMBOL).diTempMotor_346
+      - | io: input
+
+
+    * - $(PREFIX):TempPump_RBV
+      - longin
+      - $(SYMBOL).diTempPmpBot_330
+      - | io: input
+
+
+    * - $(PREFIX):Timeout_RBV
+      - bi
+      - $(SYMBOL).xTimeout
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - $(PREFIX):TotationSpeedAttn_RBV
+      - bi
+      - $(SYMBOL).xRotationSpeedAttn_306
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - $(PREFIX):WarningCode_RBV
+      - longin
+      - $(SYMBOL).iWarningCode_303
+      - | io: input
+
+
+      
 PMPS.FB_Arbiter
 ^^^^^^^^^^^^^^^
 
@@ -15863,7 +15863,7 @@ ST_PMPS_Aperture_IO
         | io: input
 
 
-                          
+                                      
 Database Records
 ----------------
 
@@ -15926,7 +15926,7 @@ Database Records
     * - QRIXS:ROUGH:VRO:01:FORCE_OPN_RBV
       - bi
       - GVL_Devices.QRIX_ROUGH_VRO_01.iq_stValve.xOvrdOpn
-      - | field: ONAM OPEN
+      - | field: ONAM FORCE OPEN
         | field: ZNAM FALSE
         | io: output
 
@@ -15934,7 +15934,7 @@ Database Records
     * - QRIXS:ROUGH:VRO:01:FORCE_OPN
       - bo
       - GVL_Devices.QRIX_ROUGH_VRO_01.iq_stValve.xOvrdOpn
-      - | field: ONAM OPEN
+      - | field: ONAM FORCE OPEN
         | field: ZNAM FALSE
         | io: output
 
@@ -18539,16 +18539,16 @@ Database Records
     * - QRIXS:SA:VRC:01:FORCE_CLS_RBV
       - bi
       - GVL_Devices.qRIXS_SA_VRC_01.iq_stValve.pv_xOvrdCls
-      - | field: ONAM CLOSE
-        | field: ZNAM OPEN
+      - | field: ONAM FORCE CLOSE
+        | field: ZNAM FALSE
         | io: output
 
 
     * - QRIXS:SA:VRC:01:FORCE_CLS
       - bo
       - GVL_Devices.qRIXS_SA_VRC_01.iq_stValve.pv_xOvrdCls
-      - | field: ONAM CLOSE
-        | field: ZNAM OPEN
+      - | field: ONAM FORCE CLOSE
+        | field: ZNAM FALSE
         | io: output
 
 
@@ -18607,8 +18607,8 @@ Database Records
     * - QRIXS:SA:VRC:01:CLS_OK_RBV
       - bi
       - GVL_Devices.qRIXS_SA_VRC_01.iq_stValve.xCLS_OK
-      - | field: ONAM CLOSE
-        | field: ZNAM OPEN
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
         | io: input
 
 
@@ -22967,7 +22967,7 @@ Database Records
     * - QRIXS:SC:VVC:01:FORCE_OPN_RBV
       - bi
       - GVL_Devices.qRIXS_SC_VVC_01.iq_stValve.xOvrdOpn
-      - | field: ONAM OPEN
+      - | field: ONAM FORCE OPEN
         | field: ZNAM FALSE
         | io: output
 
@@ -22975,7 +22975,7 @@ Database Records
     * - QRIXS:SC:VVC:01:FORCE_OPN
       - bo
       - GVL_Devices.qRIXS_SC_VVC_01.iq_stValve.xOvrdOpn
-      - | field: ONAM OPEN
+      - | field: ONAM FORCE OPEN
         | field: ZNAM FALSE
         | io: output
 
@@ -23031,7 +23031,7 @@ Database Records
     * - QRIXS:SC:VVC:02:FORCE_OPN_RBV
       - bi
       - GVL_Devices.qRIXS_SC_VVC_02.iq_stValve.xOvrdOpn
-      - | field: ONAM OPEN
+      - | field: ONAM FORCE OPEN
         | field: ZNAM FALSE
         | io: output
 
@@ -23039,7 +23039,7 @@ Database Records
     * - QRIXS:SC:VVC:02:FORCE_OPN
       - bo
       - GVL_Devices.qRIXS_SC_VVC_02.iq_stValve.xOvrdOpn
-      - | field: ONAM OPEN
+      - | field: ONAM FORCE OPEN
         | field: ZNAM FALSE
         | io: output
 
@@ -23913,7 +23913,7 @@ Database Records
     * - QRIXS:SDS:VVC:01:FORCE_OPN_RBV
       - bi
       - GVL_Devices.qRIXS_SDS_VVC_01.iq_stValve.xOvrdOpn
-      - | field: ONAM OPEN
+      - | field: ONAM FORCE OPEN
         | field: ZNAM FALSE
         | io: output
 
@@ -23921,7 +23921,7 @@ Database Records
     * - QRIXS:SDS:VVC:01:FORCE_OPN
       - bo
       - GVL_Devices.qRIXS_SDS_VVC_01.iq_stValve.xOvrdOpn
-      - | field: ONAM OPEN
+      - | field: ONAM FORCE OPEN
         | field: ZNAM FALSE
         | io: output
 
@@ -23977,7 +23977,7 @@ Database Records
     * - QRIXS:SDS:VVC:02:FORCE_OPN_RBV
       - bi
       - GVL_Devices.qRIXS_SDS_VVC_02.iq_stValve.xOvrdOpn
-      - | field: ONAM OPEN
+      - | field: ONAM FORCE OPEN
         | field: ZNAM FALSE
         | io: output
 
@@ -23985,7 +23985,7 @@ Database Records
     * - QRIXS:SDS:VVC:02:FORCE_OPN
       - bo
       - GVL_Devices.qRIXS_SDS_VVC_02.iq_stValve.xOvrdOpn
-      - | field: ONAM OPEN
+      - | field: ONAM FORCE OPEN
         | field: ZNAM FALSE
         | io: output
 
@@ -41367,6 +41367,53 @@ Database Records
     * - $(PREFIX)FullBeamCnst:Valid_RBV
       - bi
       - Full beam constant
+      - | archive: 1s monitor
+        | io: input
+
+
+    * - $(PREFIX)SafeBeamCnst:Veto_RBV
+      - waveform
+      - Safe beam constant
+      - | archive: 1s monitor
+        | io: input
+
+
+    * - $(PREFIX)SafeBeamCnst:Cohort_RBV
+      - longin
+      - Cohort inc on each arb cycle
+      - | archive: 1s monitor
+        | io: input
+
+
+    * - $(PREFIX)SafeBeamCnst:Rate_RBV
+      - longin
+      - Safe beam constant
+      - | archive: 1s monitor
+        | field: EGU Hz
+        | io: input
+
+
+    * - $(PREFIX)SafeBeamCnst:Transmission_RBV
+      - ai
+      - Safe beam constant
+      - | archive: 1s monitor
+        | field: HOPR 1
+        | field: LOPR 0
+        | field: PREC 2
+        | io: input
+
+
+    * - $(PREFIX)SafeBeamCnst:PhotonEnergyRanges_RBV
+      - longin
+      - Safe beam constant
+      - | archive: 1s monitor
+        | field: EGU eV
+        | io: input
+
+
+    * - $(PREFIX)SafeBeamCnst:Valid_RBV
+      - bi
+      - Safe beam constant
       - | archive: 1s monitor
         | io: input
 
