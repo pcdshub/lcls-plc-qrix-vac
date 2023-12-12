@@ -2,24 +2,24 @@
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
   <GVL Name="GVL_Variables" Id="{47c8d14d-5d58-4317-943a-10f7a34bf02f}">
     <Declaration><![CDATA[VAR_GLOBAL
-
+		
 {attribute 'pytmc' := '
-    pv: PLC:QRIXS:VAC:OVRDON
-    io: io
+	pv: PLC:QRIXS:VAC:OVRDON
+	io: io
 '}
 xSystemOverrideMode	: BOOL := FALSE; (* Global system override for the qRIXS Vacuum System*)
 
 
 {attribute 'pytmc' := '
-    pv: QRIXS:VAC:OVRDON
-    io: io
+	pv: QRIXS:VAC:OVRDON
+	io: io
 '}
 xSystemOverrideMode_Valve	: BOOL := FALSE; (* Global system override for the qRIXS Vacuum System*)
 
 {attribute 'pytmc' := ' pv: QRIXS:SA:VAC:SETUP_MODE'}
-SetupMode_Valve	: BOOL := FALSE;
-
-
+SetupMode_Valve	: BOOL := FALSE; 
+	
+	
 
 
 END_VAR]]></Declaration>
