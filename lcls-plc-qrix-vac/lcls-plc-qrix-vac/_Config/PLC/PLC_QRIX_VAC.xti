@@ -1256,6 +1256,13 @@
 					<Type GUID="{B2093238-7A67-422D-8EEF-49CE8F36A81D}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
 				</Var>
 				<Var>
+					<Name>GVL_Devices.qRIXS_SA_GCP_02.i_iPRESS_R</Name>
+					<Comment>
+						<![CDATA[ input Pressure // Link to analog Input]]>
+					</Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
 					<Name>GVL_Devices.qRIXS_ROUGH_GPI_03.i_iPRESS_R</Name>
 					<Comment>
 						<![CDATA[ input Pressure // Link to analog Input]]>
@@ -1746,6 +1753,7 @@
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^B950_233_WALL_S_DRL_05^EL3174-0002_02_13">
 				<Link VarA="CommTask Inputs^GVL_Devices.qRIXS_ROUGH_GPI_03.i_iPRESS_R" VarB="AI Standard Channel 2^Value" AutoLink="true"/>
 				<Link VarA="CommTask Inputs^GVL_Devices.qRIXS_ROUGH_GPI_04.i_iPRESS_R" VarB="AI Standard Channel 3^Value" AutoLink="true"/>
+				<Link VarA="CommTask Inputs^GVL_Devices.qRIXS_SA_GCP_02.i_iPRESS_R" VarB="AI Standard Channel 2^Value" AutoLink="true"/>
 				<Link VarA="CommTask Inputs^GVL_Devices.qRIXS_SDS_GPI_01.i_iPRESS_R" VarB="AI Standard Channel 1^Value" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^qRIXS_PNL1_E0_EK1100^qRIXS_PNL1_E1_EL1004">
