@@ -1227,6 +1227,35 @@
 			<Vars VarGrpType="1">
 				<Name>CommTask Inputs</Name>
 				<Var>
+					<Name>GVL_Interface.QRIX_MOT_SDS_MMS_H_FORWARD_EN</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Interface.QRIX_MOT_SDS_MMS_H_RAW_ENC_CNTS</Name>
+					<Comment>
+						<![CDATA[I/O Inputs to QRIX Motion PLC]]>
+					</Comment>
+					<Type>UINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Interface.QRIX_MOT_SDS_MMS_H_BACKWARD_EN</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_COM.stComIn</Name>
+					<Comment>
+						<![CDATA[SERIAL IO]]>
+					</Comment>
+					<Type GUID="{B2093238-7A67-422D-8EEF-49CE8F36A81D}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
+				</Var>
+				<Var>
+					<Name>GVL_COM.E2_stComIn</Name>
+					<Comment>
+						<![CDATA[SERIAL IO]]>
+					</Comment>
+					<Type GUID="{B2093238-7A67-422D-8EEF-49CE8F36A81D}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
+				</Var>
+				<Var>
 					<Name>GVL_Devices.qRIXS_ROUGH_GPI_03.i_iPRESS_R</Name>
 					<Comment>
 						<![CDATA[ input Pressure // Link to analog Input]]>
@@ -1335,23 +1364,28 @@
 					<Name>GVL_Devices.qRIXS_SDS_PTM_10.i_xRemote</Name>
 					<Type>BOOL</Type>
 				</Var>
-				<Var>
-					<Name>GVL_COM.stComIn</Name>
-					<Comment>
-						<![CDATA[SERIAL IO]]>
-					</Comment>
-					<Type GUID="{B2093238-7A67-422D-8EEF-49CE8F36A81D}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
-				</Var>
-				<Var>
-					<Name>GVL_COM.E2_stComIn</Name>
-					<Comment>
-						<![CDATA[SERIAL IO]]>
-					</Comment>
-					<Type GUID="{B2093238-7A67-422D-8EEF-49CE8F36A81D}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
-				</Var>
 			</Vars>
 			<Vars VarGrpType="2">
 				<Name>CommTask Outputs</Name>
+				<Var>
+					<Name>GVL_Interface.QRIX_VAC_VGC_03_OP_CMD</Name>
+					<Comment>
+						<![CDATA[I/O Outputs to QRIX Motion PLC]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Interface.QRIX_VAC_VGC_03_CL_CMD</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_COM.stComOut</Name>
+					<Type GUID="{E40E9657-F46E-473A-A561-FDB8B575D641}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
+				</Var>
+				<Var>
+					<Name>GVL_COM.E2_stComOut</Name>
+					<Type GUID="{E40E9657-F46E-473A-A561-FDB8B575D641}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
+				</Var>
 				<Var>
 					<Name>GVL_Devices.qRIXS_SC_VRC_31.q_xOPN_DO</Name>
 					<Type>BOOL</Type>
@@ -1411,14 +1445,6 @@
 				<Var>
 					<Name>GVL_Devices.qRIXS_SDS_PTM_10.q_xReset</Name>
 					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_COM.stComOut</Name>
-					<Type GUID="{E40E9657-F46E-473A-A561-FDB8B575D641}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
-				</Var>
-				<Var>
-					<Name>GVL_COM.E2_stComOut</Name>
-					<Type GUID="{E40E9657-F46E-473A-A561-FDB8B575D641}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
 				</Var>
 			</Vars>
 			<Vars VarGrpType="8">
@@ -1560,6 +1586,14 @@
 					</OwnerB>
 				</OwnerA>
 			</UnrestoredVarLinks>
+			<UnrestoredVarLinks ImportTime="2024-03-12T14:04:12">
+				<OwnerA Name="InputDst" Prefix="TIPC^PLC_QRIX_VAC^PLC_QRIX_VAC Instance" Type="1">
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^B950_233_R03_DRL_01^EK1122_00_16^QRIX_MOT_INT (EL6692)">
+						<Link VarA="GVL_Interface.QRIX_MOT_SDS_MMS_H_BACKWARD_EN" TypeA="UINT" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000005}" VarB="IO Inputs^QRIX_MOT_SDS_MMS_H_BACKWARD_EN" AutoLink="true" Size="8" RestoreInfo="TypeMismatch" OldTypeA="UINT" OldGuidA="{18071995-0000-0000-0000-000000000005}" NewTypeA="BOOL" NewGuidA="{18071995-0000-0000-0000-000000000030}"/>
+						<Link VarA="GVL_Interface.QRIX_MOT_SDS_MMS_H_FORWARD_EN" TypeA="UINT" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000005}" VarB="IO Inputs^QRIX_MOT_SDS_MMS_H_FORWARD_EN" AutoLink="true" Size="8" RestoreInfo="TypeMismatch" OldTypeA="UINT" OldGuidA="{18071995-0000-0000-0000-000000000005}" NewTypeA="BOOL" NewGuidA="{18071995-0000-0000-0000-000000000030}"/>
+					</OwnerB>
+				</OwnerA>
+			</UnrestoredVarLinks>
 			<TaskPouOids>
 				<TaskPouOid Prio="21" OTCID="#x08502002"/>
 				<TaskPouOid Prio="20" OTCID="#x08502001"/>
@@ -1583,6 +1617,13 @@
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^B950_233_R03_DRL_01^EK1122_00_16^B950-310-WALL-W-DRL-02^EL3174-0002_03_07">
 				<Link VarA="PlcTask Inputs^GVL_Devices.qRIXS_ROUGH_GPI_01.i_iPRESS_R" VarB="AI Standard Channel 4^Value" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^B950_233_R03_DRL_01^EK1122_00_16^QRIX_MOT_INT (EL6692)">
+				<Link VarA="CommTask Inputs^GVL_Interface.QRIX_MOT_SDS_MMS_H_BACKWARD_EN" VarB="IO Inputs^QRIX_MOT_SDS_MMS_H_BACKWARD_EN" AutoLink="true"/>
+				<Link VarA="CommTask Inputs^GVL_Interface.QRIX_MOT_SDS_MMS_H_FORWARD_EN" VarB="IO Inputs^QRIX_MOT_SDS_MMS_H_FORWARD_EN" AutoLink="true"/>
+				<Link VarA="CommTask Inputs^GVL_Interface.QRIX_MOT_SDS_MMS_H_RAW_ENC_CNTS" VarB="IO Inputs^QRIX_MOT_SDS_MMS_H_RAW_ENC_CNTS" AutoLink="true"/>
+				<Link VarA="CommTask Outputs^GVL_Interface.QRIX_VAC_VGC_03_CL_CMD" VarB="IO Outputs^QRIX_VAC_VGC_03_CL_CMD"/>
+				<Link VarA="CommTask Outputs^GVL_Interface.QRIX_VAC_VGC_03_OP_CMD" VarB="IO Outputs^QRIX_VAC_VGC_03_OP_CMD"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^B950_233_R03_DRL_01^EL1004_00_05">
 				<Link VarA="PlcTask Inputs^GVL_Devices.qRIXS_DET_PIP_01.i_xSP_DI" VarB="Channel 4^Input" AutoLink="true"/>

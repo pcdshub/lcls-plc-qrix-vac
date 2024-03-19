@@ -10,5 +10,8 @@
 		<Box File="B950-310-WALL-W-DRL-02.xti" Id="79">
 			<EtherCAT PortABoxInfo="#x0300001f"/>
 		</Box>
+		<Box File="QRIX_MOT_INT (EL6692).xti" Id="92">
+			<EtherCAT PortABoxInfo="#x0100001f"/>
+		</Box>
 	</Box>
 </TcSmItem>

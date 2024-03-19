@@ -53,9 +53,21 @@
 		<Box File="qRIXS_PNL1_E0_EK1100.xti" Id="105">
 			<EtherCAT PortABoxInfo="#x02000038"/>
 		</Box>
-		<EtherCAT EnableVirtualSwitch="true" MaxSwitchPorts="2" MaxSwitchFrames="120">
+		<EtherCAT EnableVirtualSwitch="true" MaxSwitchPorts="3" MaxSwitchFrames="140">
 			<SyncUnit Name="Sample Chamber" NoDeleteIfUnused="true"/>
 			<SyncUnit Name="Spectrometer Arm" NoDeleteIfUnused="true"/>
 		</EtherCAT>
 	</Device>
+	<Mappings>
+		<OwnerA>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^B950_233_R03_DRL_01^EK1122_00_16^QRIX_MOT_INT (EL6692)">
+				<Link VarA="B950_233_WALL_S_DRL_04^EL1004_01_03^Channel 3^Input" VarB="IO Outputs^QRIX_VAC_VGC_03_OPEN_LIMIT_SWITCH"/>
+				<Link VarA="B950_233_WALL_S_DRL_04^EL1004_01_03^Channel 4^Input" VarB="IO Outputs^QRIX_VAC_VGC_03_CLOSED_LIMIT_SWITCH"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^B950_233_WALL_S_DRL_04^EL1004_01_03">
+				<Link VarA="B950_233_R03_DRL_01^EK1122_00_16^QRIX_MOT_INT (EL6692)^IO Outputs^QRIX_VAC_VGC_03_CLOSED_LIMIT_SWITCH" VarB="Channel 4^Input"/>
+				<Link VarA="B950_233_R03_DRL_01^EK1122_00_16^QRIX_MOT_INT (EL6692)^IO Outputs^QRIX_VAC_VGC_03_OPEN_LIMIT_SWITCH" VarB="Channel 3^Input"/>
+			</OwnerB>
+		</OwnerA>
+	</Mappings>
 </TcSmItem>

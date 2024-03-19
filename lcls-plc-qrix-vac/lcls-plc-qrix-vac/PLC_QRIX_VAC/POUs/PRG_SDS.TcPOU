@@ -18,10 +18,10 @@ fb_QRIX_SDS_VVC_02(i_xExtILK_OK := TRUE, i_xOverrideMode := xSystemOverrideMode,
 
 //VRC
 (*fb_QRIX_SDS_VRC_01(i_xOverrideMode := xSystemOverrideMode, iq_stValve =>);
-fb_QRIX_SDS_VRC_01.i_xExtILK_OK := F_TurboGateValve_Protection_ILK( i_Turbo := QRIX_SD_PTM_01.iq_stPTM , 
-																   i_stISG := fb_QRIX_SDS_GPI_01.PG, i_stBSG := fb_QRIX_SC_GPI_01.PG,
-																	ScrollPump := fb_QRIX_PRO_01 );
-																	
+fb_QRIX_SDS_VRC_01.i_xExtILK_OK := F_TurboGateValve_Protection_ILK( i_Turbo := QRIX_SD_PTM_01.iq_stPTM ,
+                                                                   i_stISG := fb_QRIX_SDS_GPI_01.PG, i_stBSG := fb_QRIX_SC_GPI_01.PG,
+                                                                    ScrollPump := fb_QRIX_PRO_01 );
+
 *)
 ]]></ST>
     </Implementation>

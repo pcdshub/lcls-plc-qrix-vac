@@ -3,34 +3,34 @@
   <POU Name="PRG_SampleChamber" Id="{cb28682b-30d3-426f-a474-a5d2845e7f8a}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_SampleChamber
 VAR
-	QRIX: T_MaxString;
-	iWatchdog: UDINT;
-	RIX_TV4K2_GFS_1:FB_TGCC_ADS;
-	RIX_IM5K2_PPM_GCC_1:FB_TGCC_ADS;
-	
-	//PTM interlocks
-	qRIXS_SC_PTM_10_ILK : FB_ChemRIXS_Turbo_ILK;
-	qRIXS_SC_PTM_20_ILK : FB_ChemRIXS_Turbo_ILK;
-	qRIXS_SC_PTM_30_ILK : FB_ChemRIXS_Turbo_ILK;
+    QRIX: T_MaxString;
+    iWatchdog: UDINT;
+    RIX_TV4K2_GFS_1:FB_TGCC_ADS;
+    RIX_IM5K2_PPM_GCC_1:FB_TGCC_ADS;
+
+    //PTM interlocks
+    qRIXS_SC_PTM_10_ILK : FB_ChemRIXS_Turbo_ILK;
+    qRIXS_SC_PTM_20_ILK : FB_ChemRIXS_Turbo_ILK;
+    qRIXS_SC_PTM_30_ILK : FB_ChemRIXS_Turbo_ILK;
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[//ADS interfaces
 RIX_TV4K2_GFS_1(
-	sNetId:= '172.21.140.69.1.1', 
-	nPort:= 851, 
-	sVarName:= 'GVL_KFE_RIX_VAC.fb_TV4K2_GFS_1', 
-	iWatchdog:= iWatchdog , 
-	IG=> , 
-	bError=> );
+    sNetId:= '172.21.140.69.1.1',
+    nPort:= 851,
+    sVarName:= 'GVL_KFE_RIX_VAC.fb_TV4K2_GFS_1',
+    iWatchdog:= iWatchdog ,
+    IG=> ,
+    bError=> );
 RIX_IM5K2_PPM_GCC_1(
-	sNetId:= '172.21.140.69.1.1', 
-	nPort:= 851, 
-	sVarName:= 'GVL_KFE_RIX_VAC.fb_IM5K2_PPM_GCC_1', 
-	iWatchdog:= iWatchdog , 
-	IG=> , 
-	bError=> );
-	
+    sNetId:= '172.21.140.69.1.1',
+    nPort:= 851,
+    sVarName:= 'GVL_KFE_RIX_VAC.fb_IM5K2_PPM_GCC_1',
+    iWatchdog:= iWatchdog ,
+    IG=> ,
+    bError=> );
+
 //MKS 275 Gauges
 qRIXS_SC_GPI_01.M_SetBits(30518);
 qRIXS_SC_GPI_01(PG=>);
@@ -51,91 +51,93 @@ qRIXS_SSL_GCP_30();
 qRIXS_SC_PIP_01(i_stGauge:=qRIXS_SC_GPI_01.PG, i_xOverrideMode:= xSystemOverrideMode);
 qRIXS_SC_PIP_02(i_stGauge:=qRIXS_SC_GPI_01.PG, i_xOverrideMode:= xSystemOverrideMode);
 
-//Pfiffer Turbo 
+//Pfiffer Turbo
 
 //VVC
 qRIXS_SC_VVC_01.i_xExtILK_OK := qRIXS_SC_PTM_10.iq_stPTM.eState = E_PumpState.pumpSTOPPED
-							AND qRIXS_SC_PTM_20.iq_stPTM.eState = E_PumpState.pumpSTOPPED
-							AND qRIXS_SC_PTM_30.iq_stPTM.eState = E_PumpState.pumpSTOPPED;
+                            AND qRIXS_SC_PTM_20.iq_stPTM.eState = E_PumpState.pumpSTOPPED
+                            AND qRIXS_SC_PTM_30.iq_stPTM.eState = E_PumpState.pumpSTOPPED;
 qRIXS_SC_VVC_01(i_xExtILK_OK := , i_xOverrideMode := xSystemOverrideMode, iq_stValve => );
 qRIXS_SC_VVC_02.i_xExtILK_OK := qRIXS_SC_PTM_10.iq_stPTM.eState = E_PumpState.pumpSTOPPED
-							AND qRIXS_SC_PTM_20.iq_stPTM.eState = E_PumpState.pumpSTOPPED
-							AND qRIXS_SC_PTM_30.iq_stPTM.eState = E_PumpState.pumpSTOPPED;
+                            AND qRIXS_SC_PTM_20.iq_stPTM.eState = E_PumpState.pumpSTOPPED
+                            AND qRIXS_SC_PTM_30.iq_stPTM.eState = E_PumpState.pumpSTOPPED;
 qRIXS_SC_VVC_02(i_xExtILK_OK := , i_xOverrideMode := xSystemOverrideMode, iq_stValve => );
 
-//VGC Valves 
-///VGC on Beamline 
+//VGC Valves
+///VGC on Beamline
 qRIXS_SC_VGC_01(
-	i_stUSG:= RIX_TV4K2_GFS_1.IG, 
-	i_stDSG:= qRIXS_SC_GCC_01.IG, 
-	i_xDis_DPIlk:= FALSE , 
-	i_xPMPS_OK:= TRUE , 
-	i_xEPS_OK:= TRUE, 
-	i_xExt_OK:= TRUE, 
-	i_xOverrideMode:= xSystemOverrideMode , 
-	i_xReset:= , 
-	i_xIsAperture:= FALSE, 
-	i_sDevName:= 'QRIX:SC:VGC:01', 
-	i_nTransitionRootID:= , 
-	iq_stValve=> , 
-	xMPS_OK=> , 
-	io_fbFFHWO:= GVL_PMPS.fbFastFaultOutput1 , 
-	fbArbiter:= GVL_PMPS.fbArbiter );
+    i_stUSG:= RIX_TV4K2_GFS_1.IG,
+    i_stDSG:= qRIXS_SC_GCC_01.IG,
+    i_xDis_DPIlk:= FALSE ,
+    i_xPMPS_OK:= TRUE ,
+    i_xEPS_OK:= TRUE,
+    i_xExt_OK:= TRUE,
+    i_xOverrideMode:= xSystemOverrideMode ,
+    i_xReset:= ,
+    i_xIsAperture:= FALSE,
+    i_sDevName:= 'QRIX:SC:VGC:01',
+    i_nTransitionRootID:= ,
+    iq_stValve=> ,
+    xMPS_OK=> ,
+    io_fbFFHWO:= GVL_PMPS.fbFastFaultOutput1 ,
+    fbArbiter:= GVL_PMPS.fbArbiter );
 
 qRIXS_SC_VGC_02(
-	i_stUSG:= qRIXS_SC_GCC_01.IG, 
-	i_stDSG:= RIX_IM5K2_PPM_GCC_1.IG, 
-	i_xDis_DPIlk:= FALSE , 
-	i_xPMPS_OK:= TRUE , 
-	i_xEPS_OK:= TRUE, 
-	i_xExt_OK:= TRUE, 
-	i_xOverrideMode:= xSystemOverrideMode , 
-	i_xReset:= , 
-	i_xIsAperture:= FALSE, 
-	i_sDevName:= 'QRIX:SC:VGC:02', 
-	i_nTransitionRootID:= , 
-	iq_stValve=> , 
-	xMPS_OK=> , 
-	io_fbFFHWO:= GVL_PMPS.fbFastFaultOutput1 , 
-	fbArbiter:= GVL_PMPS.fbArbiter );
-	
+    i_stUSG:= qRIXS_SC_GCC_01.IG,
+    i_stDSG:= RIX_IM5K2_PPM_GCC_1.IG,
+    i_xDis_DPIlk:= FALSE ,
+    i_xPMPS_OK:= TRUE ,
+    i_xEPS_OK:= TRUE,
+    i_xExt_OK:= TRUE,
+    i_xOverrideMode:= xSystemOverrideMode ,
+    i_xReset:= ,
+    i_xIsAperture:= FALSE,
+    i_sDevName:= 'QRIX:SC:VGC:02',
+    i_nTransitionRootID:= ,
+    iq_stValve=> ,
+    xMPS_OK=> ,
+    io_fbFFHWO:= GVL_PMPS.fbFastFaultOutput1 ,
+    fbArbiter:= GVL_PMPS.fbArbiter );
+
 //VRC 10
 qRIXS_SC_VRC_10.i_xExtILK_OK := qRIXS_SC_PTM_10.iq_stPTM.eState = E_PumpState.pumpRUNNING;
-(*F_TurboGateValve_Protection_ILK( i_Turbo := qRIXS_SC_PTM_10.iq_stPTM , 
-																   i_stISG := qRIXS_SC_GPI_01.PG, i_stBSG := qRIXS_ROUGH_GPI_11.PG,
-																	ScrollPump := qRIXS_PRO_01.stPump );
-*)														
+(*F_TurboGateValve_Protection_ILK( i_Turbo := qRIXS_SC_PTM_10.iq_stPTM ,
+                                                                   i_stISG := qRIXS_SC_GPI_01.PG, i_stBSG := qRIXS_ROUGH_GPI_11.PG,
+                                                                    ScrollPump := qRIXS_PRO_01.stPump );
+*)
 qRIXS_SC_VRC_10(i_xOverrideMode:=xSystemOverrideMode , iq_stValve=> );
 
 //VRC 20
-qRIXS_SC_VRC_20.i_xExtILK_OK := F_TurboGateValve_Protection_ILK( i_Turbo := qRIXS_SC_PTM_20.iq_stPTM , 
-																   i_stISG := qRIXS_SSL_GCP_20.PG, i_stBSG := qRIXS_ROUGH_GPI_11.PG,
-																	ScrollPump := qRIXS_PRO_01.stPump );
-																	
+qRIXS_SC_VRC_20.i_xExtILK_OK :=  qRIXS_SC_PTM_20.iq_stPTM.eState = E_PumpState.pumpRUNNING;
+(*F_TurboGateValve_Protection_ILK( i_Turbo := qRIXS_SC_PTM_20.iq_stPTM ,
+                                                                   i_stISG := qRIXS_SSL_GCP_20.PG, i_stBSG := qRIXS_ROUGH_GPI_11.PG,
+                                                                    ScrollPump := qRIXS_PRO_01.stPump );*)
+
 qRIXS_SC_VRC_20(i_xOverrideMode:=xSystemOverrideMode , iq_stValve=> );
 
 
 //VRC 30
-qRIXS_SC_VRC_30.i_xExtILK_OK := F_TurboGateValve_Protection_ILK( i_Turbo := qRIXS_SC_PTM_30.iq_stPTM , 
-																   i_stISG := qRIXS_SSL_GCP_30.PG, i_stBSG := qRIXS_ROUGH_GPI_11.PG,
-																	ScrollPump := qRIXS_PRO_01.stPump );
-																	
+qRIXS_SC_VRC_30.i_xExtILK_OK :=  qRIXS_SC_PTM_30.iq_stPTM.eState = E_PumpState.pumpRUNNING;
+(*F_TurboGateValve_Protection_ILK( i_Turbo := qRIXS_SC_PTM_30.iq_stPTM ,
+                                                                   i_stISG := qRIXS_SSL_GCP_30.PG, i_stBSG := qRIXS_ROUGH_GPI_11.PG,
+                                                                    ScrollPump := qRIXS_PRO_01.stPump );*)
+
 qRIXS_SC_VRC_30(i_xOverrideMode:=xSystemOverrideMode , iq_stValve=> );
 
 //PTM ILK
 //qRIXS_SC_PTM_10_ILK(i_stValve:=qRIXS_ROUGH_VRC_02.iq_stValve, i_stPump:=qRIXS_SC_PTM_10.iq_stPTM, tDelay:=T#200S, bILK=>);
-qRIXS_SC_PTM_10(i_xExtIlkOK:=(*qRIXS_SC_PTM_10_ILK.bILK 
-				AND *)F_TurboExtILKLogic_2(Turbo:=qRIXS_SC_PTM_10.iq_stPTM,BackingGauge:=qRIXS_ROUGH_GPI_02.PG, InletGauge:=qRIXS_SC_GPI_01.PG, ScrollPump:= qRIXS_PRO_01.stPump) );
+qRIXS_SC_PTM_10(i_xExtIlkOK:=(*qRIXS_SC_PTM_10_ILK.bILK
+                AND *)F_TurboExtILKLogic_2(Turbo:=qRIXS_SC_PTM_10.iq_stPTM,BackingGauge:=qRIXS_ROUGH_GPI_02.PG, InletGauge:=qRIXS_SC_GPI_01.PG, ScrollPump:= qRIXS_PRO_01.stPump) );
 
 //qRIXS_SC_PTM_20_ILK(i_stValve:=qRIXS_ROUGH_VRC_02.iq_stValve, i_stPump:=qRIXS_SC_PTM_20.iq_stPTM, tDelay:=T#200S, bILK=>);
-qRIXS_SC_PTM_20(i_xExtIlkOK:=(*qRIXS_SC_PTM_20_ILK.bILK 
-				AND *)F_TurboExtILKLogic_2(Turbo:=qRIXS_SC_PTM_20.iq_stPTM,BackingGauge:=qRIXS_ROUGH_GPI_02.PG, InletGauge:=qRIXS_SSL_GCP_20.PG, ScrollPump:= qRIXS_PRO_01.stPump) );
+qRIXS_SC_PTM_20(i_xExtIlkOK:=(*qRIXS_SC_PTM_20_ILK.bILK
+                AND *)F_TurboExtILKLogic_2(Turbo:=qRIXS_SC_PTM_20.iq_stPTM,BackingGauge:=qRIXS_ROUGH_GPI_02.PG, InletGauge:=qRIXS_SSL_GCP_20.PG, ScrollPump:= qRIXS_PRO_01.stPump) );
 
 //qRIXS_SC_PTM_30_ILK(i_stValve:=qRIXS_ROUGH_VRC_02.iq_stValve, i_stPump:=qRIXS_SC_PTM_30.iq_stPTM, tDelay:=T#200S, bILK=>);
-qRIXS_SC_PTM_30(i_xExtIlkOK:=(*qRIXS_SC_PTM_30_ILK.bILK 
-			AND*) F_TurboExtILKLogic_2(Turbo:=qRIXS_SC_PTM_30.iq_stPTM,BackingGauge:=qRIXS_ROUGH_GPI_02.PG, InletGauge:=qRIXS_SSL_GCP_30.PG, ScrollPump:= qRIXS_PRO_01.stPump) );
+qRIXS_SC_PTM_30(i_xExtIlkOK:=(*qRIXS_SC_PTM_30_ILK.bILK
+            AND*) F_TurboExtILKLogic_2(Turbo:=qRIXS_SC_PTM_30.iq_stPTM,BackingGauge:=qRIXS_ROUGH_GPI_02.PG, InletGauge:=qRIXS_SSL_GCP_30.PG, ScrollPump:= qRIXS_PRO_01.stPump) );
 
-			
+
 //Pfeiffer Turbo Serial
 
 
@@ -144,13 +146,13 @@ st_Pfeiffer_CTRL[1].iSerialAddress :=1;
 st_Pfeiffer_CTRL[1].xEnableComm := TRUE;
 st_Pfeiffer_CTRL[2].iSerialAddress :=2;
 st_Pfeiffer_CTRL[2].xEnableComm := TRUE;
-	
-(* Instanitate the Function block for serial communication with Pfeiffer*)	
+
+(* Instanitate the Function block for serial communication with Pfeiffer*)
 fb_PfeifferCom(astPfeifferControl := st_Pfeiffer_CTRL,
-			   astPfeifferStatus:= st_Pfeiffer_RBK,
-				SerialRXBuffer:= E2_SerialRXBuffer,
-				SerialTXBuffer:= E2_SerialTXBuffer);
-				
+               astPfeifferStatus:= st_Pfeiffer_RBK,
+                SerialRXBuffer:= E2_SerialRXBuffer,
+                SerialTXBuffer:= E2_SerialTXBuffer);
+
 
 (* Copy Status Pv's into the PTM structure*)
 qRIXS_SC_PTM_10.M_Serial_IO(st_Pfeiffer_CTRL:=st_Pfeiffer_CTRL[1],st_Pfeiffer_RBK:=st_Pfeiffer_RBK[1]);

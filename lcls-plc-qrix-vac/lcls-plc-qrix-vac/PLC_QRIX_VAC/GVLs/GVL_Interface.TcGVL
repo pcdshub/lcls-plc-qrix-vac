@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <GVL Name="GVL_Interface" Id="{a7b0d595-db2a-4877-bd39-489561f20390}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+
+    (*I/O Inputs to QRIX Motion PLC*)
+
+    {attribute 'TcLinkTo' :=  'TIID^Device 1 (EtherCAT)^B950_233_R03_DRL_01^EK1122_00_16^QRIX_MOT_INT (EL6692)^IO Inputs^QRIX_MOT_SDS_MMS_H_RAW_ENC_CNTS
+    '}
+    QRIX_MOT_SDS_MMS_H_RAW_ENC_CNTS AT %I* : UINT;
+
+    {attribute 'TcLinkTo' :=  'TIID^Device 1 (EtherCAT)^B950_233_R03_DRL_01^EK1122_00_16^QRIX_MOT_INT (EL6692)^IO Inputs^QRIX_MOT_SDS_MMS_H_FORWARD_EN
+    '}
+    QRIX_MOT_SDS_MMS_H_FORWARD_EN AT %I* : BOOL;
+
+    {attribute 'TcLinkTo' :=  'TIID^Device 1 (EtherCAT)^B950_233_R03_DRL_01^EK1122_00_16^QRIX_MOT_INT (EL6692)^IO Inputs^QRIX_MOT_SDS_MMS_H_BACKWARD_EN
+    '}
+    QRIX_MOT_SDS_MMS_H_BACKWARD_EN AT %I* : BOOL;
+
+    (*I/O Outputs to QRIX Motion PLC*)
+
+    {attribute 'TcLinkTo' :=  'TIID^Device 1 (EtherCAT)^B950_233_R03_DRL_01^EK1122_00_16^QRIX_MOT_INT (EL6692)^IO Outputs^QRIX_VAC_VGC_03_OP_CMD
+    '}
+    QRIX_VAC_VGC_03_OP_CMD AT %Q* : BOOL;
+
+    {attribute 'TcLinkTo' :=  'TIID^Device 1 (EtherCAT)^B950_233_R03_DRL_01^EK1122_00_16^QRIX_MOT_INT (EL6692)^IO Outputs^QRIX_VAC_VGC_03_CL_CMD
+    '}
+    QRIX_VAC_VGC_03_CL_CMD AT %Q* : BOOL;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>
