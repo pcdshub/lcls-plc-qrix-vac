@@ -18,7 +18,7 @@
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="_static/docs-versions-menu.js?v=3d6a1aea"></script>
     <script src="_static/js/theme.js"></script>
@@ -69,6 +69,7 @@
 <li class="toctree-l1"><a class="reference internal" href="#gvls">GVLs</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#gvl-com">GVL_COM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#gvl-devices">GVL_Devices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gvl-interface">GVL_Interface</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#gvl-pmps">GVL_PMPS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#gvl-sa">GVL_SA</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#gvl-variables">GVL_Variables</a></li>
@@ -309,6 +310,13 @@
 <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span>    <span class="s1">&#39;.i_iPRESS_R    :=      TIIB[EL3174-0002_01_23]^AI Standard Channel 3^Value&#39;</span><span class="p">}</span>
 <span class="n">qRIXS_ROUGH_GPI_31</span> <span class="p">:</span> <span class="n">FB_MKS275</span><span class="p">;</span>
 
+<span class="p">(</span><span class="o">*</span> <span class="n">MKS972</span> <span class="o">-</span> <span class="n">Full</span> <span class="nb">range</span> <span class="n">guage</span> <span class="o">*</span><span class="p">)</span>
+<span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span>    <span class="s1">&#39;.i_iPRESS_R    :=              TIIB[EL3174-0002_02_13]^AI Standard Channel 2^Value&#39;</span><span class="p">}</span>
+<span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+    <span class="n">pv</span><span class="p">:</span> <span class="n">QRIXS</span><span class="p">:</span><span class="n">SA</span><span class="p">:</span><span class="n">GCP</span><span class="p">:</span><span class="mi">02</span>
+    <span class="n">io</span><span class="p">:</span> <span class="n">io</span>
+<span class="s1">&#39;}</span>
+<span class="n">qRIXS_SA_GCP_02</span><span class="p">:</span> <span class="n">FB_972</span><span class="p">;</span>
 
 <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
     <span class="n">pv</span><span class="p">:</span> <span class="n">QRIXS</span><span class="p">:</span><span class="n">SSL</span><span class="p">:</span><span class="n">GCP</span><span class="p">:</span><span class="mi">20</span>
@@ -324,16 +332,16 @@
 <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span>    <span class="s1">&#39;.i_iPRESS_R    :=      TIIB[EL3174-0002_01_24]^AI Standard Channel 2^Value&#39;</span><span class="p">}</span>
 <span class="n">qRIXS_SSL_GCP_30</span><span class="p">:</span> <span class="n">FB_972</span><span class="p">;</span>
 
+<span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39; pv: QRIXS:SDS:GCP:01 &#39;</span><span class="p">}</span>
+<span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span>    <span class="s1">&#39;.i_iPRESS_R    :=      TIIB[EL3174-0002_02_13]^AI Standard Channel 1^Value&#39;</span><span class="p">}</span>
+<span class="n">qRIXS_SDS_GCP_01</span> <span class="p">:</span> <span class="n">FB_972</span><span class="p">;</span>
+
 <span class="o">//</span><span class="n">MKS</span><span class="o">-</span><span class="mi">275</span>
-<span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39; pv: QRIXS:ROUGH:GPI:03 &#39;</span><span class="p">}</span>
-<span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span>    <span class="s1">&#39;.i_iPRESS_R    :=      TIIB[EL3174-0002_02_13]^AI Standard Channel 2^Value&#39;</span><span class="p">}</span>
-<span class="n">qRIXS_ROUGH_GPI_03</span> <span class="p">:</span> <span class="n">FB_MKS275</span><span class="p">;</span>
+
 <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39; pv: QRIXS:ROUGH:GPI:04 &#39;</span><span class="p">}</span>
 <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span>    <span class="s1">&#39;.i_iPRESS_R    :=      TIIB[EL3174-0002_02_13]^AI Standard Channel 3^Value&#39;</span><span class="p">}</span>
 <span class="n">qRIXS_ROUGH_GPI_04</span> <span class="p">:</span> <span class="n">FB_MKS275</span><span class="p">;</span>
-<span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39; pv: QRIXS:SDS:GPI:01 &#39;</span><span class="p">}</span>
-<span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span>    <span class="s1">&#39;.i_iPRESS_R    :=      TIIB[EL3174-0002_02_13]^AI Standard Channel 1^Value&#39;</span><span class="p">}</span>
-<span class="n">qRIXS_SDS_GPI_01</span> <span class="p">:</span> <span class="n">FB_MKS275</span><span class="p">;</span>
+
 
 
 
@@ -403,12 +411,7 @@
 <span class="s1">&#39;}</span>
 <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39; pv: QRIX:SC:VRC:30 &#39;</span><span class="p">}</span>
 <span class="n">qRIXS_SC_VRC_30</span> <span class="p">:</span> <span class="n">FB_VRC</span><span class="p">;</span>
-<span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span>    <span class="s1">&#39;.i_xOpnLS      :=      TIIB[EL1004_01_09]^Channel 1^Input;</span>
-                                                    <span class="o">.</span><span class="n">i_xClsLS</span>       <span class="o">:=</span>      <span class="n">TIIB</span><span class="p">[</span><span class="n">EL1004_01_09</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">Input</span><span class="p">;</span>
-                                                    <span class="o">.</span><span class="n">q_xOPN_DO</span>      <span class="o">:=</span>      <span class="n">TIIB</span><span class="p">[</span><span class="n">EL2004_01_10</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">Output</span>
-<span class="s1">&#39;}</span>
-<span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39; pv: QRIX:SC:VRC:31 &#39;</span><span class="p">}</span>
-<span class="n">qRIXS_SC_VRC_31</span> <span class="p">:</span> <span class="n">FB_VRC</span><span class="p">;</span>
+
 <span class="o">//</span><span class="n">VGC</span>
 <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span>    <span class="s1">&#39;.i_xOpnLS      :=      TIIB[EL1004_01_07]^Channel 3^Input;</span>
                                                      <span class="o">.</span><span class="n">i_xClsLS</span>      <span class="o">:=</span>      <span class="n">TIIB</span><span class="p">[</span><span class="n">EL1004_01_07</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">4</span><span class="o">^</span><span class="n">Input</span><span class="p">;</span>
@@ -431,13 +434,14 @@
 <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span>    <span class="s1">&#39;.i_xOpnLS      :=      TIIB[EL1004_01_03]^Channel 3^Input;</span>
                                                      <span class="o">.</span><span class="n">i_xClsLS</span>      <span class="o">:=</span>      <span class="n">TIIB</span><span class="p">[</span><span class="n">EL1004_01_03</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">4</span><span class="o">^</span><span class="n">Input</span><span class="p">;</span>
                                                      <span class="o">.</span><span class="n">q_xOPN_DO</span>     <span class="o">:=</span>      <span class="n">TIIB</span><span class="p">[</span><span class="n">EL2004_01_02</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">4</span><span class="o">^</span><span class="n">Output</span><span class="p">;</span>
-                                                     <span class="o">.</span><span class="n">q_xCls_DO</span>     <span class="o">:=</span>      <span class="n">TIIB</span><span class="p">[</span><span class="n">EL2004_01_02</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">3</span><span class="o">^</span><span class="n">Output</span>
+                                                     <span class="o">.</span><span class="n">q_xCls_DO</span>     <span class="o">:=</span>      <span class="n">TIIB</span><span class="p">[</span><span class="n">EL2004_01_10</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">Output</span>
     <span class="s1">&#39;}</span>
 <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
             <span class="n">pv</span><span class="p">:</span> <span class="n">QRIX</span><span class="p">:</span><span class="n">SC</span><span class="p">:</span><span class="n">VGC</span><span class="p">:</span><span class="mi">03</span>
             <span class="n">io</span><span class="p">:</span> <span class="n">io</span>
     <span class="s1">&#39;}</span>
-<span class="n">qRIXS_SC_VGC_03</span> <span class="p">:</span> <span class="n">FB_VGC</span><span class="p">;</span>
+<span class="n">qRIXS_SC_VGC_03</span> <span class="p">:</span> <span class="n">FB_VRC_DA</span><span class="p">;</span>
+
 <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span>    <span class="s1">&#39;.i_xOpnLS      :=      TIIB[EL1004_01_05]^Channel 1^Input;</span>
                                                      <span class="o">.</span><span class="n">i_xClsLS</span>      <span class="o">:=</span>      <span class="n">TIIB</span><span class="p">[</span><span class="n">EL1004_01_05</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">Input</span><span class="p">;</span>
                                                      <span class="o">.</span><span class="n">q_xOPN_DO</span>     <span class="o">:=</span>      <span class="n">TIIB</span><span class="p">[</span><span class="n">EL2004_01_04</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">Output</span>
@@ -447,15 +451,10 @@
 <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39; pv: QRIXS:SC:VGC:05 &#39;</span><span class="p">}</span>
 <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span>    <span class="s1">&#39;.i_xOpnLS      :=      TIIB[EL1004_01_05]^Channel 3^Input;</span>
                                                      <span class="o">.</span><span class="n">i_xClsLS</span>      <span class="o">:=</span>      <span class="n">TIIB</span><span class="p">[</span><span class="n">EL1004_01_05</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">4</span><span class="o">^</span><span class="n">Input</span><span class="p">;</span>
-                                                     <span class="o">.</span><span class="n">q_xOPN_DO</span>     <span class="o">:=</span>      <span class="n">TIIB</span><span class="p">[</span><span class="n">EL2004_01_04</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">Output</span>
+                                                     <span class="o">.</span><span class="n">q_xCLS_DO</span>     <span class="o">:=</span>      <span class="n">TIIB</span><span class="p">[</span><span class="n">EL2004_01_04</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">Output</span>
     <span class="s1">&#39;}</span>
-<span class="n">qRIXS_SC_VGC_05</span> <span class="p">:</span> <span class="n">FB_VGC</span><span class="p">;</span>
-<span class="o">//</span><span class="n">VVC</span>
-<span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span>    <span class="s1">&#39;.q_xOPN_DO     :=      TIIB[qRIXS_PNL1_E1_EL1004]^Channel 1^Input }</span>
-<span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39; pv: QRIXS:SC:VVC:01 &#39;</span><span class="p">}</span>
-<span class="n">qRIXS_SC_VVC_01</span> <span class="p">:</span> <span class="n">FB_VVC</span><span class="p">;</span>
-<span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39; pv: QRIXS:SC:VVC:02 &#39;</span><span class="p">}</span>
-<span class="n">qRIXS_SC_VVC_02</span> <span class="p">:</span> <span class="n">FB_VVC</span><span class="p">;</span>
+<span class="n">qRIXS_SC_VGC_05</span> <span class="p">:</span> <span class="n">FB_VRC_NO</span><span class="p">;</span>
+
 <span class="o">//</span><span class="n">PTM</span>
 <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span>    <span class="s1">&#39;.i_xAtSpd                      :=      TIIB[EL1004_01_13]^Channel 1^Input;</span>
                                                      <span class="o">.</span><span class="n">i_xFaultNC</span>            <span class="o">:=</span>      <span class="n">TIIB</span><span class="p">[</span><span class="n">EL1004_01_13</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">3</span><span class="o">^</span><span class="n">Input</span><span class="p">;</span>
@@ -535,11 +534,10 @@
 <span class="s1">&#39;}</span>
 <span class="n">qRIXS_SC_PTM_30</span> <span class="p">:</span> <span class="n">FB_PTM_Pfeiffer</span><span class="p">;</span>
 <span class="o">//</span><span class="n">PTM</span><span class="o">-</span> <span class="n">Turbo</span> <span class="n">Pump</span>
-<span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span>    <span class="s1">&#39;.i_xAtSpd                      :=      TIIB[qRIXS_PLC_EP01_EP2338-0002]^Channel 1^Input;</span>
-                                                     <span class="o">.</span><span class="n">i_xFaultNC</span>            <span class="o">:=</span>      <span class="n">TIIB</span><span class="p">[</span><span class="n">qRIXS_PLC_EP01_EP2338</span><span class="o">-</span><span class="mi">0002</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">Input</span><span class="p">;</span>
-                                                     <span class="o">.</span><span class="n">i_xRemote</span>                     <span class="o">:=</span>      <span class="n">TIIB</span><span class="p">[</span><span class="n">qRIXS_PLC_EP01_EP2338</span><span class="o">-</span><span class="mi">0002</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">3</span><span class="o">^</span><span class="n">Input</span><span class="p">;</span>
-                                                     <span class="o">.</span><span class="n">q_RunDO</span>                       <span class="o">:=</span>      <span class="n">TIIB</span><span class="p">[</span><span class="n">qRIXS_PLC_EP02_EP2624</span><span class="o">-</span><span class="mi">0002</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">Output</span><span class="p">;</span>
-                                                     <span class="o">.</span><span class="n">q_xReset</span>                      <span class="o">:=</span>      <span class="n">TIIB</span><span class="p">[</span><span class="n">qRIXS_PLC_EP02_EP2624</span><span class="o">-</span><span class="mi">0002</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">Output</span>
+<span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span>    <span class="s1">&#39;.i_xAtSpd                      :=      TIIB[EL1004_02_08]^Channel 2^Input;</span>
+                                                     <span class="o">.</span><span class="n">i_xFaultNC</span>            <span class="o">:=</span>      <span class="n">TIIB</span><span class="p">[</span><span class="n">EL1004_02_08</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">Input</span><span class="p">;</span>
+                                                     <span class="o">.</span><span class="n">q_RunDO</span>                       <span class="o">:=</span>      <span class="n">TIIB</span><span class="p">[</span><span class="n">EL2794_02_09</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">Output</span><span class="p">;</span>
+                                                     <span class="o">.</span><span class="n">q_xReset</span>                      <span class="o">:=</span>      <span class="n">TIIB</span><span class="p">[</span><span class="n">EL2794_02_09</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">Output</span>
 <span class="s1">&#39;}</span>
 <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
             <span class="n">pv</span><span class="p">:</span> <span class="n">QRIXS</span><span class="p">:</span><span class="n">SDS</span><span class="p">:</span><span class="n">PTM</span><span class="p">:</span><span class="mi">10</span>
@@ -598,6 +596,38 @@
 </pre></div>
 </div>
 </section>
+<section id="gvl-interface">
+<h2>GVL_Interface<a class="headerlink" href="#gvl-interface" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;qualified_only&#39;</span><span class="p">}</span>
+<span class="n">VAR_GLOBAL</span>
+
+    <span class="p">(</span><span class="o">*</span><span class="n">I</span><span class="o">/</span><span class="n">O</span> <span class="n">Inputs</span> <span class="n">to</span> <span class="n">QRIX</span> <span class="n">Motion</span> <span class="n">PLC</span><span class="o">*</span><span class="p">)</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span>  <span class="s1">&#39;TIID^Device 1 (EtherCAT)^B950_233_R03_DRL_01^EK1122_00_16^QRIX_MOT_INT (EL6692)^IO Inputs^QRIX_MOT_SDS_MMS_H_RAW_ENC_CNTS</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">QRIX_MOT_SDS_MMS_H_RAW_ENC_CNTS</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span> <span class="p">:</span> <span class="n">UINT</span><span class="p">;</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span>  <span class="s1">&#39;TIID^Device 1 (EtherCAT)^B950_233_R03_DRL_01^EK1122_00_16^QRIX_MOT_INT (EL6692)^IO Inputs^QRIX_MOT_SDS_MMS_H_FORWARD_EN</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">QRIX_MOT_SDS_MMS_H_FORWARD_EN</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span> <span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span>  <span class="s1">&#39;TIID^Device 1 (EtherCAT)^B950_233_R03_DRL_01^EK1122_00_16^QRIX_MOT_INT (EL6692)^IO Inputs^QRIX_MOT_SDS_MMS_H_BACKWARD_EN</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">QRIX_MOT_SDS_MMS_H_BACKWARD_EN</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span> <span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
+
+    <span class="p">(</span><span class="o">*</span><span class="n">I</span><span class="o">/</span><span class="n">O</span> <span class="n">Outputs</span> <span class="n">to</span> <span class="n">QRIX</span> <span class="n">Motion</span> <span class="n">PLC</span><span class="o">*</span><span class="p">)</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span>  <span class="s1">&#39;TIID^Device 1 (EtherCAT)^B950_233_R03_DRL_01^EK1122_00_16^QRIX_MOT_INT (EL6692)^IO Outputs^QRIX_VAC_VGC_03_OP_CMD</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">QRIX_VAC_VGC_03_OP_CMD</span> <span class="n">AT</span> <span class="o">%</span><span class="n">Q</span><span class="o">*</span> <span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span>  <span class="s1">&#39;TIID^Device 1 (EtherCAT)^B950_233_R03_DRL_01^EK1122_00_16^QRIX_MOT_INT (EL6692)^IO Outputs^QRIX_VAC_VGC_03_CL_CMD</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">QRIX_VAC_VGC_03_CL_CMD</span> <span class="n">AT</span> <span class="o">%</span><span class="n">Q</span><span class="o">*</span> <span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
+<span class="n">END_VAR</span>
+</pre></div>
+</div>
+</section>
 <section id="gvl-pmps">
 <h2>GVL_PMPS<a class="headerlink" href="#gvl-pmps" title="Link to this heading"></a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;qualified_only&#39;</span><span class="p">}</span>
@@ -639,7 +669,7 @@
             <span class="n">pv</span><span class="p">:</span> <span class="n">QRIXS</span><span class="p">:</span><span class="n">BLW</span><span class="p">:</span><span class="n">VRC</span><span class="p">:</span><span class="mi">01</span>
             <span class="n">io</span><span class="p">:</span> <span class="n">io</span>
     <span class="s1">&#39;}</span>
-    <span class="n">qRIXS_SA_VWC_01</span><span class="p">:</span> <span class="n">FB_VRC</span><span class="p">;</span>
+    <span class="n">qRIXS_SA_VWC_01</span><span class="p">:</span> <span class="n">FB_VGC</span><span class="p">;</span>
 
     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span>        <span class="s1">&#39;.i_xOpnLS      :=      TIIB[qRIXS_PNL1_E2_EL1004]^Channel 1^Input;</span>
                                                              <span class="o">.</span><span class="n">i_xClsLS</span>      <span class="o">:=</span>      <span class="n">TIIB</span><span class="p">[</span><span class="n">qRIXS_PNL1_E2_EL1004</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">Input</span><span class="p">;</span>
@@ -766,8 +796,8 @@
 <span class="o">///</span><span class="n">Calling</span> <span class="n">programs</span>
 <span class="n">PRG_Roughing</span><span class="p">();</span>
 <span class="n">PRG_SampleChamber</span><span class="p">();</span>
-<span class="n">PRG_SA_WINDOW</span><span class="p">();</span>
-<span class="o">//</span><span class="n">PRG_SDS</span><span class="p">();</span>
+<span class="o">//</span><span class="n">PRG_SA_WINDOW</span><span class="p">();</span>
+<span class="n">PRG_SDS</span><span class="p">();</span>
 <span class="n">PRG_SPA</span><span class="p">();</span>
 <span class="n">PRG_2_PMPS</span><span class="p">();</span>
 <span class="n">PRG_3_LOG</span><span class="p">();</span>
@@ -985,7 +1015,7 @@ qRIXS_SC_VGC_04(
 );
 
 
-qRIXS_SA_VRC_01(
+qRIXS_SC_VGC_05(
     i_xExtILK_OK:= ,
     i_xOverrideMode:= ,
     iq_stValve=&gt; ,
@@ -994,7 +1024,8 @@ qRIXS_SA_VRC_01(
     i_xPMPS_OK:= TRUE,
     i_xIsAperture:= TRUE ,
     i_sDevName:= ,
-    i_nTransitionRootID:= );
+    i_nTransitionRootID:=,
+    i_xPMPS_OK:= TRUE );
 
 
 //VGC_W(i_xExtILK_OK:= ,
@@ -1019,6 +1050,7 @@ END_PROGRAM
     <span class="n">iWatchdog</span><span class="p">:</span> <span class="n">UDINT</span><span class="p">;</span>
     <span class="n">RIX_TV4K2_GFS_1</span><span class="p">:</span><span class="n">FB_TGCC_ADS</span><span class="p">;</span>
     <span class="n">RIX_IM5K2_PPM_GCC_1</span><span class="p">:</span><span class="n">FB_TGCC_ADS</span><span class="p">;</span>
+    <span class="n">RIX_VAC_WD</span><span class="p">:</span> <span class="n">FB_ADS_WATCHDOG</span><span class="p">;</span>
 
     <span class="o">//</span><span class="n">PTM</span> <span class="n">interlocks</span>
     <span class="n">qRIXS_SC_PTM_10_ILK</span> <span class="p">:</span> <span class="n">FB_ChemRIXS_Turbo_ILK</span><span class="p">;</span>
@@ -1041,6 +1073,9 @@ END_PROGRAM
     <span class="n">IG</span><span class="o">=&gt;</span> <span class="p">,</span>
     <span class="n">bError</span><span class="o">=&gt;</span> <span class="p">);</span>
 
+<span class="n">RIX_VAC_WD</span><span class="p">(</span><span class="n">sNetId</span><span class="o">:=</span> <span class="s1">&#39;172.21.140.69.1.1&#39;</span><span class="p">,</span> <span class="n">nPort</span><span class="o">:=</span><span class="mi">851</span> <span class="p">,</span> <span class="n">sVarName</span><span class="o">:=</span> <span class="s1">&#39;PRG_KFE_RIX_VAC.iWatchdog&#39;</span><span class="p">,</span> <span class="n">bError</span><span class="o">=&gt;</span> <span class="p">);</span>
+
+
 <span class="o">//</span><span class="n">MKS</span> <span class="mi">275</span> <span class="n">Gauges</span>
 <span class="n">qRIXS_SC_GPI_01</span><span class="o">.</span><span class="n">M_SetBits</span><span class="p">(</span><span class="mi">30518</span><span class="p">);</span>
 <span class="n">qRIXS_SC_GPI_01</span><span class="p">(</span><span class="n">PG</span><span class="o">=&gt;</span><span class="p">);</span>
@@ -1056,6 +1091,8 @@ END_PROGRAM
 <span class="n">qRIXS_SSL_GCP_20</span><span class="p">();</span>
 <span class="n">qRIXS_SSL_GCP_30</span><span class="o">.</span><span class="n">M_SetBits</span><span class="p">(</span><span class="mi">30518</span><span class="p">);</span>
 <span class="n">qRIXS_SSL_GCP_30</span><span class="p">();</span>
+<span class="n">qRIXS_SA_GCP_02</span><span class="o">.</span><span class="n">M_SetBits</span><span class="p">(</span><span class="mi">30518</span><span class="p">);</span>
+<span class="n">qRIXS_SA_GCP_02</span><span class="p">();</span>
 
 <span class="o">//</span><span class="n">ION</span> <span class="n">Pumps</span>
 <span class="n">qRIXS_SC_PIP_01</span><span class="p">(</span><span class="n">i_stGauge</span><span class="o">:=</span><span class="n">qRIXS_SC_GPI_01</span><span class="o">.</span><span class="n">PG</span><span class="p">,</span> <span class="n">i_xOverrideMode</span><span class="o">:=</span> <span class="n">xSystemOverrideMode</span><span class="p">);</span>
@@ -1063,15 +1100,7 @@ END_PROGRAM
 
 <span class="o">//</span><span class="n">Pfiffer</span> <span class="n">Turbo</span>
 
-<span class="o">//</span><span class="n">VVC</span>
-<span class="n">qRIXS_SC_VVC_01</span><span class="o">.</span><span class="n">i_xExtILK_OK</span> <span class="o">:=</span> <span class="n">qRIXS_SC_PTM_10</span><span class="o">.</span><span class="n">iq_stPTM</span><span class="o">.</span><span class="n">eState</span> <span class="o">=</span> <span class="n">E_PumpState</span><span class="o">.</span><span class="n">pumpSTOPPED</span>
-                                                    <span class="n">AND</span> <span class="n">qRIXS_SC_PTM_20</span><span class="o">.</span><span class="n">iq_stPTM</span><span class="o">.</span><span class="n">eState</span> <span class="o">=</span> <span class="n">E_PumpState</span><span class="o">.</span><span class="n">pumpSTOPPED</span>
-                                                    <span class="n">AND</span> <span class="n">qRIXS_SC_PTM_30</span><span class="o">.</span><span class="n">iq_stPTM</span><span class="o">.</span><span class="n">eState</span> <span class="o">=</span> <span class="n">E_PumpState</span><span class="o">.</span><span class="n">pumpSTOPPED</span><span class="p">;</span>
-<span class="n">qRIXS_SC_VVC_01</span><span class="p">(</span><span class="n">i_xExtILK_OK</span> <span class="o">:=</span> <span class="p">,</span> <span class="n">i_xOverrideMode</span> <span class="o">:=</span> <span class="n">xSystemOverrideMode</span><span class="p">,</span> <span class="n">iq_stValve</span> <span class="o">=&gt;</span> <span class="p">);</span>
-<span class="n">qRIXS_SC_VVC_02</span><span class="o">.</span><span class="n">i_xExtILK_OK</span> <span class="o">:=</span> <span class="n">qRIXS_SC_PTM_10</span><span class="o">.</span><span class="n">iq_stPTM</span><span class="o">.</span><span class="n">eState</span> <span class="o">=</span> <span class="n">E_PumpState</span><span class="o">.</span><span class="n">pumpSTOPPED</span>
-                                                    <span class="n">AND</span> <span class="n">qRIXS_SC_PTM_20</span><span class="o">.</span><span class="n">iq_stPTM</span><span class="o">.</span><span class="n">eState</span> <span class="o">=</span> <span class="n">E_PumpState</span><span class="o">.</span><span class="n">pumpSTOPPED</span>
-                                                    <span class="n">AND</span> <span class="n">qRIXS_SC_PTM_30</span><span class="o">.</span><span class="n">iq_stPTM</span><span class="o">.</span><span class="n">eState</span> <span class="o">=</span> <span class="n">E_PumpState</span><span class="o">.</span><span class="n">pumpSTOPPED</span><span class="p">;</span>
-<span class="n">qRIXS_SC_VVC_02</span><span class="p">(</span><span class="n">i_xExtILK_OK</span> <span class="o">:=</span> <span class="p">,</span> <span class="n">i_xOverrideMode</span> <span class="o">:=</span> <span class="n">xSystemOverrideMode</span><span class="p">,</span> <span class="n">iq_stValve</span> <span class="o">=&gt;</span> <span class="p">);</span>
+
 
 <span class="o">//</span><span class="n">VGC</span> <span class="n">Valves</span>
 <span class="o">///</span><span class="n">VGC</span> <span class="n">on</span> <span class="n">Beamline</span>
@@ -1112,38 +1141,40 @@ END_PROGRAM
 <span class="o">//</span><span class="n">VRC</span> <span class="mi">10</span>
 <span class="n">qRIXS_SC_VRC_10</span><span class="o">.</span><span class="n">i_xExtILK_OK</span> <span class="o">:=</span> <span class="n">qRIXS_SC_PTM_10</span><span class="o">.</span><span class="n">iq_stPTM</span><span class="o">.</span><span class="n">eState</span> <span class="o">=</span> <span class="n">E_PumpState</span><span class="o">.</span><span class="n">pumpRUNNING</span><span class="p">;</span>
 <span class="p">(</span><span class="o">*</span><span class="n">F_TurboGateValve_Protection_ILK</span><span class="p">(</span> <span class="n">i_Turbo</span> <span class="o">:=</span> <span class="n">qRIXS_SC_PTM_10</span><span class="o">.</span><span class="n">iq_stPTM</span> <span class="p">,</span>
-                                                                                                                               <span class="n">i_stISG</span> <span class="o">:=</span> <span class="n">qRIXS_SC_GPI_01</span><span class="o">.</span><span class="n">PG</span><span class="p">,</span> <span class="n">i_stBSG</span> <span class="o">:=</span> <span class="n">qRIXS_ROUGH_GPI_11</span><span class="o">.</span><span class="n">PG</span><span class="p">,</span>
-                                                                                                                                    <span class="n">ScrollPump</span> <span class="o">:=</span> <span class="n">qRIXS_PRO_01</span><span class="o">.</span><span class="n">stPump</span> <span class="p">);</span>
+                                                                   <span class="n">i_stISG</span> <span class="o">:=</span> <span class="n">qRIXS_SC_GPI_01</span><span class="o">.</span><span class="n">PG</span><span class="p">,</span> <span class="n">i_stBSG</span> <span class="o">:=</span> <span class="n">qRIXS_ROUGH_GPI_11</span><span class="o">.</span><span class="n">PG</span><span class="p">,</span>
+                                                                    <span class="n">ScrollPump</span> <span class="o">:=</span> <span class="n">qRIXS_PRO_01</span><span class="o">.</span><span class="n">stPump</span> <span class="p">);</span>
 <span class="o">*</span><span class="p">)</span>
 <span class="n">qRIXS_SC_VRC_10</span><span class="p">(</span><span class="n">i_xOverrideMode</span><span class="o">:=</span><span class="n">xSystemOverrideMode</span> <span class="p">,</span> <span class="n">iq_stValve</span><span class="o">=&gt;</span> <span class="p">);</span>
 
 <span class="o">//</span><span class="n">VRC</span> <span class="mi">20</span>
-<span class="n">qRIXS_SC_VRC_20</span><span class="o">.</span><span class="n">i_xExtILK_OK</span> <span class="o">:=</span> <span class="n">F_TurboGateValve_Protection_ILK</span><span class="p">(</span> <span class="n">i_Turbo</span> <span class="o">:=</span> <span class="n">qRIXS_SC_PTM_20</span><span class="o">.</span><span class="n">iq_stPTM</span> <span class="p">,</span>
-                                                                                                                               <span class="n">i_stISG</span> <span class="o">:=</span> <span class="n">qRIXS_SSL_GCP_20</span><span class="o">.</span><span class="n">PG</span><span class="p">,</span> <span class="n">i_stBSG</span> <span class="o">:=</span> <span class="n">qRIXS_ROUGH_GPI_11</span><span class="o">.</span><span class="n">PG</span><span class="p">,</span>
-                                                                                                                                    <span class="n">ScrollPump</span> <span class="o">:=</span> <span class="n">qRIXS_PRO_01</span><span class="o">.</span><span class="n">stPump</span> <span class="p">);</span>
+<span class="n">qRIXS_SC_VRC_20</span><span class="o">.</span><span class="n">i_xExtILK_OK</span> <span class="o">:=</span>  <span class="n">qRIXS_SC_PTM_20</span><span class="o">.</span><span class="n">iq_stPTM</span><span class="o">.</span><span class="n">eState</span> <span class="o">=</span> <span class="n">E_PumpState</span><span class="o">.</span><span class="n">pumpRUNNING</span><span class="p">;</span>
+<span class="p">(</span><span class="o">*</span><span class="n">F_TurboGateValve_Protection_ILK</span><span class="p">(</span> <span class="n">i_Turbo</span> <span class="o">:=</span> <span class="n">qRIXS_SC_PTM_20</span><span class="o">.</span><span class="n">iq_stPTM</span> <span class="p">,</span>
+                                                                   <span class="n">i_stISG</span> <span class="o">:=</span> <span class="n">qRIXS_SSL_GCP_20</span><span class="o">.</span><span class="n">PG</span><span class="p">,</span> <span class="n">i_stBSG</span> <span class="o">:=</span> <span class="n">qRIXS_ROUGH_GPI_11</span><span class="o">.</span><span class="n">PG</span><span class="p">,</span>
+                                                                    <span class="n">ScrollPump</span> <span class="o">:=</span> <span class="n">qRIXS_PRO_01</span><span class="o">.</span><span class="n">stPump</span> <span class="p">);</span><span class="o">*</span><span class="p">)</span>
 
 <span class="n">qRIXS_SC_VRC_20</span><span class="p">(</span><span class="n">i_xOverrideMode</span><span class="o">:=</span><span class="n">xSystemOverrideMode</span> <span class="p">,</span> <span class="n">iq_stValve</span><span class="o">=&gt;</span> <span class="p">);</span>
 
 
 <span class="o">//</span><span class="n">VRC</span> <span class="mi">30</span>
-<span class="n">qRIXS_SC_VRC_30</span><span class="o">.</span><span class="n">i_xExtILK_OK</span> <span class="o">:=</span> <span class="n">F_TurboGateValve_Protection_ILK</span><span class="p">(</span> <span class="n">i_Turbo</span> <span class="o">:=</span> <span class="n">qRIXS_SC_PTM_30</span><span class="o">.</span><span class="n">iq_stPTM</span> <span class="p">,</span>
-                                                                                                                               <span class="n">i_stISG</span> <span class="o">:=</span> <span class="n">qRIXS_SSL_GCP_30</span><span class="o">.</span><span class="n">PG</span><span class="p">,</span> <span class="n">i_stBSG</span> <span class="o">:=</span> <span class="n">qRIXS_ROUGH_GPI_11</span><span class="o">.</span><span class="n">PG</span><span class="p">,</span>
-                                                                                                                                    <span class="n">ScrollPump</span> <span class="o">:=</span> <span class="n">qRIXS_PRO_01</span><span class="o">.</span><span class="n">stPump</span> <span class="p">);</span>
+<span class="n">qRIXS_SC_VRC_30</span><span class="o">.</span><span class="n">i_xExtILK_OK</span> <span class="o">:=</span>  <span class="n">qRIXS_SC_PTM_30</span><span class="o">.</span><span class="n">iq_stPTM</span><span class="o">.</span><span class="n">eState</span> <span class="o">=</span> <span class="n">E_PumpState</span><span class="o">.</span><span class="n">pumpRUNNING</span><span class="p">;</span>
+<span class="p">(</span><span class="o">*</span><span class="n">F_TurboGateValve_Protection_ILK</span><span class="p">(</span> <span class="n">i_Turbo</span> <span class="o">:=</span> <span class="n">qRIXS_SC_PTM_30</span><span class="o">.</span><span class="n">iq_stPTM</span> <span class="p">,</span>
+                                                                   <span class="n">i_stISG</span> <span class="o">:=</span> <span class="n">qRIXS_SSL_GCP_30</span><span class="o">.</span><span class="n">PG</span><span class="p">,</span> <span class="n">i_stBSG</span> <span class="o">:=</span> <span class="n">qRIXS_ROUGH_GPI_11</span><span class="o">.</span><span class="n">PG</span><span class="p">,</span>
+                                                                    <span class="n">ScrollPump</span> <span class="o">:=</span> <span class="n">qRIXS_PRO_01</span><span class="o">.</span><span class="n">stPump</span> <span class="p">);</span><span class="o">*</span><span class="p">)</span>
 
 <span class="n">qRIXS_SC_VRC_30</span><span class="p">(</span><span class="n">i_xOverrideMode</span><span class="o">:=</span><span class="n">xSystemOverrideMode</span> <span class="p">,</span> <span class="n">iq_stValve</span><span class="o">=&gt;</span> <span class="p">);</span>
 
 <span class="o">//</span><span class="n">PTM</span> <span class="n">ILK</span>
 <span class="o">//</span><span class="n">qRIXS_SC_PTM_10_ILK</span><span class="p">(</span><span class="n">i_stValve</span><span class="o">:=</span><span class="n">qRIXS_ROUGH_VRC_02</span><span class="o">.</span><span class="n">iq_stValve</span><span class="p">,</span> <span class="n">i_stPump</span><span class="o">:=</span><span class="n">qRIXS_SC_PTM_10</span><span class="o">.</span><span class="n">iq_stPTM</span><span class="p">,</span> <span class="n">tDelay</span><span class="o">:=</span><span class="n">T</span><span class="c1">#200S, bILK=&gt;);</span>
-<span class="n">qRIXS_SC_PTM_10</span><span class="p">(</span><span class="n">i_xExtIlkOK</span><span class="o">:=</span><span class="p">(</span><span class="o">*</span><span class="n">qRIXS_SC_PTM_10_ILK</span><span class="o">.</span><span class="n">bILK</span>
-                            <span class="n">AND</span> <span class="o">*</span><span class="p">)</span><span class="n">F_TurboExtILKLogic_2</span><span class="p">(</span><span class="n">Turbo</span><span class="o">:=</span><span class="n">qRIXS_SC_PTM_10</span><span class="o">.</span><span class="n">iq_stPTM</span><span class="p">,</span><span class="n">BackingGauge</span><span class="o">:=</span><span class="n">qRIXS_ROUGH_GPI_02</span><span class="o">.</span><span class="n">PG</span><span class="p">,</span> <span class="n">InletGauge</span><span class="o">:=</span><span class="n">qRIXS_SC_GPI_01</span><span class="o">.</span><span class="n">PG</span><span class="p">,</span> <span class="n">ScrollPump</span><span class="o">:=</span> <span class="n">qRIXS_PRO_01</span><span class="o">.</span><span class="n">stPump</span><span class="p">)</span> <span class="p">);</span>
+<span class="n">qRIXS_SC_PTM_10</span><span class="p">(</span><span class="n">i_xExtIlkOK</span><span class="o">:=</span> <span class="n">qRIXS_ROUGH_VRC_02</span><span class="o">.</span><span class="n">M_IsOpen</span><span class="p">()</span>
+                <span class="n">AND</span> <span class="n">F_TurboExtILKLogic_2</span><span class="p">(</span><span class="n">Turbo</span><span class="o">:=</span><span class="n">qRIXS_SC_PTM_10</span><span class="o">.</span><span class="n">iq_stPTM</span><span class="p">,</span><span class="n">BackingGauge</span><span class="o">:=</span><span class="n">qRIXS_ROUGH_GPI_02</span><span class="o">.</span><span class="n">PG</span><span class="p">,</span> <span class="n">InletGauge</span><span class="o">:=</span><span class="n">qRIXS_SC_GPI_01</span><span class="o">.</span><span class="n">PG</span><span class="p">,</span> <span class="n">ScrollPump</span><span class="o">:=</span> <span class="n">qRIXS_PRO_01</span><span class="o">.</span><span class="n">stPump</span><span class="p">)</span> <span class="p">);</span>
 
 <span class="o">//</span><span class="n">qRIXS_SC_PTM_20_ILK</span><span class="p">(</span><span class="n">i_stValve</span><span class="o">:=</span><span class="n">qRIXS_ROUGH_VRC_02</span><span class="o">.</span><span class="n">iq_stValve</span><span class="p">,</span> <span class="n">i_stPump</span><span class="o">:=</span><span class="n">qRIXS_SC_PTM_20</span><span class="o">.</span><span class="n">iq_stPTM</span><span class="p">,</span> <span class="n">tDelay</span><span class="o">:=</span><span class="n">T</span><span class="c1">#200S, bILK=&gt;);</span>
-<span class="n">qRIXS_SC_PTM_20</span><span class="p">(</span><span class="n">i_xExtIlkOK</span><span class="o">:=</span><span class="p">(</span><span class="o">*</span><span class="n">qRIXS_SC_PTM_20_ILK</span><span class="o">.</span><span class="n">bILK</span>
-                            <span class="n">AND</span> <span class="o">*</span><span class="p">)</span><span class="n">F_TurboExtILKLogic_2</span><span class="p">(</span><span class="n">Turbo</span><span class="o">:=</span><span class="n">qRIXS_SC_PTM_20</span><span class="o">.</span><span class="n">iq_stPTM</span><span class="p">,</span><span class="n">BackingGauge</span><span class="o">:=</span><span class="n">qRIXS_ROUGH_GPI_02</span><span class="o">.</span><span class="n">PG</span><span class="p">,</span> <span class="n">InletGauge</span><span class="o">:=</span><span class="n">qRIXS_SSL_GCP_20</span><span class="o">.</span><span class="n">PG</span><span class="p">,</span> <span class="n">ScrollPump</span><span class="o">:=</span> <span class="n">qRIXS_PRO_01</span><span class="o">.</span><span class="n">stPump</span><span class="p">)</span> <span class="p">);</span>
+<span class="n">qRIXS_SC_PTM_20</span><span class="p">(</span><span class="n">i_xExtIlkOK</span><span class="o">:=</span> <span class="n">qRIXS_ROUGH_VRC_02</span><span class="o">.</span><span class="n">M_IsOpen</span><span class="p">()</span>
+                <span class="n">AND</span> <span class="n">F_TurboExtILKLogic_2</span><span class="p">(</span><span class="n">Turbo</span><span class="o">:=</span><span class="n">qRIXS_SC_PTM_20</span><span class="o">.</span><span class="n">iq_stPTM</span><span class="p">,</span><span class="n">BackingGauge</span><span class="o">:=</span><span class="n">qRIXS_ROUGH_GPI_02</span><span class="o">.</span><span class="n">PG</span><span class="p">,</span> <span class="n">InletGauge</span><span class="o">:=</span><span class="n">qRIXS_SSL_GCP_20</span><span class="o">.</span><span class="n">PG</span><span class="p">,</span> <span class="n">ScrollPump</span><span class="o">:=</span> <span class="n">qRIXS_PRO_01</span><span class="o">.</span><span class="n">stPump</span><span class="p">)</span> <span class="p">);</span>
 
 <span class="o">//</span><span class="n">qRIXS_SC_PTM_30_ILK</span><span class="p">(</span><span class="n">i_stValve</span><span class="o">:=</span><span class="n">qRIXS_ROUGH_VRC_02</span><span class="o">.</span><span class="n">iq_stValve</span><span class="p">,</span> <span class="n">i_stPump</span><span class="o">:=</span><span class="n">qRIXS_SC_PTM_30</span><span class="o">.</span><span class="n">iq_stPTM</span><span class="p">,</span> <span class="n">tDelay</span><span class="o">:=</span><span class="n">T</span><span class="c1">#200S, bILK=&gt;);</span>
-<span class="n">qRIXS_SC_PTM_30</span><span class="p">(</span><span class="n">i_xExtIlkOK</span><span class="o">:=</span><span class="p">(</span><span class="o">*</span><span class="n">qRIXS_SC_PTM_30_ILK</span><span class="o">.</span><span class="n">bILK</span>
-                    <span class="n">AND</span><span class="o">*</span><span class="p">)</span> <span class="n">F_TurboExtILKLogic_2</span><span class="p">(</span><span class="n">Turbo</span><span class="o">:=</span><span class="n">qRIXS_SC_PTM_30</span><span class="o">.</span><span class="n">iq_stPTM</span><span class="p">,</span><span class="n">BackingGauge</span><span class="o">:=</span><span class="n">qRIXS_ROUGH_GPI_02</span><span class="o">.</span><span class="n">PG</span><span class="p">,</span> <span class="n">InletGauge</span><span class="o">:=</span><span class="n">qRIXS_SSL_GCP_30</span><span class="o">.</span><span class="n">PG</span><span class="p">,</span> <span class="n">ScrollPump</span><span class="o">:=</span> <span class="n">qRIXS_PRO_01</span><span class="o">.</span><span class="n">stPump</span><span class="p">)</span> <span class="p">);</span>
+<span class="n">qRIXS_SC_PTM_30</span><span class="p">(</span><span class="n">i_xExtIlkOK</span><span class="o">:=</span> <span class="n">qRIXS_ROUGH_VRC_02</span><span class="o">.</span><span class="n">M_IsOpen</span><span class="p">()</span>
+            <span class="n">AND</span> <span class="n">F_TurboExtILKLogic_2</span><span class="p">(</span><span class="n">Turbo</span><span class="o">:=</span><span class="n">qRIXS_SC_PTM_30</span><span class="o">.</span><span class="n">iq_stPTM</span><span class="p">,</span><span class="n">BackingGauge</span><span class="o">:=</span><span class="n">qRIXS_ROUGH_GPI_02</span><span class="o">.</span><span class="n">PG</span><span class="p">,</span> <span class="n">InletGauge</span><span class="o">:=</span><span class="n">qRIXS_SSL_GCP_30</span><span class="o">.</span><span class="n">PG</span><span class="p">,</span> <span class="n">ScrollPump</span><span class="o">:=</span> <span class="n">qRIXS_PRO_01</span><span class="o">.</span><span class="n">stPump</span><span class="p">)</span> <span class="p">);</span>
 
 
 <span class="o">//</span><span class="n">Pfeiffer</span> <span class="n">Turbo</span> <span class="n">Serial</span>
@@ -1157,9 +1188,9 @@ END_PROGRAM
 
 <span class="p">(</span><span class="o">*</span> <span class="n">Instanitate</span> <span class="n">the</span> <span class="n">Function</span> <span class="n">block</span> <span class="k">for</span> <span class="n">serial</span> <span class="n">communication</span> <span class="k">with</span> <span class="n">Pfeiffer</span><span class="o">*</span><span class="p">)</span>
 <span class="n">fb_PfeifferCom</span><span class="p">(</span><span class="n">astPfeifferControl</span> <span class="o">:=</span> <span class="n">st_Pfeiffer_CTRL</span><span class="p">,</span>
-                       <span class="n">astPfeifferStatus</span><span class="o">:=</span> <span class="n">st_Pfeiffer_RBK</span><span class="p">,</span>
-                            <span class="n">SerialRXBuffer</span><span class="o">:=</span> <span class="n">E2_SerialRXBuffer</span><span class="p">,</span>
-                            <span class="n">SerialTXBuffer</span><span class="o">:=</span> <span class="n">E2_SerialTXBuffer</span><span class="p">);</span>
+               <span class="n">astPfeifferStatus</span><span class="o">:=</span> <span class="n">st_Pfeiffer_RBK</span><span class="p">,</span>
+                <span class="n">SerialRXBuffer</span><span class="o">:=</span> <span class="n">E2_SerialRXBuffer</span><span class="p">,</span>
+                <span class="n">SerialTXBuffer</span><span class="o">:=</span> <span class="n">E2_SerialTXBuffer</span><span class="p">);</span>
 
 
 <span class="p">(</span><span class="o">*</span> <span class="n">Copy</span> <span class="n">Status</span> <span class="n">Pv</span><span class="s1">&#39;s into the PTM structure*)</span>
@@ -1182,27 +1213,42 @@ END_PROGRAM
 <h2>PRG_SDS<a class="headerlink" href="#prg-sds" title="Link to this heading"></a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROGRAM</span> <span class="n">PRG_SDS</span>
 <span class="n">VAR</span>
+    <span class="n">QRIX_MOT_SDS_MMS_H_BACKWARD_EN</span><span class="p">:</span> <span class="n">INT</span><span class="p">;</span>
+    <span class="n">rPressSP</span> <span class="p">:</span> <span class="n">REAL</span> <span class="o">:=</span>  <span class="mf">0.0001</span><span class="p">;</span>
 <span class="n">END_VAR</span>
-<span class="o">//</span><span class="n">MKS</span> <span class="mi">275</span> <span class="n">Gauges</span>
-<span class="n">fb_QRIX_SDS_GPI_01</span><span class="p">(</span><span class="n">PG</span><span class="o">=&gt;</span><span class="p">);</span>
-<span class="n">fb_QRIX_ROUGH_GPI_03</span><span class="p">(</span><span class="n">PG</span><span class="o">=&gt;</span><span class="p">);</span>
-<span class="n">fb_QRIX_ROUGH_GPI_04</span><span class="p">(</span><span class="n">PG</span><span class="o">=&gt;</span><span class="p">);</span>
+<span class="o">//</span><span class="n">MKS</span>  <span class="n">Gauges</span>
+<span class="n">qRIXS_SDS_GCP_01</span><span class="p">(</span><span class="n">PG</span><span class="o">=&gt;</span><span class="p">);</span>
 
-<span class="o">//</span><span class="n">VVC</span>
-<span class="n">fb_QRIX_SDS_VVC_01</span><span class="p">(</span><span class="n">i_xExtILK_OK</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">,</span> <span class="n">i_xOverrideMode</span> <span class="o">:=</span> <span class="n">xSystemOverrideMode</span><span class="p">,</span> <span class="n">iq_stValve</span> <span class="o">=&gt;</span> <span class="p">);</span>
-<span class="n">fb_QRIX_SDS_VVC_02</span><span class="p">(</span><span class="n">i_xExtILK_OK</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">,</span> <span class="n">i_xOverrideMode</span> <span class="o">:=</span> <span class="n">xSystemOverrideMode</span><span class="p">,</span> <span class="n">iq_stValve</span> <span class="o">=&gt;</span> <span class="p">);</span>
 
 <span class="o">//</span><span class="n">VRC</span>
 <span class="p">(</span><span class="o">*</span><span class="n">fb_QRIX_SDS_VRC_01</span><span class="p">(</span><span class="n">i_xOverrideMode</span> <span class="o">:=</span> <span class="n">xSystemOverrideMode</span><span class="p">,</span> <span class="n">iq_stValve</span> <span class="o">=&gt;</span><span class="p">);</span>
 <span class="n">fb_QRIX_SDS_VRC_01</span><span class="o">.</span><span class="n">i_xExtILK_OK</span> <span class="o">:=</span> <span class="n">F_TurboGateValve_Protection_ILK</span><span class="p">(</span> <span class="n">i_Turbo</span> <span class="o">:=</span> <span class="n">QRIX_SD_PTM_01</span><span class="o">.</span><span class="n">iq_stPTM</span> <span class="p">,</span>
-                                                                                                                               <span class="n">i_stISG</span> <span class="o">:=</span> <span class="n">fb_QRIX_SDS_GPI_01</span><span class="o">.</span><span class="n">PG</span><span class="p">,</span> <span class="n">i_stBSG</span> <span class="o">:=</span> <span class="n">fb_QRIX_SC_GPI_01</span><span class="o">.</span><span class="n">PG</span><span class="p">,</span>
-                                                                                                                                    <span class="n">ScrollPump</span> <span class="o">:=</span> <span class="n">fb_QRIX_PRO_01</span> <span class="p">);</span>
+                                                                   <span class="n">i_stISG</span> <span class="o">:=</span> <span class="n">fb_QRIX_SDS_GPI_01</span><span class="o">.</span><span class="n">PG</span><span class="p">,</span> <span class="n">i_stBSG</span> <span class="o">:=</span> <span class="n">fb_QRIX_SC_GPI_01</span><span class="o">.</span><span class="n">PG</span><span class="p">,</span>
+                                                                    <span class="n">ScrollPump</span> <span class="o">:=</span> <span class="n">fb_QRIX_PRO_01</span> <span class="p">);</span>
 
 <span class="o">*</span><span class="p">)</span>
+
+<span class="n">qRIXS_SDS_PTM_10</span><span class="p">(</span><span class="n">i_xExtIlkOK</span><span class="o">:=</span> <span class="n">qRIXS_ROUGH_VRC_01</span><span class="o">.</span><span class="n">M_IsOpen</span><span class="p">()</span>
+    <span class="n">AND</span> <span class="n">F_TurboExtILKLogic_2</span><span class="p">(</span><span class="n">Turbo</span><span class="o">:=</span><span class="n">qRIXS_SDS_PTM_10</span><span class="o">.</span><span class="n">iq_stPTM</span><span class="p">,</span><span class="n">BackingGauge</span><span class="o">:=</span><span class="n">qRIXS_ROUGH_GPI_02</span><span class="o">.</span><span class="n">PG</span><span class="p">,</span> <span class="n">InletGauge</span><span class="o">:=</span><span class="n">qRIXS_SDS_GCP_01</span><span class="o">.</span><span class="n">PG</span><span class="p">,</span> <span class="n">ScrollPump</span><span class="o">:=</span> <span class="n">qRIXS_PRO_01</span><span class="o">.</span><span class="n">stPump</span><span class="p">)</span> <span class="p">);</span>
+
+
+
+<span class="n">qRIXS_SC_VGC_03</span><span class="p">(</span>
+    <span class="n">i_OPN_OK</span><span class="o">:=</span> <span class="n">qRIXS_SDS_GCP_01</span><span class="o">.</span><span class="n">PG</span><span class="o">.</span><span class="n">rPRESS</span> <span class="o">&gt;</span> <span class="n">rPressSP</span><span class="p">,</span> <span class="o">//</span> <span class="n">need</span> <span class="n">to</span> <span class="n">get</span> <span class="n">requirements</span> <span class="n">on</span> <span class="n">this</span> <span class="n">interlock</span>
+    <span class="n">i_CLS_OK</span><span class="o">:=</span> <span class="n">GVL_Interface</span><span class="o">.</span><span class="n">QRIX_MOT_SDS_MMS_H_BACKWARD_EN</span> <span class="n">AND</span> <span class="n">NOT</span> <span class="p">(</span><span class="n">GVL_Interface</span><span class="o">.</span><span class="n">QRIX_MOT_SDS_MMS_H_FORWARD_EN</span> <span class="p">),</span>
+    <span class="n">ibCntrlHold</span><span class="o">:=</span> <span class="p">,</span>
+    <span class="n">i_xOverrideMode</span><span class="o">:=</span> <span class="p">,</span>
+    <span class="n">iq_stValve</span><span class="o">=&gt;</span> <span class="p">);</span>
 
 <span class="n">END_PROGRAM</span>
 </pre></div>
 </div>
+<dl class="simple">
+<dt>Related:</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="#gvl-interface">GVL_Interface</a></p></li>
+</ul>
+</dd>
+</dl>
 </section>
 <section id="prg-spa">
 <h2>PRG_SPA<a class="headerlink" href="#prg-spa" title="Link to this heading"></a></h2>
@@ -1247,12 +1293,24 @@ END_PROGRAM
 <span class="o">//</span> <span class="p">(</span><span class="o">*</span>
 <span class="o">//</span> <span class="n">Calc</span> <span class="n">pressure</span> <span class="n">Difference</span>
 <span class="n">xExtILK_OK_BLW</span> <span class="o">:=</span>   <span class="p">(</span> <span class="n">qRIXS_OPT_VGC_01</span><span class="o">.</span><span class="n">iq_stValve</span><span class="o">.</span><span class="n">i_xClsLS</span> <span class="n">AND</span> <span class="n">qRIXS_OPT_GPI_01</span><span class="o">.</span><span class="n">PG</span><span class="o">.</span><span class="n">xPRESS_OK</span> <span class="n">AND</span> <span class="n">qRIXS_SA_GCP_01</span><span class="o">.</span><span class="n">PG</span><span class="o">.</span><span class="n">xPRESS_OK</span> <span class="n">AND</span> <span class="p">(</span><span class="n">qRIXS_OPT_GPI_01</span><span class="o">.</span><span class="n">PG</span><span class="o">.</span><span class="n">rPRESS</span> <span class="o">-</span> <span class="n">qRIXS_SA_GCP_01</span><span class="o">.</span><span class="n">PG</span><span class="o">.</span><span class="n">rPRESS</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">iPressTorrerance</span><span class="p">)</span>
-                                    <span class="n">OR</span> <span class="p">(</span><span class="n">qRIXS_OPT_GCC_01</span><span class="o">.</span><span class="n">IG</span><span class="o">.</span><span class="n">xPRESS_OK</span> <span class="n">AND</span> <span class="n">qRIXS_SA_GCP_01</span><span class="o">.</span><span class="n">PG</span><span class="o">.</span><span class="n">xPRESS_OK</span> <span class="n">AND</span> <span class="p">(</span><span class="n">qRIXS_OPT_GCC_01</span><span class="o">.</span><span class="n">IG</span><span class="o">.</span><span class="n">rPRESS</span> <span class="o">-</span> <span class="n">qRIXS_SA_GCP_01</span><span class="o">.</span><span class="n">PG</span><span class="o">.</span><span class="n">rPRESS</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">iPressTorrerance</span><span class="p">);</span>
+                            <span class="n">OR</span> <span class="p">(</span><span class="n">qRIXS_OPT_GCC_01</span><span class="o">.</span><span class="n">IG</span><span class="o">.</span><span class="n">xPRESS_OK</span> <span class="n">AND</span> <span class="n">qRIXS_SA_GCP_01</span><span class="o">.</span><span class="n">PG</span><span class="o">.</span><span class="n">xPRESS_OK</span> <span class="n">AND</span> <span class="p">(</span><span class="n">qRIXS_OPT_GCC_01</span><span class="o">.</span><span class="n">IG</span><span class="o">.</span><span class="n">rPRESS</span> <span class="o">-</span> <span class="n">qRIXS_SA_GCP_01</span><span class="o">.</span><span class="n">PG</span><span class="o">.</span><span class="n">rPRESS</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">iPressTorrerance</span><span class="p">);</span>
 
 <span class="n">qRIXS_SA_VWC_01</span><span class="p">(</span>
-            <span class="n">i_xExtILK_OK</span> <span class="o">:=</span> <span class="n">xExtILK_OK_BLW</span><span class="p">,</span>
-            <span class="n">i_xOverrideMode</span><span class="o">:=</span><span class="n">xSystemOverrideMode</span><span class="p">,</span>
-            <span class="n">iq_stValve</span> <span class="o">=&gt;</span>
+    <span class="n">i_stUSG</span><span class="o">:=</span> <span class="n">qRIXS_SA_GCP_01</span><span class="o">.</span><span class="n">PG</span> <span class="p">,</span>
+    <span class="n">i_stDSG</span><span class="o">:=</span> <span class="n">qRIXS_OPT_GCC_01</span><span class="o">.</span><span class="n">IG</span> <span class="p">,</span>
+    <span class="n">i_xDis_DPIlk</span><span class="o">:=</span> <span class="n">FALSE</span> <span class="p">,</span>
+    <span class="n">i_xPMPS_OK</span><span class="o">:=</span> <span class="n">TRUE</span> <span class="p">,</span>
+    <span class="n">i_xEPS_OK</span><span class="o">:=</span> <span class="p">,</span>
+    <span class="n">i_xExt_OK</span><span class="o">:=</span> <span class="n">xExtILK_OK_BLW</span> <span class="p">,</span>
+    <span class="n">i_xOverrideMode</span><span class="o">:=</span> <span class="p">,</span>
+    <span class="n">i_xReset</span><span class="o">:=</span> <span class="p">,</span>
+    <span class="n">i_xIsAperture</span><span class="o">:=</span> <span class="n">TRUE</span><span class="p">,</span>
+    <span class="n">i_sDevName</span><span class="o">:=</span> <span class="p">,</span>
+    <span class="n">i_nTransitionRootID</span><span class="o">:=</span> <span class="p">,</span>
+    <span class="n">iq_stValve</span><span class="o">=&gt;</span> <span class="p">,</span>
+    <span class="n">xMPS_OK</span><span class="o">=&gt;</span> <span class="p">,</span>
+    <span class="n">io_fbFFHWO</span><span class="o">:=</span><span class="n">GVL_PMPS</span><span class="o">.</span><span class="n">fbFastFaultOutput1</span> <span class="p">,</span>
+    <span class="n">fbArbiter</span><span class="o">:=</span> <span class="n">GVL_PMPS</span><span class="o">.</span><span class="n">fbArbiter</span>
     <span class="p">);</span>
 <span class="o">//</span> <span class="o">*</span><span class="p">)</span>
 <span class="o">//</span> <span class="p">(</span><span class="o">*</span>
@@ -1289,7 +1347,7 @@ END_PROGRAM
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023, SLAC National Accelerator Laboratory.</p>
+    <p>&#169; Copyright 2024, SLAC National Accelerator Laboratory.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

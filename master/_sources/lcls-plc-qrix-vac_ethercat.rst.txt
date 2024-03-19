@@ -521,6 +521,27 @@ EtherCAT Terminals
                         </details>
                       </li>
 
+
+                      <li>
+                            <table width="100%">
+                          <tr>
+                            <td width="10%">
+                              ID=92:
+                            </td>
+                            <td width="75%">QRIX_MOT_INT (EL6692)
+                            </td>
+                            <td>        </td>
+                          </tr>
+                          <tr>
+                            <td>
+                                      </td>
+                            <td colspan="2">
+                              EL6692 EtherCAT Bridge terminal (Secondary)
+                            </td>
+                          </tr>
+                        </table>
+                      </li>
+
                 </ul>
               </details>
             </li>

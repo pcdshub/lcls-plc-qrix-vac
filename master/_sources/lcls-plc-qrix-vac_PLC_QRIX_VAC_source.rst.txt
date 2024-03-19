@@ -206,7 +206,14 @@ GVL_Devices
     {attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[EL3174-0002_01_23]^AI Standard Channel 3^Value'}
     qRIXS_ROUGH_GPI_31 : FB_MKS275;
 
-    	
+    (* MKS972 - Full range guage *)
+    {attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=		TIIB[EL3174-0002_02_13]^AI Standard Channel 2^Value'}
+    {attribute 'pytmc' := '
+    	pv: QRIXS:SA:GCP:02
+    	io: io
+    '}
+    qRIXS_SA_GCP_02: FB_972;
+
     {attribute 'pytmc' := '
     	pv: QRIXS:SSL:GCP:20
     	io: io
@@ -221,16 +228,16 @@ GVL_Devices
     {attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[EL3174-0002_01_24]^AI Standard Channel 2^Value'}
     qRIXS_SSL_GCP_30: FB_972;
 
+    {attribute 'pytmc' := ' pv: QRIXS:SDS:GCP:01 '}
+    {attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[EL3174-0002_02_13]^AI Standard Channel 1^Value'}
+    qRIXS_SDS_GCP_01 : FB_972;
+
     //MKS-275 
-    {attribute 'pytmc' := ' pv: QRIXS:ROUGH:GPI:03 '}
-    {attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[EL3174-0002_02_13]^AI Standard Channel 2^Value'}
-    qRIXS_ROUGH_GPI_03 : FB_MKS275;
+
     {attribute 'pytmc' := ' pv: QRIXS:ROUGH:GPI:04 '}
     {attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[EL3174-0002_02_13]^AI Standard Channel 3^Value'}
     qRIXS_ROUGH_GPI_04 : FB_MKS275;
-    {attribute 'pytmc' := ' pv: QRIXS:SDS:GPI:01 '}
-    {attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[EL3174-0002_02_13]^AI Standard Channel 1^Value'}
-    qRIXS_SDS_GPI_01 : FB_MKS275;
+
 
 
 
@@ -300,12 +307,7 @@ GVL_Devices
     '}
     {attribute 'pytmc' := ' pv: QRIX:SC:VRC:30 '}
     qRIXS_SC_VRC_30 : FB_VRC;
-    {attribute 'TcLinkTo' := 	'.i_xOpnLS	:=	TIIB[EL1004_01_09]^Channel 1^Input;
-    							.i_xClsLS	:=	TIIB[EL1004_01_09]^Channel 2^Input;
-    							.q_xOPN_DO	:=	TIIB[EL2004_01_10]^Channel 1^Output
-    '}
-    {attribute 'pytmc' := ' pv: QRIX:SC:VRC:31 '}
-    qRIXS_SC_VRC_31 : FB_VRC;
+
     //VGC
     {attribute 'TcLinkTo' := 	'.i_xOpnLS	:=	TIIB[EL1004_01_07]^Channel 3^Input;
     							 .i_xClsLS	:=	TIIB[EL1004_01_07]^Channel 4^Input;
@@ -328,13 +330,14 @@ GVL_Devices
     {attribute 'TcLinkTo' := 	'.i_xOpnLS	:=	TIIB[EL1004_01_03]^Channel 3^Input;
     							 .i_xClsLS	:=	TIIB[EL1004_01_03]^Channel 4^Input;
     							 .q_xOPN_DO	:=	TIIB[EL2004_01_02]^Channel 4^Output;
-    							 .q_xCls_DO	:=	TIIB[EL2004_01_02]^Channel 3^Output
+    							 .q_xCls_DO	:=	TIIB[EL2004_01_10]^Channel 1^Output
     	'}
     {attribute 'pytmc' := '
     		pv: QRIX:SC:VGC:03
     		io: io
     	'}
-    qRIXS_SC_VGC_03 : FB_VGC;
+    qRIXS_SC_VGC_03 : FB_VRC_DA;
+
     {attribute 'TcLinkTo' := 	'.i_xOpnLS	:=	TIIB[EL1004_01_05]^Channel 1^Input;
     							 .i_xClsLS	:=	TIIB[EL1004_01_05]^Channel 2^Input;
     							 .q_xOPN_DO	:=	TIIB[EL2004_01_04]^Channel 1^Output 
@@ -344,15 +347,10 @@ GVL_Devices
     {attribute 'pytmc' := ' pv: QRIXS:SC:VGC:05 '}
     {attribute 'TcLinkTo' := 	'.i_xOpnLS	:=	TIIB[EL1004_01_05]^Channel 3^Input;
     							 .i_xClsLS	:=	TIIB[EL1004_01_05]^Channel 4^Input;
-    							 .q_xOPN_DO	:=	TIIB[EL2004_01_04]^Channel 2^Output
+    							 .q_xCLS_DO	:=	TIIB[EL2004_01_04]^Channel 2^Output
     	'}
-    qRIXS_SC_VGC_05 : FB_VGC;
-    //VVC
-    {attribute 'TcLinkTo' := 	'.q_xOPN_DO	:=	TIIB[qRIXS_PNL1_E1_EL1004]^Channel 1^Input }
-    {attribute 'pytmc' := ' pv: QRIXS:SC:VVC:01 '}
-    qRIXS_SC_VVC_01 : FB_VVC;
-    {attribute 'pytmc' := ' pv: QRIXS:SC:VVC:02 '}
-    qRIXS_SC_VVC_02 : FB_VVC;
+    qRIXS_SC_VGC_05 : FB_VRC_NO;
+
     //PTM
     {attribute 'TcLinkTo' := 	'.i_xAtSpd			:=	TIIB[EL1004_01_13]^Channel 1^Input;
     							 .i_xFaultNC		:=	TIIB[EL1004_01_13]^Channel 3^Input;
@@ -432,11 +430,10 @@ GVL_Devices
     '}
     qRIXS_SC_PTM_30 : FB_PTM_Pfeiffer;
     //PTM- Turbo Pump
-    {attribute 'TcLinkTo' := 	'.i_xAtSpd			:=	TIIB[qRIXS_PLC_EP01_EP2338-0002]^Channel 1^Input;
-    							 .i_xFaultNC		:=	TIIB[qRIXS_PLC_EP01_EP2338-0002]^Channel 2^Input;
-    							 .i_xRemote			:=	TIIB[qRIXS_PLC_EP01_EP2338-0002]^Channel 3^Input;
-    							 .q_RunDO			:=	TIIB[qRIXS_PLC_EP02_EP2624-0002]^Channel 1^Output;
-    							 .q_xReset 			:=	TIIB[qRIXS_PLC_EP02_EP2624-0002]^Channel 2^Output				 
+    {attribute 'TcLinkTo' := 	'.i_xAtSpd			:=	TIIB[EL1004_02_08]^Channel 2^Input;
+    							 .i_xFaultNC		:=	TIIB[EL1004_02_08]^Channel 1^Input;
+    							 .q_RunDO			:=	TIIB[EL2794_02_09]^Channel 1^Output;	
+    							 .q_xReset			:=	TIIB[EL2794_02_09]^Channel 2^Output			 			 
     '}
     {attribute 'pytmc' := '
     		pv: QRIXS:SDS:PTM:10
@@ -496,6 +493,42 @@ GVL_Devices
 
 
 
+GVL_Interface
+^^^^^^^^^^^^^
+
+::
+
+    {attribute 'qualified_only'}
+    VAR_GLOBAL
+
+        (*I/O Inputs to QRIX Motion PLC*)
+
+        {attribute 'TcLinkTo' :=  'TIID^Device 1 (EtherCAT)^B950_233_R03_DRL_01^EK1122_00_16^QRIX_MOT_INT (EL6692)^IO Inputs^QRIX_MOT_SDS_MMS_H_RAW_ENC_CNTS
+        '}
+        QRIX_MOT_SDS_MMS_H_RAW_ENC_CNTS AT %I* : UINT;
+
+        {attribute 'TcLinkTo' :=  'TIID^Device 1 (EtherCAT)^B950_233_R03_DRL_01^EK1122_00_16^QRIX_MOT_INT (EL6692)^IO Inputs^QRIX_MOT_SDS_MMS_H_FORWARD_EN
+        '}
+        QRIX_MOT_SDS_MMS_H_FORWARD_EN AT %I* : BOOL;
+
+        {attribute 'TcLinkTo' :=  'TIID^Device 1 (EtherCAT)^B950_233_R03_DRL_01^EK1122_00_16^QRIX_MOT_INT (EL6692)^IO Inputs^QRIX_MOT_SDS_MMS_H_BACKWARD_EN
+        '}
+        QRIX_MOT_SDS_MMS_H_BACKWARD_EN AT %I* : BOOL;
+
+        (*I/O Outputs to QRIX Motion PLC*)
+
+        {attribute 'TcLinkTo' :=  'TIID^Device 1 (EtherCAT)^B950_233_R03_DRL_01^EK1122_00_16^QRIX_MOT_INT (EL6692)^IO Outputs^QRIX_VAC_VGC_03_OP_CMD
+        '}
+        QRIX_VAC_VGC_03_OP_CMD AT %Q* : BOOL;
+
+        {attribute 'TcLinkTo' :=  'TIID^Device 1 (EtherCAT)^B950_233_R03_DRL_01^EK1122_00_16^QRIX_MOT_INT (EL6692)^IO Outputs^QRIX_VAC_VGC_03_CL_CMD
+        '}
+        QRIX_VAC_VGC_03_CL_CMD AT %Q* : BOOL;
+    END_VAR
+
+
+
+
 GVL_PMPS
 ^^^^^^^^
 
@@ -544,7 +577,7 @@ GVL_SA
     		pv: QRIXS:BLW:VRC:01
     		io: io
     	'}
-    	qRIXS_SA_VWC_01: FB_VRC;
+    	qRIXS_SA_VWC_01: FB_VGC;
     	
     	{attribute 'TcLinkTo' := 	'.i_xOpnLS	:=	TIIB[qRIXS_PNL1_E2_EL1004]^Channel 1^Input;
     								 .i_xClsLS	:=	TIIB[qRIXS_PNL1_E2_EL1004]^Channel 2^Input;
@@ -684,8 +717,8 @@ MAIN
     ///Calling programs
     PRG_Roughing();				
     PRG_SampleChamber(); 
-    PRG_SA_WINDOW();		
-    //PRG_SDS();
+    //PRG_SA_WINDOW();		
+    PRG_SDS();
     PRG_SPA();
     PRG_2_PMPS();
     PRG_3_LOG();
@@ -915,7 +948,7 @@ PRG_SA_WINDOW
     );
 
 
-    qRIXS_SA_VRC_01(
+    qRIXS_SC_VGC_05(
     	i_xExtILK_OK:= , 
     	i_xOverrideMode:= , 
     	iq_stValve=> , 
@@ -924,7 +957,8 @@ PRG_SA_WINDOW
     	i_xPMPS_OK:= TRUE, 
     	i_xIsAperture:= TRUE , 
     	i_sDevName:= , 
-    	i_nTransitionRootID:= );
+    	i_nTransitionRootID:=,
+    	i_xPMPS_OK:= TRUE );
     	
     	
     //VGC_W(i_xExtILK_OK:= , 
@@ -945,32 +979,36 @@ PRG_SampleChamber
 
     PROGRAM PRG_SampleChamber
     VAR
-    	QRIX: T_MaxString;
-    	iWatchdog: UDINT;
-    	RIX_TV4K2_GFS_1:FB_TGCC_ADS;
-    	RIX_IM5K2_PPM_GCC_1:FB_TGCC_ADS;
-    	
-    	//PTM interlocks
-    	qRIXS_SC_PTM_10_ILK : FB_ChemRIXS_Turbo_ILK;
-    	qRIXS_SC_PTM_20_ILK : FB_ChemRIXS_Turbo_ILK;
-    	qRIXS_SC_PTM_30_ILK : FB_ChemRIXS_Turbo_ILK;
+        QRIX: T_MaxString;
+        iWatchdog: UDINT;
+        RIX_TV4K2_GFS_1:FB_TGCC_ADS;
+        RIX_IM5K2_PPM_GCC_1:FB_TGCC_ADS;
+    	RIX_VAC_WD: FB_ADS_WATCHDOG;
+
+        //PTM interlocks
+        qRIXS_SC_PTM_10_ILK : FB_ChemRIXS_Turbo_ILK;
+        qRIXS_SC_PTM_20_ILK : FB_ChemRIXS_Turbo_ILK;
+        qRIXS_SC_PTM_30_ILK : FB_ChemRIXS_Turbo_ILK;
     END_VAR
     //ADS interfaces
     RIX_TV4K2_GFS_1(
-    	sNetId:= '172.21.140.69.1.1', 
-    	nPort:= 851, 
-    	sVarName:= 'GVL_KFE_RIX_VAC.fb_TV4K2_GFS_1', 
-    	iWatchdog:= iWatchdog , 
-    	IG=> , 
-    	bError=> );
+        sNetId:= '172.21.140.69.1.1',
+        nPort:= 851,
+        sVarName:= 'GVL_KFE_RIX_VAC.fb_TV4K2_GFS_1',
+        iWatchdog:= iWatchdog ,
+        IG=> ,
+        bError=> );
     RIX_IM5K2_PPM_GCC_1(
-    	sNetId:= '172.21.140.69.1.1', 
-    	nPort:= 851, 
-    	sVarName:= 'GVL_KFE_RIX_VAC.fb_IM5K2_PPM_GCC_1', 
-    	iWatchdog:= iWatchdog , 
-    	IG=> , 
-    	bError=> );
+        sNetId:= '172.21.140.69.1.1',
+        nPort:= 851,
+        sVarName:= 'GVL_KFE_RIX_VAC.fb_IM5K2_PPM_GCC_1',
+        iWatchdog:= iWatchdog ,
+        IG=> ,
+        bError=> );
     	
+    RIX_VAC_WD(sNetId:= '172.21.140.69.1.1', nPort:=851 , sVarName:= 'PRG_KFE_RIX_VAC.iWatchdog', bError=> );	
+    	
+
     //MKS 275 Gauges
     qRIXS_SC_GPI_01.M_SetBits(30518);
     qRIXS_SC_GPI_01(PG=>);
@@ -986,96 +1024,92 @@ PRG_SampleChamber
     qRIXS_SSL_GCP_20();
     qRIXS_SSL_GCP_30.M_SetBits(30518);
     qRIXS_SSL_GCP_30();
+    qRIXS_SA_GCP_02.M_SetBits(30518);
+    qRIXS_SA_GCP_02();
 
     //ION Pumps
     qRIXS_SC_PIP_01(i_stGauge:=qRIXS_SC_GPI_01.PG, i_xOverrideMode:= xSystemOverrideMode);
     qRIXS_SC_PIP_02(i_stGauge:=qRIXS_SC_GPI_01.PG, i_xOverrideMode:= xSystemOverrideMode);
 
-    //Pfiffer Turbo 
+    //Pfiffer Turbo
 
-    //VVC
-    qRIXS_SC_VVC_01.i_xExtILK_OK := qRIXS_SC_PTM_10.iq_stPTM.eState = E_PumpState.pumpSTOPPED
-    							AND qRIXS_SC_PTM_20.iq_stPTM.eState = E_PumpState.pumpSTOPPED
-    							AND qRIXS_SC_PTM_30.iq_stPTM.eState = E_PumpState.pumpSTOPPED;
-    qRIXS_SC_VVC_01(i_xExtILK_OK := , i_xOverrideMode := xSystemOverrideMode, iq_stValve => );
-    qRIXS_SC_VVC_02.i_xExtILK_OK := qRIXS_SC_PTM_10.iq_stPTM.eState = E_PumpState.pumpSTOPPED
-    							AND qRIXS_SC_PTM_20.iq_stPTM.eState = E_PumpState.pumpSTOPPED
-    							AND qRIXS_SC_PTM_30.iq_stPTM.eState = E_PumpState.pumpSTOPPED;
-    qRIXS_SC_VVC_02(i_xExtILK_OK := , i_xOverrideMode := xSystemOverrideMode, iq_stValve => );
 
-    //VGC Valves 
-    ///VGC on Beamline 
+
+    //VGC Valves
+    ///VGC on Beamline
     qRIXS_SC_VGC_01(
-    	i_stUSG:= RIX_TV4K2_GFS_1.IG, 
-    	i_stDSG:= qRIXS_SC_GCC_01.IG, 
-    	i_xDis_DPIlk:= FALSE , 
-    	i_xPMPS_OK:= TRUE , 
-    	i_xEPS_OK:= TRUE, 
-    	i_xExt_OK:= TRUE, 
-    	i_xOverrideMode:= xSystemOverrideMode , 
-    	i_xReset:= , 
-    	i_xIsAperture:= FALSE, 
-    	i_sDevName:= 'QRIX:SC:VGC:01', 
-    	i_nTransitionRootID:= , 
-    	iq_stValve=> , 
-    	xMPS_OK=> , 
-    	io_fbFFHWO:= GVL_PMPS.fbFastFaultOutput1 , 
-    	fbArbiter:= GVL_PMPS.fbArbiter );
+        i_stUSG:= RIX_TV4K2_GFS_1.IG,
+        i_stDSG:= qRIXS_SC_GCC_01.IG,
+        i_xDis_DPIlk:= FALSE ,
+        i_xPMPS_OK:= TRUE ,
+        i_xEPS_OK:= TRUE,
+        i_xExt_OK:= TRUE,
+        i_xOverrideMode:= xSystemOverrideMode ,
+        i_xReset:= ,
+        i_xIsAperture:= FALSE,
+        i_sDevName:= 'QRIX:SC:VGC:01',
+        i_nTransitionRootID:= ,
+        iq_stValve=> ,
+        xMPS_OK=> ,
+        io_fbFFHWO:= GVL_PMPS.fbFastFaultOutput1 ,
+        fbArbiter:= GVL_PMPS.fbArbiter );
 
     qRIXS_SC_VGC_02(
-    	i_stUSG:= qRIXS_SC_GCC_01.IG, 
-    	i_stDSG:= RIX_IM5K2_PPM_GCC_1.IG, 
-    	i_xDis_DPIlk:= FALSE , 
-    	i_xPMPS_OK:= TRUE , 
-    	i_xEPS_OK:= TRUE, 
-    	i_xExt_OK:= TRUE, 
-    	i_xOverrideMode:= xSystemOverrideMode , 
-    	i_xReset:= , 
-    	i_xIsAperture:= FALSE, 
-    	i_sDevName:= 'QRIX:SC:VGC:02', 
-    	i_nTransitionRootID:= , 
-    	iq_stValve=> , 
-    	xMPS_OK=> , 
-    	io_fbFFHWO:= GVL_PMPS.fbFastFaultOutput1 , 
-    	fbArbiter:= GVL_PMPS.fbArbiter );
-    	
+        i_stUSG:= qRIXS_SC_GCC_01.IG,
+        i_stDSG:= RIX_IM5K2_PPM_GCC_1.IG,
+        i_xDis_DPIlk:= FALSE ,
+        i_xPMPS_OK:= TRUE ,
+        i_xEPS_OK:= TRUE,
+        i_xExt_OK:= TRUE,
+        i_xOverrideMode:= xSystemOverrideMode ,
+        i_xReset:= ,
+        i_xIsAperture:= FALSE,
+        i_sDevName:= 'QRIX:SC:VGC:02',
+        i_nTransitionRootID:= ,
+        iq_stValve=> ,
+        xMPS_OK=> ,
+        io_fbFFHWO:= GVL_PMPS.fbFastFaultOutput1 ,
+        fbArbiter:= GVL_PMPS.fbArbiter );
+
     //VRC 10
     qRIXS_SC_VRC_10.i_xExtILK_OK := qRIXS_SC_PTM_10.iq_stPTM.eState = E_PumpState.pumpRUNNING;
-    (*F_TurboGateValve_Protection_ILK( i_Turbo := qRIXS_SC_PTM_10.iq_stPTM , 
-    																   i_stISG := qRIXS_SC_GPI_01.PG, i_stBSG := qRIXS_ROUGH_GPI_11.PG,
-    																	ScrollPump := qRIXS_PRO_01.stPump );
-    *)														
+    (*F_TurboGateValve_Protection_ILK( i_Turbo := qRIXS_SC_PTM_10.iq_stPTM ,
+                                                                       i_stISG := qRIXS_SC_GPI_01.PG, i_stBSG := qRIXS_ROUGH_GPI_11.PG,
+                                                                        ScrollPump := qRIXS_PRO_01.stPump );
+    *)
     qRIXS_SC_VRC_10(i_xOverrideMode:=xSystemOverrideMode , iq_stValve=> );
 
     //VRC 20
-    qRIXS_SC_VRC_20.i_xExtILK_OK := F_TurboGateValve_Protection_ILK( i_Turbo := qRIXS_SC_PTM_20.iq_stPTM , 
-    																   i_stISG := qRIXS_SSL_GCP_20.PG, i_stBSG := qRIXS_ROUGH_GPI_11.PG,
-    																	ScrollPump := qRIXS_PRO_01.stPump );
-    																	
+    qRIXS_SC_VRC_20.i_xExtILK_OK :=  qRIXS_SC_PTM_20.iq_stPTM.eState = E_PumpState.pumpRUNNING;
+    (*F_TurboGateValve_Protection_ILK( i_Turbo := qRIXS_SC_PTM_20.iq_stPTM ,
+                                                                       i_stISG := qRIXS_SSL_GCP_20.PG, i_stBSG := qRIXS_ROUGH_GPI_11.PG,
+                                                                        ScrollPump := qRIXS_PRO_01.stPump );*)
+
     qRIXS_SC_VRC_20(i_xOverrideMode:=xSystemOverrideMode , iq_stValve=> );
 
 
     //VRC 30
-    qRIXS_SC_VRC_30.i_xExtILK_OK := F_TurboGateValve_Protection_ILK( i_Turbo := qRIXS_SC_PTM_30.iq_stPTM , 
-    																   i_stISG := qRIXS_SSL_GCP_30.PG, i_stBSG := qRIXS_ROUGH_GPI_11.PG,
-    																	ScrollPump := qRIXS_PRO_01.stPump );
-    																	
+    qRIXS_SC_VRC_30.i_xExtILK_OK :=  qRIXS_SC_PTM_30.iq_stPTM.eState = E_PumpState.pumpRUNNING;
+    (*F_TurboGateValve_Protection_ILK( i_Turbo := qRIXS_SC_PTM_30.iq_stPTM ,
+                                                                       i_stISG := qRIXS_SSL_GCP_30.PG, i_stBSG := qRIXS_ROUGH_GPI_11.PG,
+                                                                        ScrollPump := qRIXS_PRO_01.stPump );*)
+
     qRIXS_SC_VRC_30(i_xOverrideMode:=xSystemOverrideMode , iq_stValve=> );
 
     //PTM ILK
     //qRIXS_SC_PTM_10_ILK(i_stValve:=qRIXS_ROUGH_VRC_02.iq_stValve, i_stPump:=qRIXS_SC_PTM_10.iq_stPTM, tDelay:=T#200S, bILK=>);
-    qRIXS_SC_PTM_10(i_xExtIlkOK:=(*qRIXS_SC_PTM_10_ILK.bILK 
-    				AND *)F_TurboExtILKLogic_2(Turbo:=qRIXS_SC_PTM_10.iq_stPTM,BackingGauge:=qRIXS_ROUGH_GPI_02.PG, InletGauge:=qRIXS_SC_GPI_01.PG, ScrollPump:= qRIXS_PRO_01.stPump) );
+    qRIXS_SC_PTM_10(i_xExtIlkOK:= qRIXS_ROUGH_VRC_02.M_IsOpen()
+                    AND F_TurboExtILKLogic_2(Turbo:=qRIXS_SC_PTM_10.iq_stPTM,BackingGauge:=qRIXS_ROUGH_GPI_02.PG, InletGauge:=qRIXS_SC_GPI_01.PG, ScrollPump:= qRIXS_PRO_01.stPump) );
 
     //qRIXS_SC_PTM_20_ILK(i_stValve:=qRIXS_ROUGH_VRC_02.iq_stValve, i_stPump:=qRIXS_SC_PTM_20.iq_stPTM, tDelay:=T#200S, bILK=>);
-    qRIXS_SC_PTM_20(i_xExtIlkOK:=(*qRIXS_SC_PTM_20_ILK.bILK 
-    				AND *)F_TurboExtILKLogic_2(Turbo:=qRIXS_SC_PTM_20.iq_stPTM,BackingGauge:=qRIXS_ROUGH_GPI_02.PG, InletGauge:=qRIXS_SSL_GCP_20.PG, ScrollPump:= qRIXS_PRO_01.stPump) );
+    qRIXS_SC_PTM_20(i_xExtIlkOK:= qRIXS_ROUGH_VRC_02.M_IsOpen()
+                    AND F_TurboExtILKLogic_2(Turbo:=qRIXS_SC_PTM_20.iq_stPTM,BackingGauge:=qRIXS_ROUGH_GPI_02.PG, InletGauge:=qRIXS_SSL_GCP_20.PG, ScrollPump:= qRIXS_PRO_01.stPump) );
 
     //qRIXS_SC_PTM_30_ILK(i_stValve:=qRIXS_ROUGH_VRC_02.iq_stValve, i_stPump:=qRIXS_SC_PTM_30.iq_stPTM, tDelay:=T#200S, bILK=>);
-    qRIXS_SC_PTM_30(i_xExtIlkOK:=(*qRIXS_SC_PTM_30_ILK.bILK 
-    			AND*) F_TurboExtILKLogic_2(Turbo:=qRIXS_SC_PTM_30.iq_stPTM,BackingGauge:=qRIXS_ROUGH_GPI_02.PG, InletGauge:=qRIXS_SSL_GCP_30.PG, ScrollPump:= qRIXS_PRO_01.stPump) );
+    qRIXS_SC_PTM_30(i_xExtIlkOK:= qRIXS_ROUGH_VRC_02.M_IsOpen()
+                AND F_TurboExtILKLogic_2(Turbo:=qRIXS_SC_PTM_30.iq_stPTM,BackingGauge:=qRIXS_ROUGH_GPI_02.PG, InletGauge:=qRIXS_SSL_GCP_30.PG, ScrollPump:= qRIXS_PRO_01.stPump) );
 
-    			
+
     //Pfeiffer Turbo Serial
 
 
@@ -1084,13 +1118,13 @@ PRG_SampleChamber
     st_Pfeiffer_CTRL[1].xEnableComm := TRUE;
     st_Pfeiffer_CTRL[2].iSerialAddress :=2;
     st_Pfeiffer_CTRL[2].xEnableComm := TRUE;
-    	
-    (* Instanitate the Function block for serial communication with Pfeiffer*)	
+
+    (* Instanitate the Function block for serial communication with Pfeiffer*)
     fb_PfeifferCom(astPfeifferControl := st_Pfeiffer_CTRL,
-    			   astPfeifferStatus:= st_Pfeiffer_RBK,
-    				SerialRXBuffer:= E2_SerialRXBuffer,
-    				SerialTXBuffer:= E2_SerialTXBuffer);
-    				
+                   astPfeifferStatus:= st_Pfeiffer_RBK,
+                    SerialRXBuffer:= E2_SerialRXBuffer,
+                    SerialTXBuffer:= E2_SerialTXBuffer);
+
 
     (* Copy Status Pv's into the PTM structure*)
     qRIXS_SC_PTM_10.M_Serial_IO(st_Pfeiffer_CTRL:=st_Pfeiffer_CTRL[1],st_Pfeiffer_RBK:=st_Pfeiffer_RBK[1]);
@@ -1112,27 +1146,38 @@ PRG_SDS
 
     PROGRAM PRG_SDS
     VAR
+    	QRIX_MOT_SDS_MMS_H_BACKWARD_EN: INT;
+    	rPressSP : REAL :=  0.0001;
     END_VAR
-    //MKS 275 Gauges
-    fb_QRIX_SDS_GPI_01(PG=>);
-    fb_QRIX_ROUGH_GPI_03(PG=>);
-    fb_QRIX_ROUGH_GPI_04(PG=>);
+    //MKS  Gauges
+    qRIXS_SDS_GCP_01(PG=>);
 
-    //VVC
-    fb_QRIX_SDS_VVC_01(i_xExtILK_OK := TRUE, i_xOverrideMode := xSystemOverrideMode, iq_stValve => );
-    fb_QRIX_SDS_VVC_02(i_xExtILK_OK := TRUE, i_xOverrideMode := xSystemOverrideMode, iq_stValve => );
 
     //VRC
     (*fb_QRIX_SDS_VRC_01(i_xOverrideMode := xSystemOverrideMode, iq_stValve =>);
-    fb_QRIX_SDS_VRC_01.i_xExtILK_OK := F_TurboGateValve_Protection_ILK( i_Turbo := QRIX_SD_PTM_01.iq_stPTM , 
-    																   i_stISG := fb_QRIX_SDS_GPI_01.PG, i_stBSG := fb_QRIX_SC_GPI_01.PG,
-    																	ScrollPump := fb_QRIX_PRO_01 );
-    																	
+    fb_QRIX_SDS_VRC_01.i_xExtILK_OK := F_TurboGateValve_Protection_ILK( i_Turbo := QRIX_SD_PTM_01.iq_stPTM ,
+                                                                       i_stISG := fb_QRIX_SDS_GPI_01.PG, i_stBSG := fb_QRIX_SC_GPI_01.PG,
+                                                                        ScrollPump := fb_QRIX_PRO_01 );
+
     *)
+
+    qRIXS_SDS_PTM_10(i_xExtIlkOK:= qRIXS_ROUGH_VRC_01.M_IsOpen() 
+    	AND F_TurboExtILKLogic_2(Turbo:=qRIXS_SDS_PTM_10.iq_stPTM,BackingGauge:=qRIXS_ROUGH_GPI_02.PG, InletGauge:=qRIXS_SDS_GCP_01.PG, ScrollPump:= qRIXS_PRO_01.stPump) );
+
+
+
+    qRIXS_SC_VGC_03(
+    	i_OPN_OK:= qRIXS_SDS_GCP_01.PG.rPRESS > rPressSP, // need to get requirements on this interlock
+    	i_CLS_OK:= GVL_Interface.QRIX_MOT_SDS_MMS_H_BACKWARD_EN AND NOT (GVL_Interface.QRIX_MOT_SDS_MMS_H_FORWARD_EN ), 
+    	ibCntrlHold:= , 
+    	i_xOverrideMode:= , 
+    	iq_stValve=> );
 
     END_PROGRAM
 
 
+Related:
+    * `GVL_Interface`_
 
 
 PRG_SPA
@@ -1181,12 +1226,24 @@ PRG_SPA
     // (*
     // Calc pressure Difference
     xExtILK_OK_BLW := 	( qRIXS_OPT_VGC_01.iq_stValve.i_xClsLS AND qRIXS_OPT_GPI_01.PG.xPRESS_OK AND qRIXS_SA_GCP_01.PG.xPRESS_OK AND (qRIXS_OPT_GPI_01.PG.rPRESS - qRIXS_SA_GCP_01.PG.rPRESS) < iPressTorrerance)
-    					OR (qRIXS_OPT_GCC_01.IG.xPRESS_OK AND qRIXS_SA_GCP_01.PG.xPRESS_OK AND (qRIXS_OPT_GCC_01.IG.rPRESS - qRIXS_SA_GCP_01.PG.rPRESS) < iPressTorrerance);
+    				OR (qRIXS_OPT_GCC_01.IG.xPRESS_OK AND qRIXS_SA_GCP_01.PG.xPRESS_OK AND (qRIXS_OPT_GCC_01.IG.rPRESS - qRIXS_SA_GCP_01.PG.rPRESS) < iPressTorrerance);
 
     qRIXS_SA_VWC_01(
-    		i_xExtILK_OK := xExtILK_OK_BLW,
-    		i_xOverrideMode:=xSystemOverrideMode,
-    		iq_stValve =>
+    	i_stUSG:= qRIXS_SA_GCP_01.PG , 
+    	i_stDSG:= qRIXS_OPT_GCC_01.IG , 
+    	i_xDis_DPIlk:= FALSE , 
+    	i_xPMPS_OK:= TRUE , 
+    	i_xEPS_OK:= , 
+    	i_xExt_OK:= xExtILK_OK_BLW , 
+    	i_xOverrideMode:= , 
+    	i_xReset:= , 
+    	i_xIsAperture:= TRUE, 
+    	i_sDevName:= , 
+    	i_nTransitionRootID:= ,
+    	iq_stValve=> , 
+    	xMPS_OK=> , 
+    	io_fbFFHWO:=GVL_PMPS.fbFastFaultOutput1 , 
+    	fbArbiter:= GVL_PMPS.fbArbiter
     	);
     // *)
     // (*
