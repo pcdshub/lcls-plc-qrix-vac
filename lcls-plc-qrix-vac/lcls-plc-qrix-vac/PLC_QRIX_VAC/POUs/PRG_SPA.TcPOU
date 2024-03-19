@@ -40,6 +40,7 @@ END_VAR
 		io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1,
 		fbArbiter := GVL_PMPS.fbArbiter,
 		iq_stValve =>,
+		i_xPMPS_OK:= TRUE
 	);
 // *)
 // (*
