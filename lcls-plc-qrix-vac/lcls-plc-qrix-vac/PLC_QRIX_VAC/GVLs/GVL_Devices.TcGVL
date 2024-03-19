@@ -37,7 +37,14 @@ qRIXS_SC_GPI_01 : FB_MKS275;
 {attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[EL3174-0002_01_23]^AI Standard Channel 3^Value'}
 qRIXS_ROUGH_GPI_31 : FB_MKS275;
 
-	
+(* MKS972 - Full range guage *)
+{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=		TIIB[EL3174-0002_02_13]^AI Standard Channel 2^Value'}
+{attribute 'pytmc' := '
+	pv: QRIXS:SA:GCP:02
+	io: io
+'}
+qRIXS_SA_GCP_02: FB_972;
+
 {attribute 'pytmc' := '
 	pv: QRIXS:SSL:GCP:20
 	io: io

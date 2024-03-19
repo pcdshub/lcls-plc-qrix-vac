@@ -120,7 +120,8 @@ qRIXS_SA_VRC_01(
 	i_xPMPS_OK:= TRUE, 
 	i_xIsAperture:= TRUE , 
 	i_sDevName:= , 
-	i_nTransitionRootID:= );
+	i_nTransitionRootID:=,
+	i_xPMPS_OK:= TRUE );
 	
 	
 //VGC_W(i_xExtILK_OK:= , 
