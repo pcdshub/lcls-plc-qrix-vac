@@ -9,8 +9,8 @@ END_VAR
       <ST><![CDATA[///Calling programs
 PRG_Roughing();				
 PRG_SampleChamber(); 
-PRG_SA_WINDOW();		
-//PRG_SDS();
+//PRG_SA_WINDOW();		
+PRG_SDS();
 PRG_SPA();
 PRG_2_PMPS();
 PRG_3_LOG();
