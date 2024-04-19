@@ -111,7 +111,7 @@ qRIXS_SC_VGC_04(
 );
 
 
-qRIXS_SA_VRC_01(
+qRIXS_SC_VGC_05(
 	i_xExtILK_OK:= , 
 	i_xOverrideMode:= , 
 	iq_stValve=> , 

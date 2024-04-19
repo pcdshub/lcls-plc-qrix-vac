@@ -24,7 +24,7 @@ VAR_GLOBAL
 		pv: QRIXS:BLW:VRC:01
 		io: io
 	'}
-	qRIXS_SA_VWC_01: FB_VRC;
+	qRIXS_SA_VWC_01: FB_VGC;
 	
 	{attribute 'TcLinkTo' := 	'.i_xOpnLS	:=	TIIB[qRIXS_PNL1_E2_EL1004]^Channel 1^Input;
 								 .i_xClsLS	:=	TIIB[qRIXS_PNL1_E2_EL1004]^Channel 2^Input;

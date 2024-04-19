@@ -3,18 +3,15 @@
   <POU Name="PRG_SDS" Id="{c071bd61-3fce-43c9-a399-7bab2178258d}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_SDS
 VAR
+	QRIX_MOT_SDS_MMS_H_BACKWARD_EN: INT;
+	rPressSP : REAL :=  0.0001;
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[
-//MKS 275 Gauges
-fb_QRIX_SDS_GPI_01(PG=>);
-fb_QRIX_ROUGH_GPI_03(PG=>);
-fb_QRIX_ROUGH_GPI_04(PG=>);
+//MKS  Gauges
+qRIXS_SDS_GCP_01(PG=>);
 
-//VVC
-fb_QRIX_SDS_VVC_01(i_xExtILK_OK := TRUE, i_xOverrideMode := xSystemOverrideMode, iq_stValve => );
-fb_QRIX_SDS_VVC_02(i_xExtILK_OK := TRUE, i_xOverrideMode := xSystemOverrideMode, iq_stValve => );
 
 //VRC
 (*fb_QRIX_SDS_VRC_01(i_xOverrideMode := xSystemOverrideMode, iq_stValve =>);
@@ -23,7 +20,18 @@ fb_QRIX_SDS_VRC_01.i_xExtILK_OK := F_TurboGateValve_Protection_ILK( i_Turbo := Q
                                                                     ScrollPump := fb_QRIX_PRO_01 );
 
 *)
-]]></ST>
+
+qRIXS_SDS_PTM_10(i_xExtIlkOK:= qRIXS_ROUGH_VRC_01.M_IsOpen() 
+	AND F_TurboExtILKLogic_2(Turbo:=qRIXS_SDS_PTM_10.iq_stPTM,BackingGauge:=qRIXS_ROUGH_GPI_02.PG, InletGauge:=qRIXS_SDS_GCP_01.PG, ScrollPump:= qRIXS_PRO_01.stPump) );
+
+
+
+qRIXS_SC_VGC_03(
+	i_OPN_OK:= qRIXS_SDS_GCP_01.PG.rPRESS > rPressSP, // need to get requirements on this interlock
+	i_CLS_OK:= GVL_Interface.QRIX_MOT_SDS_MMS_H_BACKWARD_EN AND NOT (GVL_Interface.QRIX_MOT_SDS_MMS_H_FORWARD_EN ), 
+	ibCntrlHold:= , 
+	i_xOverrideMode:= , 
+	iq_stValve=> );]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>
