@@ -27,8 +27,8 @@ qRIXS_SDS_PTM_10(i_xExtIlkOK:= qRIXS_ROUGH_VRC_01.M_IsOpen()
 
 
 qRIXS_SC_VGC_03(
-	i_OPN_OK:= qRIXS_SDS_GCP_01.PG.rPRESS > rPressSP, // need to get requirements on this interlock
-	i_CLS_OK:= GVL_Interface.QRIX_MOT_SDS_MMS_H_BACKWARD_EN AND NOT (GVL_Interface.QRIX_MOT_SDS_MMS_H_FORWARD_EN ), 
+	i_OPN_OK:= qRIXS_SDS_GCP_01.PG.rPRESS < rPressSP, // need to get requirements on this interlock
+	i_CLS_OK:= NOT GVL_Interface.QRIX_MOT_SDS_MMS_H_BACKWARD_EN AND (GVL_Interface.QRIX_MOT_SDS_MMS_H_FORWARD_EN ), 
 	ibCntrlHold:= , 
 	i_xOverrideMode:= , 
 	iq_stValve=> );]]></ST>

@@ -3,32 +3,49 @@
   <POU Name="PRG_Roughing" Id="{9373ef9e-5e95-4b75-81c2-b0e4a1795889}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_Roughing
 VAR
+
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[// Roughing devices
 //MKS 275 Gauges
-qRIXS_ROUGH_GPI_01.M_SetBits(30518);
-qRIXS_ROUGH_GPI_01();			// Roughing guage near pro
+//qRIXS_ROUGH_GPI_01.M_SetBits(30518); moved to pax
+//qRIXS_ROUGH_GPI_01();			// Roughing guage near pro moved to pax
+//qRIXS_PRO_01(i_stBPGauge := qRIXS_ROUGH_GPI_01.PG, i_xVlvOpn := TRUE, i_xExtIlkOK := TRUE); //moved to pax
+
+//Reading the roughing valve, gauge and pump from RIX beamline vac plc
+qRIXS_ROUGH_GPI_01(
+    sNetId:= '172.21.140.69.1.1',
+    nPort:= 851,
+    sVarName:= 'GVL_KFE_RIX_VAC.RIXS_ROUGH_GPI_01',
+    iWatchdog:= PRG_SampleChamber.iWatchdog ,
+    IG=> ,
+    bError=> );
+qRIXS_PRO_01(
+    sNetId:= '172.21.140.69.1.1',
+    nPort:= 851,
+    sVarName:= 'GVL_KFE_RIX_VAC.RIXS_PRO_01',
+    iWatchdog:= PRG_SampleChamber.iWatchdog ,
+    stPump=> ,
+    bError=> );
+
+
+
+// roughing gauge and valves in the hutch
 qRIXS_ROUGH_GPI_02.M_SetBits(30518);
-qRIXS_ROUGH_GPI_02();			// Roughing guage near BL 
-
-
+qRIXS_ROUGH_GPI_02();			// Roughing guage near BL
 //VRC 02	backing Main Sample Chamber
 qRIXS_ROUGH_VRC_02(i_xExtILK_OK :=  qRIXS_PRO_01.stPump.eState = E_PumpState.pumpRUNNING, i_xOverrideMode := xSystemOverrideMode, iq_stValve => );
 
 //VRC 01 backing Sample Delivery Chamber
 qRIXS_ROUGH_VRC_01(i_xExtILK_OK := qRIXS_PRO_01.stPump.eState = E_PumpState.pumpRUNNING, i_xOverrideMode := xSystemOverrideMode, iq_stValve => );
 
-
-qRIXS_PRO_01(i_stBPGauge := qRIXS_ROUGH_GPI_01.PG, i_xVlvOpn := TRUE, i_xExtIlkOK := TRUE);
-
-
+(*
 if( qRIXS_PRO_01.stPump.eState = pumpSTARTING ) OR ( qRIXS_PRO_01.stPump.eState = pumpRUNNING )
  THEN QRIX_ROUGH_VRO_01.M_Open(TRUE); 
 END_IF
-QRIX_ROUGH_VRO_01(i_xExtILK_OK:= (qRIXS_PRO_01.stPump.eState = pumpRUNNING  OR  qRIXS_PRO_01.stPump.eState = pumpSTARTING ), i_xOverrideMode:= , iq_stValve=> );
-]]></ST>
+QRIX_ROUGH_VRO_01(i_xExtILK_OK:= (qRIXS_PRO_01.st_pro.eState = pumpRUNNING  OR  qRIXS_PRO_01.st_pro.eState = pumpSTARTING ), i_xOverrideMode:= , iq_stValve=> );
+*)]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

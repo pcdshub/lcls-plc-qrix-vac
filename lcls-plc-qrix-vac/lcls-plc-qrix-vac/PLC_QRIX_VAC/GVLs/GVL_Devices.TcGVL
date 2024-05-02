@@ -96,7 +96,7 @@ qRIXS_ROUGH_VRC_02: FB_VRC;
 '}
 qRIXS_SA_VRC_01 : FB_VRC_NO_FFO; // Is the Window valve NO 
 	
-
+(* MOved to PAX
 //// Connected to B950-310-WALL-W-DRL-02 (Mechanical Room )
 {attribute 'pytmc' := ' pv: QRIXS:PRO:01 '}
 {attribute 'TcLinkTo' := '.q_xMPStart := TIIB[EL2794_03_03]^Channel 1^Output;
@@ -116,7 +116,10 @@ qRIXS_ROUGH_GPI_01 : FB_MKS275;
 {attribute 'pytmc' := ' pv: QRIXS:ROUGH:VRO:01 '}
 {attribute 'TcLinkTo' := 	'.q_xOPN_DO	:=	TIIB[EL2212_03_04]^DOX Control Channel 1^Control^Output'}
 QRIX_ROUGH_VRO_01 : FB_VVC;
+*)
 
+qRIXS_ROUGH_GPI_01:FB_TGPI_ADS;
+qRIXS_PRO_01:FB_PRO_ADS;
 
 //VRC
 {attribute 'TcLinkTo' := 	'.i_xOpnLS	:=	TIIB[EL1004_01_01]^Channel 1^Input;

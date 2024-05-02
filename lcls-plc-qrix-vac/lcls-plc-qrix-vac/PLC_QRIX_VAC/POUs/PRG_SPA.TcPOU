@@ -14,7 +14,7 @@ END_VAR
       <ST><![CDATA[
 (* Gamma Ion Pump *)
 	qRIXS_OPT_PIP_01(i_stGauge:=qRIXS_OPT_GCC_01.IG, i_xOverrideMode:= xSystemOverrideMode);
-	qRIXS_DET_PIP_01(i_stGauge:=qRIXS_DET_GCC_01.IG, i_xOverrideMode:= xSystemOverrideMode);
+	qRIXS_DET_PIP_01(i_stGauge:=qRIXS_DET_GPI_01.PG, i_xOverrideMode:= xSystemOverrideMode);
 
 (* Pirani MKS 275 Gauges *)
 	qRIXS_OPT_GPI_01(PG=>);	
