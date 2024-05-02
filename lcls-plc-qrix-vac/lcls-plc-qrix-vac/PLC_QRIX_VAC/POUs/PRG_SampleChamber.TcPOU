@@ -7,7 +7,7 @@ VAR
     iWatchdog: UDINT;
     RIX_TV4K2_GFS_1:FB_TGCC_ADS;
     RIX_IM5K2_PPM_GCC_1:FB_TGCC_ADS;
-	RIX_VAC_WD: FB_ADS_WATCHDOG;
+    RIX_VAC_WD: FB_ADS_WATCHDOG;
 
     //PTM interlocks
     qRIXS_SC_PTM_10_ILK : FB_ChemRIXS_Turbo_ILK;
@@ -31,9 +31,9 @@ RIX_IM5K2_PPM_GCC_1(
     iWatchdog:= iWatchdog ,
     IG=> ,
     bError=> );
-	
-RIX_VAC_WD(sNetId:= '172.21.140.69.1.1', nPort:=851 , sVarName:= 'PRG_KFE_RIX_VAC.iWatchdog', bError=> );	
-	
+
+RIX_VAC_WD(sNetId:= '172.21.140.69.1.1', nPort:=851 , sVarName:= 'PRG_KFE_RIX_VAC.iWatchdog', bError=> );
+
 
 //MKS 275 Gauges
 qRIXS_SC_GPI_01.M_SetBits(30518);

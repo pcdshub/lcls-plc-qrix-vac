@@ -6,20 +6,20 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[	
+      <ST><![CDATA[
 
 //PTM_10, PTM_20 and PTM_30
-(*Instanitate Serial port com function *) 
+(*Instanitate Serial port com function *)
 E14_fbSerialLineControl(
-	Mode:= SERIALLINEMODE_EL6_22B,
-	pComIn:= ADR(E2_stComIn),
-	pComOut:=ADR(E2_stComOut),
-	SizeComIn:= SIZEOF(E2_stComIn),
-	TxBuffer:= E2_SerialTXBuffer,
-	RxBuffer:= E2_SerialRXBuffer,
-	Error=> ,
-	ErrorID=> );
-	]]></ST>
+    Mode:= SERIALLINEMODE_EL6_22B,
+    pComIn:= ADR(E2_stComIn),
+    pComOut:=ADR(E2_stComOut),
+    SizeComIn:= SIZEOF(E2_stComIn),
+    TxBuffer:= E2_SerialTXBuffer,
+    RxBuffer:= E2_SerialRXBuffer,
+    Error=> ,
+    ErrorID=> );
+    ]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

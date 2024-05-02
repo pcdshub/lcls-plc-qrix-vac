@@ -42,7 +42,7 @@ qRIXS_ROUGH_VRC_01(i_xExtILK_OK := qRIXS_PRO_01.stPump.eState = E_PumpState.pump
 
 (*
 if( qRIXS_PRO_01.stPump.eState = pumpSTARTING ) OR ( qRIXS_PRO_01.stPump.eState = pumpRUNNING )
- THEN QRIX_ROUGH_VRO_01.M_Open(TRUE); 
+ THEN QRIX_ROUGH_VRO_01.M_Open(TRUE);
 END_IF
 QRIX_ROUGH_VRO_01(i_xExtILK_OK:= (qRIXS_PRO_01.st_pro.eState = pumpRUNNING  OR  qRIXS_PRO_01.st_pro.eState = pumpSTARTING ), i_xOverrideMode:= , iq_stValve=> );
 *)]]></ST>

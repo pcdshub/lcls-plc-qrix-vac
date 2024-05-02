@@ -3,8 +3,8 @@
   <POU Name="PRG_SDS" Id="{c071bd61-3fce-43c9-a399-7bab2178258d}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_SDS
 VAR
-	QRIX_MOT_SDS_MMS_H_BACKWARD_EN: INT;
-	rPressSP : REAL :=  0.0001;
+    QRIX_MOT_SDS_MMS_H_BACKWARD_EN: INT;
+    rPressSP : REAL :=  0.0001;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -21,17 +21,17 @@ fb_QRIX_SDS_VRC_01.i_xExtILK_OK := F_TurboGateValve_Protection_ILK( i_Turbo := Q
 
 *)
 
-qRIXS_SDS_PTM_10(i_xExtIlkOK:= qRIXS_ROUGH_VRC_01.M_IsOpen() 
-	AND F_TurboExtILKLogic_2(Turbo:=qRIXS_SDS_PTM_10.iq_stPTM,BackingGauge:=qRIXS_ROUGH_GPI_02.PG, InletGauge:=qRIXS_SDS_GCP_01.PG, ScrollPump:= qRIXS_PRO_01.stPump) );
+qRIXS_SDS_PTM_10(i_xExtIlkOK:= qRIXS_ROUGH_VRC_01.M_IsOpen()
+    AND F_TurboExtILKLogic_2(Turbo:=qRIXS_SDS_PTM_10.iq_stPTM,BackingGauge:=qRIXS_ROUGH_GPI_02.PG, InletGauge:=qRIXS_SDS_GCP_01.PG, ScrollPump:= qRIXS_PRO_01.stPump) );
 
 
 
 qRIXS_SC_VGC_03(
-	i_OPN_OK:= qRIXS_SDS_GCP_01.PG.rPRESS < rPressSP, // need to get requirements on this interlock
-	i_CLS_OK:= NOT GVL_Interface.QRIX_MOT_SDS_MMS_H_BACKWARD_EN AND (GVL_Interface.QRIX_MOT_SDS_MMS_H_FORWARD_EN ), 
-	ibCntrlHold:= , 
-	i_xOverrideMode:= , 
-	iq_stValve=> );]]></ST>
+    i_OPN_OK:= qRIXS_SDS_GCP_01.PG.rPRESS < rPressSP, // need to get requirements on this interlock
+    i_CLS_OK:= NOT GVL_Interface.QRIX_MOT_SDS_MMS_H_BACKWARD_EN AND (GVL_Interface.QRIX_MOT_SDS_MMS_H_FORWARD_EN ),
+    ibCntrlHold:= ,
+    i_xOverrideMode:= ,
+    iq_stValve=> );]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>
