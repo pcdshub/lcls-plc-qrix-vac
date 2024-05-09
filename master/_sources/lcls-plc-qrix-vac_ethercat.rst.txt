@@ -37,7 +37,7 @@ EtherCAT Terminals
                   <td width="10%">
                     ID=18:
                   </td>
-                  <td width="75%">PMPS_FFO
+                  <td width="75%">EL2202_00_01
                   </td>
                   <td>        </td>
                 </tr>
@@ -284,7 +284,9 @@ EtherCAT Terminals
 
 
             <li>
-                  <table width="100%">
+              <details open>
+                <summary>
+                      <table width="100%">
                 <tr>
                   <td width="10%">
                     ID=30:
@@ -301,6 +303,102 @@ EtherCAT Terminals
                   </td>
                 </tr>
               </table>
+                </summary>
+                <ul>
+
+                      <li>
+                        <details open>
+                          <summary>
+                                <table width="100%">
+                          <tr>
+                            <td width="10%">
+                              ID=78:
+                            </td>
+                            <td width="75%">Term 78 (EK1501-0010)
+                            </td>
+                            <td>        </td>
+                          </tr>
+                          <tr>
+                            <td>
+                                      </td>
+                            <td colspan="2">
+                              EK1501-0010 EtherCAT Coupler (2A E-Bus, FX-SingleMode, ID switch)
+                            </td>
+                          </tr>
+                        </table>
+                          </summary>
+                          <ul>
+
+                                <li>
+                                      <table width="100%">
+                                    <tr>
+                                      <td width="10%">
+                                        ID=79:
+                                      </td>
+                                      <td width="75%">PMPS_FFO
+                                      </td>
+                                      <td>        </td>
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                                </td>
+                                      <td colspan="2">
+                                        EL2202 2Ch. Dig. Output 24V, 0.5A
+                                      </td>
+                                    </tr>
+                                  </table>
+                                </li>
+
+
+                                <li>
+                                      <table width="100%">
+                                    <tr>
+                                      <td width="10%">
+                                        ID=80:
+                                      </td>
+                                      <td width="75%">PMPS_PRE
+                                      </td>
+                                      <td>            <b>
+                                            SyncUnit pmps
+                                          </b>        </td>
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                                </td>
+                                      <td colspan="2">
+                                        EL6695 EtherCAT Bridge terminal (Primary)
+                                      </td>
+                                    </tr>
+                                  </table>
+                                </li>
+
+
+                                <li>
+                                      <table width="100%">
+                                    <tr>
+                                      <td width="10%">
+                                        ID=132:
+                                      </td>
+                                      <td width="75%">Term 132 (EL9011)
+                                      </td>
+                                      <td>        </td>
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                                </td>
+                                      <td colspan="2">
+                                        EL9011 End Terminal
+                                      </td>
+                                    </tr>
+                                  </table>
+                                </li>
+
+                          </ul>
+                        </details>
+                      </li>
+
+                </ul>
+              </details>
             </li>
 
 
@@ -326,201 +424,6 @@ EtherCAT Terminals
               </table>
                 </summary>
                 <ul>
-
-                      <li>
-                        <details open>
-                          <summary>
-                                <table width="100%">
-                          <tr>
-                            <td width="10%">
-                              ID=79:
-                            </td>
-                            <td width="75%">B950-310-WALL-W-DRL-02
-                            </td>
-                            <td>        </td>
-                          </tr>
-                          <tr>
-                            <td>
-                                      </td>
-                            <td colspan="2">
-                              EK1100 EtherCAT Coupler (2A E-Bus)
-                            </td>
-                          </tr>
-                        </table>
-                          </summary>
-                          <ul>
-
-                                <li>
-                                      <table width="100%">
-                                    <tr>
-                                      <td width="10%">
-                                        ID=80:
-                                      </td>
-                                      <td width="75%">EL1088_03_01
-                                      </td>
-                                      <td>        </td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                                </td>
-                                      <td colspan="2">
-                                        EL1088 8Ch. Dig. Input 24V, 3ms, negative
-                                      </td>
-                                    </tr>
-                                  </table>
-                                </li>
-
-
-                                <li>
-                                      <table width="100%">
-                                    <tr>
-                                      <td width="10%">
-                                        ID=1:
-                                      </td>
-                                      <td width="75%">EL9187_03_02
-                                      </td>
-                                      <td>        </td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                                </td>
-                                      <td colspan="2">
-                                        EL9187 Potential Connection, 8 x Ground
-                                      </td>
-                                    </tr>
-                                  </table>
-                                </li>
-
-
-                                <li>
-                                      <table width="100%">
-                                    <tr>
-                                      <td width="10%">
-                                        ID=81:
-                                      </td>
-                                      <td width="75%">EL2794_03_03
-                                      </td>
-                                      <td>        </td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                                </td>
-                                      <td colspan="2">
-                                        EL2794 4Ch. Dig. Output 24V AC/DC, 2A, short-circuit-proof
-                                      </td>
-                                    </tr>
-                                  </table>
-                                </li>
-
-
-                                <li>
-                                      <table width="100%">
-                                    <tr>
-                                      <td width="10%">
-                                        ID=82:
-                                      </td>
-                                      <td width="75%">EL2212_03_04
-                                      </td>
-                                      <td>        </td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                                </td>
-                                      <td colspan="2">
-                                        EL2212 2Ch. dig. output with overexcitation (24V DC, 2.5A, 10A Peak)
-                                      </td>
-                                    </tr>
-                                  </table>
-                                </li>
-
-
-                                <li>
-                                      <table width="100%">
-                                    <tr>
-                                      <td width="10%">
-                                        ID=2:
-                                      </td>
-                                      <td width="75%">EL9184_03_05
-                                      </td>
-                                      <td>        </td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                                </td>
-                                      <td colspan="2">
-                                        EL9184 Potential Connection, 8 x 24V, 8 x Ground
-                                      </td>
-                                    </tr>
-                                  </table>
-                                </li>
-
-
-                                <li>
-                                      <table width="100%">
-                                    <tr>
-                                      <td width="10%">
-                                        ID=3:
-                                      </td>
-                                      <td width="75%">EL9070_03_06
-                                      </td>
-                                      <td>        </td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                                </td>
-                                      <td colspan="2">
-                                        EL9070 Shield terminal
-                                      </td>
-                                    </tr>
-                                  </table>
-                                </li>
-
-
-                                <li>
-                                      <table width="100%">
-                                    <tr>
-                                      <td width="10%">
-                                        ID=83:
-                                      </td>
-                                      <td width="75%">EL3174-0002_03_07
-                                      </td>
-                                      <td>        </td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                                </td>
-                                      <td colspan="2">
-                                        EL3174-0002 4Ch. Ana. Input +/-10V, +/-20mA 16 Bit, Isolated Channels
-                                      </td>
-                                    </tr>
-                                  </table>
-                                </li>
-
-
-                                <li>
-                                      <table width="100%">
-                                    <tr>
-                                      <td width="10%">
-                                        ID=132:
-                                      </td>
-                                      <td width="75%">EL9011_03_08
-                                      </td>
-                                      <td>        </td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                                </td>
-                                      <td colspan="2">
-                                        EL9011 End Terminal
-                                      </td>
-                                    </tr>
-                                  </table>
-                                </li>
-
-                          </ul>
-                        </details>
-                      </li>
-
 
                       <li>
                             <table width="100%">

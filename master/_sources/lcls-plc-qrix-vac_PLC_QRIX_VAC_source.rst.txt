@@ -13,11 +13,11 @@ E_STATES
     {attribute 'strict'}
     TYPE E_STATES :
     (
-    	INIT := 0,
-    	SETUP,
-    	OVERRIDE,
-    	READY,
-    	NOT_SAFE
+        INIT := 0,
+        SETUP,
+        OVERRIDE,
+        READY,
+        NOT_SAFE
     );
     END_TYPE
 
@@ -36,130 +36,130 @@ GVL_COM
 ::
 
     VAR_GLOBAL
-    		// Define COM Ports/Buffers incl. library Tc2_SerialCom
-    		//Pfeiffers on the sample chamber
-    	SerialRXBuffer : ComBuffer;
-    	SerialTXBuffer : ComBuffer;
-    	
-    	// Serial Terminal
-    	E14_fbSerialLineControl: SerialLineControl;
+            // Define COM Ports/Buffers incl. library Tc2_SerialCom
+            //Pfeiffers on the sample chamber
+        SerialRXBuffer : ComBuffer;
+        SerialTXBuffer : ComBuffer;
 
-    	//SERIAL IO
-    	{attribute	'TcLinkTo'	:=	'.Status:=TIIB[EL6021_01_14]^COM TxPDO-Map Inputs Channel 2^Status;
-    								 .D[0]:=TIIB[EL6021_01_14]^COM TxPDO-Map Inputs Channel 2^Data In 0;
-    								 .D[1]:=TIIB[EL6021_01_14]^COM TxPDO-Map Inputs Channel 2^Data In 1;
-    								 .D[2]:=TIIB[EL6021_01_14]^COM TxPDO-Map Inputs Channel 2^Data In 2;
-    								 .D[3]:=TIIB[EL6021_01_14]^COM TxPDO-Map Inputs Channel 2^Data In 3;
-    								 .D[4]:=TIIB[EL6021_01_14]^COM TxPDO-Map Inputs Channel 2^Data In 4;
-    								 .D[5]:=TIIB[EL6021_01_14]^COM TxPDO-Map Inputs Channel 2^Data In 5;
-    								 .D[6]:=TIIB[EL6021_01_14]^COM TxPDO-Map Inputs Channel 2^Data In 6;
-    								 .D[7]:=TIIB[EL6021_01_14]^COM TxPDO-Map Inputs Channel 2^Data In 7;
-    								 .D[8]:=TIIB[EL6021_01_14]^COM TxPDO-Map Inputs Channel 2^Data In 8;
-    								 .D[9]:=TIIB[EL6021_01_14]^COM TxPDO-Map Inputs Channel 2^Data In 9;
-    								 .D[10]:=TIIB[EL6021_01_14]^COM TxPDO-Map Inputs Channel 2^Data In 10;
-    								 .D[11]:=TIIB[EL6021_01_14]^COM TxPDO-Map Inputs Channel 2^Data In 11;
-    								 .D[12]:=TIIB[EL6021_01_14]^COM TxPDO-Map Inputs Channel 2^Data In 12;
-    								 .D[13]:=TIIB[EL6021_01_14]^COM TxPDO-Map Inputs Channel 2^Data In 13;
-    								 .D[14]:=TIIB[EL6021_01_14]^COM TxPDO-Map Inputs Channel 2^Data In 14;
-    								 .D[15]:=TIIB[EL6021_01_14]^COM TxPDO-Map Inputs Channel 2^Data In 15;
-    								 .D[16]:=TIIB[EL6021_01_14]^COM TxPDO-Map Inputs Channel 2^Data In 16;
-    								 .D[17]:=TIIB[EL6021_01_14]^COM TxPDO-Map Inputs Channel 2^Data In 17;
-    								 .D[18]:=TIIB[EL6021_01_14]^COM TxPDO-Map Inputs Channel 2^Data In 18;
-    								 .D[19]:=TIIB[EL6021_01_14]^COM TxPDO-Map Inputs Channel 2^Data In 19;
-    								 .D[20]:=TIIB[EL6021_01_14]^COM TxPDO-Map Inputs Channel 2^Data In 20;
-    								 .D[21]:=TIIB[EL6021_01_14]^COM TxPDO-Map Inputs Channel 2^Data In 21;
-    	'}
-    	stComIn		AT %I*	:	EL6inData22B;
-    		{attribute	'TcLinkTo'	:=	'.Ctrl:=TIIB[EL6021_01_14]^COM RxPDO-Map Outputs Channel 2^Ctrl;
-    								 .D[0]:=TIIB[EL6021_01_14]^COM RxPDO-Map Outputs Channel 2^Data Out 0;
-    								 .D[1]:=TIIB[EL6021_01_14]^COM RxPDO-Map Outputs Channel 2^Data Out 1;
-    								 .D[2]:=TIIB[EL6021_01_14]^COM RxPDO-Map Outputs Channel 2^Data Out 2;
-    								 .D[3]:=TIIB[EL6021_01_14]^COM RxPDO-Map Outputs Channel 2^Data Out 3;
-    								 .D[4]:=TIIB[EL6021_01_14]^COM RxPDO-Map Outputs Channel 2^Data Out 4;
-    								 .D[5]:=TIIB[EL6021_01_14]^COM RxPDO-Map Outputs Channel 2^Data Out 5;
-    								 .D[6]:=TIIB[EL6021_01_14]^COM RxPDO-Map Outputs Channel 2^Data Out 6;
-    								 .D[7]:=TIIB[EL6021_01_14]^COM RxPDO-Map Outputs Channel 2^Data Out 7;
-    								 .D[8]:=TIIB[EL6021_01_14]^COM RxPDO-Map Outputs Channel 2^Data Out 8;
-    								 .D[9]:=TIIB[EL6021_01_14]^COM RxPDO-Map Outputs Channel 2^Data Out 9;
-    								 .D[10]:=TIIB[EL6021_01_14]^COM RxPDO-Map Outputs Channel 2^Data Out 10;
-    								 .D[11]:=TIIB[EL6021_01_14]^COM RxPDO-Map Outputs Channel 2^Data Out 11;
-    								 .D[12]:=TIIB[EL6021_01_14]^COM RxPDO-Map Outputs Channel 2^Data Out 12;
-    								 .D[13]:=TIIB[EL6021_01_14]^COM RxPDO-Map Outputs Channel 2^Data Out 13;
-    								 .D[14]:=TIIB[EL6021_01_14]^COM RxPDO-Map Outputs Channel 2^Data Out 14;
-    								 .D[15]:=TIIB[EL6021_01_14]^COM RxPDO-Map Outputs Channel 2^Data Out 15;
-    								 .D[16]:=TIIB[EL6021_01_14]^COM RxPDO-Map Outputs Channel 2^Data Out 16;
-    								 .D[17]:=TIIB[EL6021_01_14]^COM RxPDO-Map Outputs Channel 2^Data Out 17;
-    								 .D[18]:=TIIB[EL6021_01_14]^COM RxPDO-Map Outputs Channel 2^Data Out 18;
-    								 .D[19]:=TIIB[EL6021_01_14]^COM RxPDO-Map Outputs Channel 2^Data Out 19;
-    								 .D[20]:=TIIB[EL6021_01_14]^COM RxPDO-Map Outputs Channel 2^Data Out 20;
-    								 .D[21]:=TIIB[EL6021_01_14]^COM RxPDO-Map Outputs Channel 2^Data Out 21;
-    	'}
-    	stComOut		AT %Q*	:	EL6outData22B;
-    	
-    	
-    	// Define COM Ports/Buffers incl. library Tc2_SerialCom
-    	E2_SerialRXBuffer : ComBuffer;
-    	E2_SerialTXBuffer : ComBuffer;
-    	
-    	// Serial Terminal
-    	E2_fbSerialLineControl: SerialLineControl;
+        // Serial Terminal
+        E14_fbSerialLineControl: SerialLineControl;
 
-    	//SERIAL IO
-    	{attribute	'TcLinkTo'	:=	'.Status:=TIIB[EP6002-0002]^COM TxPDO-Map Inputs Channel 1^Status;
-    								 .D[0]:=TIIB[EP6002-0002]^COM TxPDO-Map Inputs Channel 1^Data In 0;
-    								 .D[1]:=TIIB[EP6002-0002]^COM TxPDO-Map Inputs Channel 1^Data In 1;
-    								 .D[2]:=TIIB[EP6002-0002]^COM TxPDO-Map Inputs Channel 1^Data In 2;
-    								 .D[3]:=TIIB[EP6002-0002]^COM TxPDO-Map Inputs Channel 1^Data In 3;
-    								 .D[4]:=TIIB[EP6002-0002]^COM TxPDO-Map Inputs Channel 1^Data In 4;
-    								 .D[5]:=TIIB[EP6002-0002]^COM TxPDO-Map Inputs Channel 1^Data In 5;
-    								 .D[6]:=TIIB[EP6002-0002]^COM TxPDO-Map Inputs Channel 1^Data In 6;
-    								 .D[7]:=TIIB[EP6002-0002]^COM TxPDO-Map Inputs Channel 1^Data In 7;
-    								 .D[8]:=TIIB[EP6002-0002]^COM TxPDO-Map Inputs Channel 1^Data In 8;
-    								 .D[9]:=TIIB[EP6002-0002]^COM TxPDO-Map Inputs Channel 1^Data In 9;
-    								 .D[10]:=TIIB[EP6002-0002]^COM TxPDO-Map Inputs Channel 1^Data In 10;
-    								 .D[11]:=TIIB[EP6002-0002]^COM TxPDO-Map Inputs Channel 1^Data In 11;
-    								 .D[12]:=TIIB[EP6002-0002]^COM TxPDO-Map Inputs Channel 1^Data In 12;
-    								 .D[13]:=TIIB[EP6002-0002]^COM TxPDO-Map Inputs Channel 1^Data In 13;
-    								 .D[14]:=TIIB[EP6002-0002]^COM TxPDO-Map Inputs Channel 1^Data In 14;
-    								 .D[15]:=TIIB[EP6002-0002]^COM TxPDO-Map Inputs Channel 1^Data In 15;
-    								 .D[16]:=TIIB[EP6002-0002]^COM TxPDO-Map Inputs Channel 1^Data In 16;
-    								 .D[17]:=TIIB[EP6002-0002]^COM TxPDO-Map Inputs Channel 1^Data In 17;
-    								 .D[18]:=TIIB[EP6002-0002]^COM TxPDO-Map Inputs Channel 1^Data In 18;
-    								 .D[19]:=TIIB[EP6002-0002]^COM TxPDO-Map Inputs Channel 1^Data In 19;
-    								 .D[20]:=TIIB[EP6002-0002]^COM TxPDO-Map Inputs Channel 1^Data In 20;
-    								 .D[21]:=TIIB[EP6002-0002]^COM TxPDO-Map Inputs Channel 1^Data In 21;
-    	'}
-    	E2_stComIn		AT %I*	:	EL6inData22B;
-    	{attribute	'TcLinkTo'	:=	'.Ctrl:=TIIB[EP6002-0002]^COM RxPDO-Map Outputs Channel 1^Ctrl;
-    								 .D[0]:=TIIB[EP6002-0002]^COM RxPDO-Map Outputs Channel 1^Data Out 0;
-    								 .D[1]:=TIIB[EP6002-0002]^COM RxPDO-Map Outputs Channel 1^Data Out 1;
-    								 .D[2]:=TIIB[EP6002-0002]^COM RxPDO-Map Outputs Channel 1^Data Out 2;
-    								 .D[3]:=TIIB[EP6002-0002]^COM RxPDO-Map Outputs Channel 1^Data Out 3;
-    								 .D[4]:=TIIB[EP6002-0002]^COM RxPDO-Map Outputs Channel 1^Data Out 4;
-    								 .D[5]:=TIIB[EP6002-0002]^COM RxPDO-Map Outputs Channel 1^Data Out 5;
-    								 .D[6]:=TIIB[EP6002-0002]^COM RxPDO-Map Outputs Channel 1^Data Out 6;
-    								 .D[7]:=TIIB[EP6002-0002]^COM RxPDO-Map Outputs Channel 1^Data Out 7;
-    								 .D[8]:=TIIB[EP6002-0002]^COM RxPDO-Map Outputs Channel 1^Data Out 8;
-    								 .D[9]:=TIIB[EP6002-0002]^COM RxPDO-Map Outputs Channel 1^Data Out 9;
-    								 .D[10]:=TIIB[EP6002-0002]^COM RxPDO-Map Outputs Channel 1^Data Out 10;
-    								 .D[11]:=TIIB[EP6002-0002]^COM RxPDO-Map Outputs Channel 1^Data Out 11;
-    								 .D[12]:=TIIB[EP6002-0002]^COM RxPDO-Map Outputs Channel 1^Data Out 12;
-    								 .D[13]:=TIIB[EP6002-0002]^COM RxPDO-Map Outputs Channel 1^Data Out 13;
-    								 .D[14]:=TIIB[EP6002-0002]^COM RxPDO-Map Outputs Channel 1^Data Out 14;
-    								 .D[15]:=TIIB[EP6002-0002]^COM RxPDO-Map Outputs Channel 1^Data Out 15;
-    								 .D[16]:=TIIB[EP6002-0002]^COM RxPDO-Map Outputs Channel 1^Data Out 16;
-    								 .D[17]:=TIIB[EP6002-0002]^COM RxPDO-Map Outputs Channel 1^Data Out 17;
-    								 .D[18]:=TIIB[EP6002-0002]^COM RxPDO-Map Outputs Channel 1^Data Out 18;
-    								 .D[19]:=TIIB[EP6002-0002]^COM RxPDO-Map Outputs Channel 1^Data Out 19;
-    								 .D[20]:=TIIB[EP6002-0002]^COM RxPDO-Map Outputs Channel 1^Data Out 20;
-    								 .D[21]:=TIIB[EP6002-0002]^COM RxPDO-Map Outputs Channel 1^Data Out 21;
-    								 '}
-    	E2_stComOut		AT %Q*	:	EL6outData22B;
-    	
-    	// They share the same serial port on the sample chamber
-    	st_Pfeiffer_CTRL 			: ARRAY[1..20] OF ST_PfeifferControl;
-    	st_Pfeiffer_RBK 			: ARRAY[1..20] OF ST_PfeifferStatus;
-    	fb_PfeifferCom : FB_PFEIFFER_COM;
+        //SERIAL IO
+        {attribute	'TcLinkTo'	:=	'.Status:=TIIB[EL6021_01_14]^COM TxPDO-Map Inputs Channel 2^Status;
+                                     .D[0]:=TIIB[EL6021_01_14]^COM TxPDO-Map Inputs Channel 2^Data In 0;
+                                     .D[1]:=TIIB[EL6021_01_14]^COM TxPDO-Map Inputs Channel 2^Data In 1;
+                                     .D[2]:=TIIB[EL6021_01_14]^COM TxPDO-Map Inputs Channel 2^Data In 2;
+                                     .D[3]:=TIIB[EL6021_01_14]^COM TxPDO-Map Inputs Channel 2^Data In 3;
+                                     .D[4]:=TIIB[EL6021_01_14]^COM TxPDO-Map Inputs Channel 2^Data In 4;
+                                     .D[5]:=TIIB[EL6021_01_14]^COM TxPDO-Map Inputs Channel 2^Data In 5;
+                                     .D[6]:=TIIB[EL6021_01_14]^COM TxPDO-Map Inputs Channel 2^Data In 6;
+                                     .D[7]:=TIIB[EL6021_01_14]^COM TxPDO-Map Inputs Channel 2^Data In 7;
+                                     .D[8]:=TIIB[EL6021_01_14]^COM TxPDO-Map Inputs Channel 2^Data In 8;
+                                     .D[9]:=TIIB[EL6021_01_14]^COM TxPDO-Map Inputs Channel 2^Data In 9;
+                                     .D[10]:=TIIB[EL6021_01_14]^COM TxPDO-Map Inputs Channel 2^Data In 10;
+                                     .D[11]:=TIIB[EL6021_01_14]^COM TxPDO-Map Inputs Channel 2^Data In 11;
+                                     .D[12]:=TIIB[EL6021_01_14]^COM TxPDO-Map Inputs Channel 2^Data In 12;
+                                     .D[13]:=TIIB[EL6021_01_14]^COM TxPDO-Map Inputs Channel 2^Data In 13;
+                                     .D[14]:=TIIB[EL6021_01_14]^COM TxPDO-Map Inputs Channel 2^Data In 14;
+                                     .D[15]:=TIIB[EL6021_01_14]^COM TxPDO-Map Inputs Channel 2^Data In 15;
+                                     .D[16]:=TIIB[EL6021_01_14]^COM TxPDO-Map Inputs Channel 2^Data In 16;
+                                     .D[17]:=TIIB[EL6021_01_14]^COM TxPDO-Map Inputs Channel 2^Data In 17;
+                                     .D[18]:=TIIB[EL6021_01_14]^COM TxPDO-Map Inputs Channel 2^Data In 18;
+                                     .D[19]:=TIIB[EL6021_01_14]^COM TxPDO-Map Inputs Channel 2^Data In 19;
+                                     .D[20]:=TIIB[EL6021_01_14]^COM TxPDO-Map Inputs Channel 2^Data In 20;
+                                     .D[21]:=TIIB[EL6021_01_14]^COM TxPDO-Map Inputs Channel 2^Data In 21;
+        '}
+        stComIn		AT %I*	:	EL6inData22B;
+            {attribute	'TcLinkTo'	:=	'.Ctrl:=TIIB[EL6021_01_14]^COM RxPDO-Map Outputs Channel 2^Ctrl;
+                                     .D[0]:=TIIB[EL6021_01_14]^COM RxPDO-Map Outputs Channel 2^Data Out 0;
+                                     .D[1]:=TIIB[EL6021_01_14]^COM RxPDO-Map Outputs Channel 2^Data Out 1;
+                                     .D[2]:=TIIB[EL6021_01_14]^COM RxPDO-Map Outputs Channel 2^Data Out 2;
+                                     .D[3]:=TIIB[EL6021_01_14]^COM RxPDO-Map Outputs Channel 2^Data Out 3;
+                                     .D[4]:=TIIB[EL6021_01_14]^COM RxPDO-Map Outputs Channel 2^Data Out 4;
+                                     .D[5]:=TIIB[EL6021_01_14]^COM RxPDO-Map Outputs Channel 2^Data Out 5;
+                                     .D[6]:=TIIB[EL6021_01_14]^COM RxPDO-Map Outputs Channel 2^Data Out 6;
+                                     .D[7]:=TIIB[EL6021_01_14]^COM RxPDO-Map Outputs Channel 2^Data Out 7;
+                                     .D[8]:=TIIB[EL6021_01_14]^COM RxPDO-Map Outputs Channel 2^Data Out 8;
+                                     .D[9]:=TIIB[EL6021_01_14]^COM RxPDO-Map Outputs Channel 2^Data Out 9;
+                                     .D[10]:=TIIB[EL6021_01_14]^COM RxPDO-Map Outputs Channel 2^Data Out 10;
+                                     .D[11]:=TIIB[EL6021_01_14]^COM RxPDO-Map Outputs Channel 2^Data Out 11;
+                                     .D[12]:=TIIB[EL6021_01_14]^COM RxPDO-Map Outputs Channel 2^Data Out 12;
+                                     .D[13]:=TIIB[EL6021_01_14]^COM RxPDO-Map Outputs Channel 2^Data Out 13;
+                                     .D[14]:=TIIB[EL6021_01_14]^COM RxPDO-Map Outputs Channel 2^Data Out 14;
+                                     .D[15]:=TIIB[EL6021_01_14]^COM RxPDO-Map Outputs Channel 2^Data Out 15;
+                                     .D[16]:=TIIB[EL6021_01_14]^COM RxPDO-Map Outputs Channel 2^Data Out 16;
+                                     .D[17]:=TIIB[EL6021_01_14]^COM RxPDO-Map Outputs Channel 2^Data Out 17;
+                                     .D[18]:=TIIB[EL6021_01_14]^COM RxPDO-Map Outputs Channel 2^Data Out 18;
+                                     .D[19]:=TIIB[EL6021_01_14]^COM RxPDO-Map Outputs Channel 2^Data Out 19;
+                                     .D[20]:=TIIB[EL6021_01_14]^COM RxPDO-Map Outputs Channel 2^Data Out 20;
+                                     .D[21]:=TIIB[EL6021_01_14]^COM RxPDO-Map Outputs Channel 2^Data Out 21;
+        '}
+        stComOut		AT %Q*	:	EL6outData22B;
+
+
+        // Define COM Ports/Buffers incl. library Tc2_SerialCom
+        E2_SerialRXBuffer : ComBuffer;
+        E2_SerialTXBuffer : ComBuffer;
+
+        // Serial Terminal
+        E2_fbSerialLineControl: SerialLineControl;
+
+        //SERIAL IO
+        {attribute	'TcLinkTo'	:=	'.Status:=TIIB[EP6002-0002]^COM TxPDO-Map Inputs Channel 1^Status;
+                                     .D[0]:=TIIB[EP6002-0002]^COM TxPDO-Map Inputs Channel 1^Data In 0;
+                                     .D[1]:=TIIB[EP6002-0002]^COM TxPDO-Map Inputs Channel 1^Data In 1;
+                                     .D[2]:=TIIB[EP6002-0002]^COM TxPDO-Map Inputs Channel 1^Data In 2;
+                                     .D[3]:=TIIB[EP6002-0002]^COM TxPDO-Map Inputs Channel 1^Data In 3;
+                                     .D[4]:=TIIB[EP6002-0002]^COM TxPDO-Map Inputs Channel 1^Data In 4;
+                                     .D[5]:=TIIB[EP6002-0002]^COM TxPDO-Map Inputs Channel 1^Data In 5;
+                                     .D[6]:=TIIB[EP6002-0002]^COM TxPDO-Map Inputs Channel 1^Data In 6;
+                                     .D[7]:=TIIB[EP6002-0002]^COM TxPDO-Map Inputs Channel 1^Data In 7;
+                                     .D[8]:=TIIB[EP6002-0002]^COM TxPDO-Map Inputs Channel 1^Data In 8;
+                                     .D[9]:=TIIB[EP6002-0002]^COM TxPDO-Map Inputs Channel 1^Data In 9;
+                                     .D[10]:=TIIB[EP6002-0002]^COM TxPDO-Map Inputs Channel 1^Data In 10;
+                                     .D[11]:=TIIB[EP6002-0002]^COM TxPDO-Map Inputs Channel 1^Data In 11;
+                                     .D[12]:=TIIB[EP6002-0002]^COM TxPDO-Map Inputs Channel 1^Data In 12;
+                                     .D[13]:=TIIB[EP6002-0002]^COM TxPDO-Map Inputs Channel 1^Data In 13;
+                                     .D[14]:=TIIB[EP6002-0002]^COM TxPDO-Map Inputs Channel 1^Data In 14;
+                                     .D[15]:=TIIB[EP6002-0002]^COM TxPDO-Map Inputs Channel 1^Data In 15;
+                                     .D[16]:=TIIB[EP6002-0002]^COM TxPDO-Map Inputs Channel 1^Data In 16;
+                                     .D[17]:=TIIB[EP6002-0002]^COM TxPDO-Map Inputs Channel 1^Data In 17;
+                                     .D[18]:=TIIB[EP6002-0002]^COM TxPDO-Map Inputs Channel 1^Data In 18;
+                                     .D[19]:=TIIB[EP6002-0002]^COM TxPDO-Map Inputs Channel 1^Data In 19;
+                                     .D[20]:=TIIB[EP6002-0002]^COM TxPDO-Map Inputs Channel 1^Data In 20;
+                                     .D[21]:=TIIB[EP6002-0002]^COM TxPDO-Map Inputs Channel 1^Data In 21;
+        '}
+        E2_stComIn		AT %I*	:	EL6inData22B;
+        {attribute	'TcLinkTo'	:=	'.Ctrl:=TIIB[EP6002-0002]^COM RxPDO-Map Outputs Channel 1^Ctrl;
+                                     .D[0]:=TIIB[EP6002-0002]^COM RxPDO-Map Outputs Channel 1^Data Out 0;
+                                     .D[1]:=TIIB[EP6002-0002]^COM RxPDO-Map Outputs Channel 1^Data Out 1;
+                                     .D[2]:=TIIB[EP6002-0002]^COM RxPDO-Map Outputs Channel 1^Data Out 2;
+                                     .D[3]:=TIIB[EP6002-0002]^COM RxPDO-Map Outputs Channel 1^Data Out 3;
+                                     .D[4]:=TIIB[EP6002-0002]^COM RxPDO-Map Outputs Channel 1^Data Out 4;
+                                     .D[5]:=TIIB[EP6002-0002]^COM RxPDO-Map Outputs Channel 1^Data Out 5;
+                                     .D[6]:=TIIB[EP6002-0002]^COM RxPDO-Map Outputs Channel 1^Data Out 6;
+                                     .D[7]:=TIIB[EP6002-0002]^COM RxPDO-Map Outputs Channel 1^Data Out 7;
+                                     .D[8]:=TIIB[EP6002-0002]^COM RxPDO-Map Outputs Channel 1^Data Out 8;
+                                     .D[9]:=TIIB[EP6002-0002]^COM RxPDO-Map Outputs Channel 1^Data Out 9;
+                                     .D[10]:=TIIB[EP6002-0002]^COM RxPDO-Map Outputs Channel 1^Data Out 10;
+                                     .D[11]:=TIIB[EP6002-0002]^COM RxPDO-Map Outputs Channel 1^Data Out 11;
+                                     .D[12]:=TIIB[EP6002-0002]^COM RxPDO-Map Outputs Channel 1^Data Out 12;
+                                     .D[13]:=TIIB[EP6002-0002]^COM RxPDO-Map Outputs Channel 1^Data Out 13;
+                                     .D[14]:=TIIB[EP6002-0002]^COM RxPDO-Map Outputs Channel 1^Data Out 14;
+                                     .D[15]:=TIIB[EP6002-0002]^COM RxPDO-Map Outputs Channel 1^Data Out 15;
+                                     .D[16]:=TIIB[EP6002-0002]^COM RxPDO-Map Outputs Channel 1^Data Out 16;
+                                     .D[17]:=TIIB[EP6002-0002]^COM RxPDO-Map Outputs Channel 1^Data Out 17;
+                                     .D[18]:=TIIB[EP6002-0002]^COM RxPDO-Map Outputs Channel 1^Data Out 18;
+                                     .D[19]:=TIIB[EP6002-0002]^COM RxPDO-Map Outputs Channel 1^Data Out 19;
+                                     .D[20]:=TIIB[EP6002-0002]^COM RxPDO-Map Outputs Channel 1^Data Out 20;
+                                     .D[21]:=TIIB[EP6002-0002]^COM RxPDO-Map Outputs Channel 1^Data Out 21;
+                                     '}
+        E2_stComOut		AT %Q*	:	EL6outData22B;
+
+        // They share the same serial port on the sample chamber
+        st_Pfeiffer_CTRL 			: ARRAY[1..20] OF ST_PfeifferControl;
+        st_Pfeiffer_RBK 			: ARRAY[1..20] OF ST_PfeifferStatus;
+        fb_PfeifferCom : FB_PFEIFFER_COM;
     END_VAR
 
 
@@ -177,7 +177,7 @@ GVL_Devices
     {attribute 'pytmc' := ' pv: QRIXS:ROUGH:GPI:02 '}
     {attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[EL3174_00_09]^AI Standard Channel 1^Value'}
     qRIXS_ROUGH_GPI_02 : FB_MKS275;
-     
+
     {attribute 'pytmc' := ' pv: QRIXS:ROUGH:GPI:11 '}
     {attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[qRIXS_PNL1_E9_EL3174-0002]^AI Standard Channel 1^Value'}
     qRIXS_ROUGH_GPI_11 : FB_MKS275;
@@ -191,12 +191,12 @@ GVL_Devices
     // Gauges
     //GCC
     {attribute 'TcLinkTo' := 	'    .i_iPRESS_R		:=	TIIB[EL3174-0002_01_23]^AI Standard Channel 1^Value;
-    								 .i_xHV_ON			:=	TIIB[EL1124_01_22]^Channel 1^Input;
-    								 .i_xDisc_Active	:=	TIIB[EL1124_01_22]^Channel 2^Input;
-    								 .q_xHV_DIS			:=	TIIB[EL2624_01_18]^Channel 1^Output
-    	'}	
-    	{attribute 'pytmc' := '
-    		pv: QRIXS:SC:GCC:01 '}
+                                     .i_xHV_ON			:=	TIIB[EL1124_01_22]^Channel 1^Input;
+                                     .i_xDisc_Active	:=	TIIB[EL1124_01_22]^Channel 2^Input;
+                                     .q_xHV_DIS			:=	TIIB[EL2624_01_18]^Channel 1^Output
+        '}
+        {attribute 'pytmc' := '
+            pv: QRIXS:SC:GCC:01 '}
     qRIXS_SC_GCC_01: FB_MKS500;
     //GPI
     {attribute 'pytmc' := ' pv: QRIXS:SC:GPI:01 '}
@@ -209,21 +209,21 @@ GVL_Devices
     (* MKS972 - Full range guage *)
     {attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=		TIIB[EL3174-0002_02_13]^AI Standard Channel 2^Value'}
     {attribute 'pytmc' := '
-    	pv: QRIXS:SA:GCP:02
-    	io: io
+        pv: QRIXS:SA:GCP:02
+        io: io
     '}
     qRIXS_SA_GCP_02: FB_972;
 
     {attribute 'pytmc' := '
-    	pv: QRIXS:SSL:GCP:20
-    	io: io
+        pv: QRIXS:SSL:GCP:20
+        io: io
     '}
     {attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[EL3174-0002_01_24]^AI Standard Channel 1^Value'}
     qRIXS_SSL_GCP_20: FB_972;
-    	
+
     {attribute 'pytmc' := '
-    	pv: QRIXS:SSL:GCP:30
-    	io: io
+        pv: QRIXS:SSL:GCP:30
+        io: io
     '}
     {attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[EL3174-0002_01_24]^AI Standard Channel 2^Value'}
     qRIXS_SSL_GCP_30: FB_972;
@@ -232,7 +232,7 @@ GVL_Devices
     {attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[EL3174-0002_02_13]^AI Standard Channel 1^Value'}
     qRIXS_SDS_GCP_01 : FB_972;
 
-    //MKS-275 
+    //MKS-275
 
     {attribute 'pytmc' := ' pv: QRIXS:ROUGH:GPI:04 '}
     {attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[EL3174-0002_02_13]^AI Standard Channel 3^Value'}
@@ -243,41 +243,41 @@ GVL_Devices
 
     //Valves
     {attribute 'TcLinkTo' := 	'.i_xOpnLS	:=	TIIB[EL1004_00_12]^Channel 1^Input;
-    							 .i_xClsLS	:=	TIIB[EL1004_00_12]^Channel 2^Input;
-    							 .q_xOPN_DO	:=	TIIB[EL2004_00_13]^Channel 1^Output
-    	'}
+                                 .i_xClsLS	:=	TIIB[EL1004_00_12]^Channel 2^Input;
+                                 .q_xOPN_DO	:=	TIIB[EL2004_00_13]^Channel 1^Output
+        '}
     {attribute 'pytmc' := '
-    		pv: QRIXS:ROUGH:VRC:01
-    		io: io
-    	'}
+            pv: QRIXS:ROUGH:VRC:01
+            io: io
+        '}
     qRIXS_ROUGH_VRC_01: FB_VRC;
     {attribute 'TcLinkTo' := 	'.i_xOpnLS	:=	TIIB[EL1004_00_12]^Channel 3^Input;
-    							 .i_xClsLS	:=	TIIB[EL1004_00_12]^Channel 4^Input;
-    							 .q_xOPN_DO	:=	TIIB[EL2004_00_13]^Channel 2^Output
-    	'}
+                                 .i_xClsLS	:=	TIIB[EL1004_00_12]^Channel 4^Input;
+                                 .q_xOPN_DO	:=	TIIB[EL2004_00_13]^Channel 2^Output
+        '}
     {attribute 'pytmc' := '
-    		pv: QRIXS:ROUGH:VRC:02
-    		io: io
-    	'}
+            pv: QRIXS:ROUGH:VRC:02
+            io: io
+        '}
     qRIXS_ROUGH_VRC_02: FB_VRC;
     {attribute 'pytmc' := '
-    	pv: QRIXS:SA:VRC:01
+        pv: QRIXS:SA:VRC:01
     '}
-    qRIXS_SA_VRC_01 : FB_VRC_NO_FFO; // Is the Window valve NO 
-    	
+    qRIXS_SA_VRC_01 : FB_VRC_NO_FFO; // Is the Window valve NO
 
+    (* MOved to PAX
     //// Connected to B950-310-WALL-W-DRL-02 (Mechanical Room )
     {attribute 'pytmc' := ' pv: QRIXS:PRO:01 '}
     {attribute 'TcLinkTo' := '.q_xMPStart := TIIB[EL2794_03_03]^Channel 1^Output;
-    						  .q_xBPStart := TIIB[EL2794_03_03]^Channel 2^Output;
-    						  .i_xMPStatus := TIIB[EL1088_03_01]^Channel 1^Input;
-    						  .i_xBPStatus := TIIB[EL1088_03_01]^Channel 2^Input;
-    						  .i_xWarning := TIIB[EL1088_03_01]^Channel 3^Input;
-    						  .i_xAlarmOK := TIIB[EL1088_03_01]^Channel 4^Input;
-    					      .i_xRemote := TIIB (EL1088_03_01]^Channel 5^Input 
+                              .q_xBPStart := TIIB[EL2794_03_03]^Channel 2^Output;
+                              .i_xMPStatus := TIIB[EL1088_03_01]^Channel 1^Input;
+                              .i_xBPStatus := TIIB[EL1088_03_01]^Channel 2^Input;
+                              .i_xWarning := TIIB[EL1088_03_01]^Channel 3^Input;
+                              .i_xAlarmOK := TIIB[EL1088_03_01]^Channel 4^Input;
+                              .i_xRemote := TIIB (EL1088_03_01]^Channel 5^Input
     '}
     qRIXS_PRO_01 : FB_EbaraDryPump;
-    {attribute 'pytmc' := ' pv: QRIXS:ROUGH:GPI:01 '} 
+    {attribute 'pytmc' := ' pv: QRIXS:ROUGH:GPI:01 '}
     {attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[EL3174-0002_03_07]^AI Standard Channel 4^Value'}
     qRIXS_ROUGH_GPI_01 : FB_MKS275;
 
@@ -285,86 +285,89 @@ GVL_Devices
     {attribute 'pytmc' := ' pv: QRIXS:ROUGH:VRO:01 '}
     {attribute 'TcLinkTo' := 	'.q_xOPN_DO	:=	TIIB[EL2212_03_04]^DOX Control Channel 1^Control^Output'}
     QRIX_ROUGH_VRO_01 : FB_VVC;
+    *)
 
+    qRIXS_ROUGH_GPI_01:FB_TGPI_ADS;
+    qRIXS_PRO_01:FB_PRO_ADS;
 
     //VRC
     {attribute 'TcLinkTo' := 	'.i_xOpnLS	:=	TIIB[EL1004_01_01]^Channel 1^Input;
-    							.i_xClsLS	:=	TIIB[EL1004_01_01]^Channel 2^Input;
-    							.q_xOPN_DO	:=	TIIB[EL2004_01_02]^Channel 1^Output
+                                .i_xClsLS	:=	TIIB[EL1004_01_01]^Channel 2^Input;
+                                .q_xOPN_DO	:=	TIIB[EL2004_01_02]^Channel 1^Output
     '}
     {attribute 'pytmc' := ' pv: QRIXS:SC:VRC:10 '}
     qRIXS_SC_VRC_10 : FB_VRC;
 
     {attribute 'TcLinkTo' := 	'.i_xOpnLS	:=	TIIB[EL1004_01_01]^Channel 3^Input;
-    							.i_xClsLS	:=	TIIB[EL1004_01_01]^Channel 4^Input;
-    							.q_xOPN_DO	:=	TIIB[EL2004_01_02]^Channel 2^Output
+                                .i_xClsLS	:=	TIIB[EL1004_01_01]^Channel 4^Input;
+                                .q_xOPN_DO	:=	TIIB[EL2004_01_02]^Channel 2^Output
     '}
     {attribute 'pytmc' := ' pv: QRIXS:SC:VRC:20 '}
     qRIXS_SC_VRC_20 : FB_VRC;
     {attribute 'TcLinkTo' := 	'.i_xOpnLS	:=	TIIB[EL1004_01_03]^Channel 1^Input;
-    							.i_xClsLS	:=	TIIB[EL1004_01_03]^Channel 2^Input;
-    							.q_xOPN_DO	:=	TIIB[EL2004_01_04]^Channel 4^Output
+                                .i_xClsLS	:=	TIIB[EL1004_01_03]^Channel 2^Input;
+                                .q_xOPN_DO	:=	TIIB[EL2004_01_04]^Channel 4^Output
     '}
     {attribute 'pytmc' := ' pv: QRIX:SC:VRC:30 '}
     qRIXS_SC_VRC_30 : FB_VRC;
 
     //VGC
     {attribute 'TcLinkTo' := 	'.i_xOpnLS	:=	TIIB[EL1004_01_07]^Channel 3^Input;
-    							 .i_xClsLS	:=	TIIB[EL1004_01_07]^Channel 4^Input;
-    							 .q_xOPN_DO	:=	TIIB[EL2004_01_08]^Channel 1^Output
-    	'}
+                                 .i_xClsLS	:=	TIIB[EL1004_01_07]^Channel 4^Input;
+                                 .q_xOPN_DO	:=	TIIB[EL2004_01_08]^Channel 1^Output
+        '}
     {attribute 'pytmc' := '
-    		pv: QRIX:SC:VGC:01
-    		io: io
-    	'}
+            pv: QRIX:SC:VGC:01
+            io: io
+        '}
     qRIXS_SC_VGC_01 : FB_VGC;
     {attribute 'TcLinkTo' := 	'.i_xOpnLS	:=	TIIB[EL1004_01_09]^Channel 3^Input;
-    							 .i_xClsLS	:=	TIIB[EL1004_01_09]^Channel 4^Input;
-    							 .q_xOPN_DO	:=	TIIB[EL2004_01_08]^Channel 2^Output
-    	'}
+                                 .i_xClsLS	:=	TIIB[EL1004_01_09]^Channel 4^Input;
+                                 .q_xOPN_DO	:=	TIIB[EL2004_01_08]^Channel 2^Output
+        '}
     {attribute 'pytmc' := '
-    		pv: QRIX:SC:VGC:02
-    		io: io
-    	'}
+            pv: QRIX:SC:VGC:02
+            io: io
+        '}
     qRIXS_SC_VGC_02 : FB_VGC;
     {attribute 'TcLinkTo' := 	'.i_xOpnLS	:=	TIIB[EL1004_01_03]^Channel 3^Input;
-    							 .i_xClsLS	:=	TIIB[EL1004_01_03]^Channel 4^Input;
-    							 .q_xOPN_DO	:=	TIIB[EL2004_01_02]^Channel 4^Output;
-    							 .q_xCls_DO	:=	TIIB[EL2004_01_10]^Channel 1^Output
-    	'}
+                                 .i_xClsLS	:=	TIIB[EL1004_01_03]^Channel 4^Input;
+                                 .q_xOPN_DO	:=	TIIB[EL2004_01_02]^Channel 4^Output;
+                                 .q_xCls_DO	:=	TIIB[EL2004_01_10]^Channel 1^Output
+        '}
     {attribute 'pytmc' := '
-    		pv: QRIX:SC:VGC:03
-    		io: io
-    	'}
+            pv: QRIX:SC:VGC:03
+            io: io
+        '}
     qRIXS_SC_VGC_03 : FB_VRC_DA;
 
     {attribute 'TcLinkTo' := 	'.i_xOpnLS	:=	TIIB[EL1004_01_05]^Channel 1^Input;
-    							 .i_xClsLS	:=	TIIB[EL1004_01_05]^Channel 2^Input;
-    							 .q_xOPN_DO	:=	TIIB[EL2004_01_04]^Channel 1^Output 
-    	'}
+                                 .i_xClsLS	:=	TIIB[EL1004_01_05]^Channel 2^Input;
+                                 .q_xOPN_DO	:=	TIIB[EL2004_01_04]^Channel 1^Output
+        '}
     {attribute 'pytmc' := ' pv: QRIXS:SC:VGC:04 '}
     qRIXS_SC_VGC_04 : FB_VGC;
     {attribute 'pytmc' := ' pv: QRIXS:SC:VGC:05 '}
     {attribute 'TcLinkTo' := 	'.i_xOpnLS	:=	TIIB[EL1004_01_05]^Channel 3^Input;
-    							 .i_xClsLS	:=	TIIB[EL1004_01_05]^Channel 4^Input;
-    							 .q_xCLS_DO	:=	TIIB[EL2004_01_04]^Channel 2^Output
-    	'}
+                                 .i_xClsLS	:=	TIIB[EL1004_01_05]^Channel 4^Input;
+                                 .q_xCLS_DO	:=	TIIB[EL2004_01_04]^Channel 2^Output
+        '}
     qRIXS_SC_VGC_05 : FB_VRC_NO;
 
     //PTM
     {attribute 'TcLinkTo' := 	'.i_xAtSpd			:=	TIIB[EL1004_01_13]^Channel 1^Input;
-    							 .i_xFaultNC		:=	TIIB[EL1004_01_13]^Channel 3^Input;
-    							 .i_xRemote			:=	TIIB[EL1004_01_13]^Channel 2^Input;
-    							 .q_RunDO			:=	TIIB[EL2004_01_12]^Channel 1^Output;	
-    							 .q_xRemote			:=	TIIB[EL2004_01_12]^Channel 2^Output;
-    							 .q_PumpingStation	:=	TIIB[EL2004_01_12]^Channel 3^Output;				 						 			 
+                                 .i_xFaultNC		:=	TIIB[EL1004_01_13]^Channel 3^Input;
+                                 .i_xRemote			:=	TIIB[EL1004_01_13]^Channel 2^Input;
+                                 .q_RunDO			:=	TIIB[EL2004_01_12]^Channel 1^Output;
+                                 .q_xRemote			:=	TIIB[EL2004_01_12]^Channel 2^Output;
+                                 .q_PumpingStation	:=	TIIB[EL2004_01_12]^Channel 3^Output;
     '}
 
 
     //VRC
     {attribute 'TcLinkTo' := 	'.i_xOpnLS	:=	TIIB[EL1004_02_01]^Channel 1^Input;
-    							.i_xClsLS	:=	TIIB[EL1004_02_01]^Channel 2^Input;
-    							.q_xCLS_DO	:=	TIIB[EL2004_02_02]^Channel 1^Output
+                                .i_xClsLS	:=	TIIB[EL1004_02_01]^Channel 2^Input;
+                                .q_xCLS_DO	:=	TIIB[EL2004_02_02]^Channel 1^Output
     '}
     {attribute 'pytmc' := ' pv: QRIXS:SDS:VRC:01 '}
     qRIXS_SDS_VRC_01 : FB_VRC;
@@ -374,7 +377,7 @@ GVL_Devices
     {attribute 'pytmc' := ' pv: QRIXS:SDS:VVC:02 '}
     qRIXS_SDS_VVC_02 : FB_VVC;
 
-    	
+
 
 
 
@@ -382,62 +385,62 @@ GVL_Devices
     //VRC
 
     {attribute 'pytmc' := '
-    		pv: QRIXS:SC:VRC:01
-    		io: io
-    	'}
+            pv: QRIXS:SC:VRC:01
+            io: io
+        '}
     qRIXS_SC_VRC_01: FB_VRC;
 
 
     {attribute 'pytmc' := '
-    		pv: QRIXS:SDS:VRC:31
-    		io: io
-    	'}
+            pv: QRIXS:SDS:VRC:31
+            io: io
+        '}
     qRIXS_SDS_VRC_31: FB_VRC;
 
 
 
     //Turbo Pumps
     {attribute 'pytmc' := '
-    		pv: QRIXS:SC:PTM:10
-    		io: io
+            pv: QRIXS:SC:PTM:10
+            io: io
     '}
     {attribute 'TcLinkTo' := 	'.i_xAtSpd			:=	TIIB[EL1004_01_13]^Channel 1^Input;
-    							 .i_xRemote		    :=	TIIB[EL1004_01_13]^Channel 2^Input;
-    							 .i_xFaultNC		:=	TIIB[EL1004_01_13]^Channel 3^Input;
-    							 .q_RunDO			:=	TIIB[EL2004_01_12]^Channel 1^Output;	
-    							 .q_xRemote			:=	TIIB[EL2004_01_12]^Channel 2^Output;
-    							.q_PumpingStation	:=	TIIB[EL2004_01_12]^Channel 3^Output		 
+                                 .i_xRemote		    :=	TIIB[EL1004_01_13]^Channel 2^Input;
+                                 .i_xFaultNC		:=	TIIB[EL1004_01_13]^Channel 3^Input;
+                                 .q_RunDO			:=	TIIB[EL2004_01_12]^Channel 1^Output;
+                                 .q_xRemote			:=	TIIB[EL2004_01_12]^Channel 2^Output;
+                                .q_PumpingStation	:=	TIIB[EL2004_01_12]^Channel 3^Output
     '}
     qRIXS_SC_PTM_10 : FB_PTM_Pfeiffer;
     {attribute 'TcLinkTo' := 	'.i_xAtSpd			:=	TIIB[EL1004_01_16]^Channel 2^Input;
-    							 .i_xFaultNC		:=	TIIB[EL1004_01_16]^Channel 1^Input;
-    							 .q_RunDO			:=	TIIB[EL2794_01_15]^Channel 1^Output;	
-    							 .q_xReset			:=	TIIB[EL2794_01_15]^Channel 2^Output			 
+                                 .i_xFaultNC		:=	TIIB[EL1004_01_16]^Channel 1^Input;
+                                 .q_RunDO			:=	TIIB[EL2794_01_15]^Channel 1^Output;
+                                 .q_xReset			:=	TIIB[EL2794_01_15]^Channel 2^Output
     '}
     {attribute 'pytmc' := '
-    		pv: QRIXS:SC:PTM:20
-    		io: io
+            pv: QRIXS:SC:PTM:20
+            io: io
     '}
     qRIXS_SC_PTM_20 : FB_PTM_Pfeiffer;
     {attribute 'pytmc' := '
-    		pv: QRIXS:SC:PTM:30
-    		io: io
+            pv: QRIXS:SC:PTM:30
+            io: io
     '}
     {attribute 'TcLinkTo' := 	'.i_xAtSpd			:=	TIIB[EL1004_01_16]^Channel 4^Input;
-    							 .i_xFaultNC		:=	TIIB[EL1004_01_16]^Channel 3^Input;
-    							 .q_RunDO			:=	TIIB[EL2794_01_15]^Channel 3^Output;	
-    							 .q_xReset			:=	TIIB[EL2794_01_15]^Channel 4^Output			 
+                                 .i_xFaultNC		:=	TIIB[EL1004_01_16]^Channel 3^Input;
+                                 .q_RunDO			:=	TIIB[EL2794_01_15]^Channel 3^Output;
+                                 .q_xReset			:=	TIIB[EL2794_01_15]^Channel 4^Output
     '}
     qRIXS_SC_PTM_30 : FB_PTM_Pfeiffer;
     //PTM- Turbo Pump
     {attribute 'TcLinkTo' := 	'.i_xAtSpd			:=	TIIB[EL1004_02_08]^Channel 2^Input;
-    							 .i_xFaultNC		:=	TIIB[EL1004_02_08]^Channel 1^Input;
-    							 .q_RunDO			:=	TIIB[EL2794_02_09]^Channel 1^Output;	
-    							 .q_xReset			:=	TIIB[EL2794_02_09]^Channel 2^Output			 			 
+                                 .i_xFaultNC		:=	TIIB[EL1004_02_08]^Channel 1^Input;
+                                 .q_RunDO			:=	TIIB[EL2794_02_09]^Channel 1^Output;
+                                 .q_xReset			:=	TIIB[EL2794_02_09]^Channel 2^Output
     '}
     {attribute 'pytmc' := '
-    		pv: QRIXS:SDS:PTM:10
-    		io: io
+            pv: QRIXS:SDS:PTM:10
+            io: io
     '}
     qRIXS_SDS_PTM_10 : FB_PTM_Pfeiffer;
 
@@ -445,52 +448,54 @@ GVL_Devices
 
 
 
-    //Ion Pump Controller 
+    //Ion Pump Controller
     {attribute 'pytmc' := '
-    	pv: QRIXS:SC:PIP:01
-    	io: io
+        pv: QRIXS:SC:PIP:01
+        io: io
     '}
     {attribute 'TcLinkTo' := 	'.q_xHVEna_DO	:=	TIIB[EL2794_00_04]^Channel 1^Output;
-    							 .i_iPRESS		:=	TIIB[EL3064_00_03]^AI Standard Channel 1^Value;
-    							 .i_xSP_DI		:=	TIIB[EL1004_00_05]^Channel 1^Input
+                                 .i_iPRESS		:=	TIIB[EL3064_00_03]^AI Standard Channel 1^Value;
+                                 .i_xSP_DI		:=	TIIB[EL1004_00_05]^Channel 1^Input
     '}
     qRIXS_SC_PIP_01: FB_PIP_Gamma;
     {attribute 'pytmc' := '
-    	pv: QRIXS:SC:PIP:02
-    	io: io
+        pv: QRIXS:SC:PIP:02
+        io: io
     '}
     {attribute 'TcLinkTo' := 	'.q_xHVEna_DO	:=	TIIB[EL2794_00_04]^Channel 2^Output;
-    							 .i_iPRESS		:=	TIIB[EL3064_00_03]^AI Standard Channel 2^Value;
-    							 .i_xSP_DI		:=	TIIB[EL1004_00_05]^Channel 2^Input
+                                 .i_iPRESS		:=	TIIB[EL3064_00_03]^AI Standard Channel 2^Value;
+                                 .i_xSP_DI		:=	TIIB[EL1004_00_05]^Channel 2^Input
     '}
     qRIXS_SC_PIP_02: FB_PIP_Gamma;
-    	
+
     {attribute 'pytmc' := '
-    	pv: QRIXS:OPT:PIP:01
-    	io: io
+        pv: QRIXS:OPT:PIP:01
+        io: io
     '}
     {attribute 'TcLinkTo' := 	'.q_xHVEna_DO	:=	TIIB[EL2794_00_04]^Channel 3^Output;
-    							 .i_iPRESS		:=	TIIB[EL3064_00_03]^AI Standard Channel 3^Value;
-    							 .i_xSP_DI		:=	TIIB[EL1004_00_05]^Channel 3^Input
+                                 .i_iPRESS		:=	TIIB[EL3064_00_03]^AI Standard Channel 3^Value;
+                                 .i_xSP_DI		:=	TIIB[EL1004_00_05]^Channel 3^Input
     '}
-    	
+
     qRIXS_OPT_PIP_01: FB_PIP_Gamma;
-    	
+
     {attribute 'pytmc' := '
-    	pv: QRIXS:DET:PIP:01
-    	io: io
+        pv: QRIXS:DET:PIP:01
+        io: io
     '}
     {attribute 'TcLinkTo' := 	'.q_xHVEna_DO	:=	TIIB[EL2794_00_04]^Channel 4^Output;
-    							 .i_iPRESS		:=	TIIB[EL3064_00_03]^AI Standard Channel 4^Value;
-    							 .i_xSP_DI		:=	TIIB[EL1004_00_05]^Channel 4^Input
+                                 .i_iPRESS		:=	TIIB[EL3064_00_03]^AI Standard Channel 4^Value;
+                                 .i_xSP_DI		:=	TIIB[EL1004_00_05]^Channel 4^Input
     '}
     qRIXS_DET_PIP_01: FB_PIP_Gamma;
-    	
+
 
 
     END_VAR
 
 
+Related:
+    * `FB_PRO_ADS`_
 
 
 GVL_Interface
@@ -534,16 +539,16 @@ GVL_PMPS
 
 ::
 
-    {attribute 'qualified_only'}
     VAR_GLOBAL
-    	{attribute 'pytmc' := 'pv: PLC:QRIX:VAC:ARB'}
+        {attribute 'pytmc' := 'pv: PLC:QRIX:VAC:ARB:01'}
         fbArbiter: FB_Arbiter(1);
+        fbArbiter2: FB_Arbiter(2);// no pytmc pv because it is not used
         {attribute 'pytmc' := 'pv: PLC:QRIX:VAC:FFO:01'}
         {attribute 'TcLinkTo' := '.q_xFastFaultOut:=TIIB[PMPS_FFO]^Channel 1^Output'}
+        {attribute 'TcLinkTo' := '.q_xFastFaultOut:=TIIB[PMPS_PRE]^IO Outputs^FFO'}
         fbFastFaultOutput1: FB_HardwareFFOutput := (bAutoReset := TRUE, i_sNetID:='172.21.92.73.1.1');
-        {attribute 'pytmc' := 'pv: PLC:QRIX:VAC:FFO:02'}
         {attribute 'TcLinkTo' := '.q_xFastFaultOut:=TIIB[PMPS_FFO]^Channel 2^Output'}
-        fbFastFaultOutput2: FB_HardwareFFOutput := (bAutoReset := TRUE, i_sNetID:='172.21.92.73.1.1');
+        fbFastFaultOutput2: FB_HardwareFFOutput := (bAutoReset := TRUE, i_sNetID:='172.21.92.73.1.1');//no pytmc pv because it is not needed for P/MPS
     END_VAR
 
 
@@ -557,87 +562,87 @@ GVL_SA
     //{attribute 'qualified_only'}
     VAR_GLOBAL
 
-    	
-    	(* -- Normally Closed Valve with Readback -- *)
-    	{attribute 'TcLinkTo' := 	'.i_xOpnLS	:=	TIIB[qRIXS_PNL1_E1_EL1004]^Channel 1^Input;
-    								 .i_xClsLS	:=	TIIB[qRIXS_PNL1_E1_EL1004]^Channel 2^Input;
-    								 .q_xOPN_DO	:=	TIIB[qRIXS_PNL1_E3_EL2004]^Channel 1^Output
-    	'}
-    	{attribute 'pytmc' := '
-    		pv: QRIXS:OPT:VGC:01
-    		io: io
-    	'}
-    	qRIXS_OPT_VGC_01: FB_VGC;
-    		
-    	{attribute 'TcLinkTo' := 	'.i_xOpnLS	:=	TIIB[qRIXS_PNL1_E1_EL1004]^Channel 3^Input;
-    								 .i_xClsLS	:=	TIIB[qRIXS_PNL1_E1_EL1004]^Channel 4^Input;
-    								 .q_xOPN_DO	:=	TIIB[qRIXS_PNL1_E3_EL2004]^Channel 2^Output
-    	'}
-    	{attribute 'pytmc' := '
-    		pv: QRIXS:BLW:VRC:01
-    		io: io
-    	'}
-    	qRIXS_SA_VWC_01: FB_VGC;
-    	
-    	{attribute 'TcLinkTo' := 	'.i_xOpnLS	:=	TIIB[qRIXS_PNL1_E2_EL1004]^Channel 1^Input;
-    								 .i_xClsLS	:=	TIIB[qRIXS_PNL1_E2_EL1004]^Channel 2^Input;
-    								 .q_xOPN_DO	:=	TIIB[qRIXS_PNL1_E3_EL2004]^Channel 3^Output
-    	'}
-    	{attribute 'pytmc' := '
-    		pv: QRIXS:DET:VRC:01
-    		io: io
-    	'}
-    	qRIXS_DET_VRC_01: FB_VRC;
-    	
-    	
-    	(* MKS275 - Pirani *)
-    	{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[qRIXS_PNL1_E5_EL3174-0002]^AI Standard Channel 1^Value'}
-    	{attribute 'pytmc' := '
-    		pv: QRIXS:OPT:GPI:01
-    		io: io
-    	'}
-    	qRIXS_OPT_GPI_01: FB_MKS275;
 
-    	{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[qRIXS_PNL1_E5_EL3174-0002]^AI Standard Channel 2^Value'}
-    	{attribute 'pytmc' := '
-    		pv: QRIXS:DET:GPI:01
-    		io: io
-    	'}
-    	qRIXS_DET_GPI_01: FB_MKS275;
-    	
-    	
-    	(* MKS972 - Full range guage *)
-    	{attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[qRIXS_PNL1_E5_EL3174-0002]^AI Standard Channel 3^Value'}
-    	{attribute 'pytmc' := '
-    		pv: QRIXS:SA:GCP:01
-    		io: io
-    	'}
-    	qRIXS_SA_GCP_01: FB_972;
-    	
-    	
-    	(* MKS500 - Cold cathode gauge *)
-    	{attribute 'TcLinkTo' := 	'.i_iPRESS_R		:=	TIIB[qRIXS_PNL1_E6_EL3174-0002]^AI Standard Channel 1^Value;
-    								 .i_xHV_ON			:=	TIIB[qRIXS_PNL1_E8_EL1124]^Channel 1^Input;
-    								 .i_xDisc_Active	:=	TIIB[qRIXS_PNL1_E8_EL1124]^Channel 2^Input;
-    								 .q_xHV_DIS			:=	TIIB[qRIXS_PNL1_E4_EL2624]^Channel 1^Output
-    	'}
-    	{attribute 'pytmc' := '
-    		pv: QRIXS:OPT:GCC:01
-    		io: io
-    	'}
-    	qRIXS_OPT_GCC_01: FB_MKS500;
-    	
-    	
-    	{attribute 'TcLinkTo' := 	'.i_iPRESS_R		:=	TIIB[qRIXS_PNL1_E6_EL3174-0002]^AI Standard Channel 2^Value;
-    								 .i_xHV_ON			:=	TIIB[qRIXS_PNL1_E8_EL1124]^Channel 3^Input;
-    								 .i_xDisc_Active	:=	TIIB[qRIXS_PNL1_E8_EL1124]^Channel 4^Input;
-    								 .q_xHV_DIS			:=	TIIB[qRIXS_PNL1_E4_EL2624]^Channel 2^Output
-    	'}
-    	{attribute 'pytmc' := '
-    		pv: QRIXS:DET:GCC:01
-    		io: io
-    	'}
-    	qRIXS_DET_GCC_01: FB_MKS500;
+        (* -- Normally Closed Valve with Readback -- *)
+        {attribute 'TcLinkTo' := 	'.i_xOpnLS	:=	TIIB[qRIXS_PNL1_E1_EL1004]^Channel 1^Input;
+                                     .i_xClsLS	:=	TIIB[qRIXS_PNL1_E1_EL1004]^Channel 2^Input;
+                                     .q_xOPN_DO	:=	TIIB[qRIXS_PNL1_E3_EL2004]^Channel 1^Output
+        '}
+        {attribute 'pytmc' := '
+            pv: QRIXS:OPT:VGC:01
+            io: io
+        '}
+        qRIXS_OPT_VGC_01: FB_VGC;
+
+        {attribute 'TcLinkTo' := 	'.i_xOpnLS	:=	TIIB[qRIXS_PNL1_E1_EL1004]^Channel 3^Input;
+                                     .i_xClsLS	:=	TIIB[qRIXS_PNL1_E1_EL1004]^Channel 4^Input;
+                                     .q_xOPN_DO	:=	TIIB[qRIXS_PNL1_E3_EL2004]^Channel 2^Output
+        '}
+        {attribute 'pytmc' := '
+            pv: QRIXS:BLW:VRC:01
+            io: io
+        '}
+        qRIXS_SA_VWC_01: FB_VGC;
+
+        {attribute 'TcLinkTo' := 	'.i_xOpnLS	:=	TIIB[qRIXS_PNL1_E2_EL1004]^Channel 1^Input;
+                                     .i_xClsLS	:=	TIIB[qRIXS_PNL1_E2_EL1004]^Channel 2^Input;
+                                     .q_xOPN_DO	:=	TIIB[qRIXS_PNL1_E3_EL2004]^Channel 3^Output
+        '}
+        {attribute 'pytmc' := '
+            pv: QRIXS:DET:VGC:01
+            io: io
+        '}
+        qRIXS_DET_VGC_01: FB_VGC;
+
+
+        (* MKS275 - Pirani *)
+        {attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[qRIXS_PNL1_E5_EL3174-0002]^AI Standard Channel 1^Value'}
+        {attribute 'pytmc' := '
+            pv: QRIXS:OPT:GPI:01
+            io: io
+        '}
+        qRIXS_OPT_GPI_01: FB_MKS275;
+
+        {attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[qRIXS_PNL1_E5_EL3174-0002]^AI Standard Channel 2^Value'}
+        {attribute 'pytmc' := '
+            pv: QRIXS:DET:GPI:01
+            io: io
+        '}
+        qRIXS_DET_GPI_01: FB_MKS275;
+
+
+        (* MKS972 - Full range guage *)
+        {attribute 'TcLinkTo' := 	'.i_iPRESS_R	:=	TIIB[qRIXS_PNL1_E5_EL3174-0002]^AI Standard Channel 3^Value'}
+        {attribute 'pytmc' := '
+            pv: QRIXS:SA:GCP:01
+            io: io
+        '}
+        qRIXS_SA_GCP_01: FB_972;
+
+
+        (* MKS500 - Cold cathode gauge *)
+        {attribute 'TcLinkTo' := 	'.i_iPRESS_R		:=	TIIB[qRIXS_PNL1_E6_EL3174-0002]^AI Standard Channel 1^Value;
+                                     .i_xHV_ON			:=	TIIB[qRIXS_PNL1_E8_EL1124]^Channel 1^Input;
+                                     .i_xDisc_Active	:=	TIIB[qRIXS_PNL1_E8_EL1124]^Channel 2^Input;
+                                     .q_xHV_DIS			:=	TIIB[qRIXS_PNL1_E4_EL2624]^Channel 1^Output
+        '}
+        {attribute 'pytmc' := '
+            pv: QRIXS:OPT:GCC:01
+            io: io
+        '}
+        qRIXS_OPT_GCC_01: FB_MKS500;
+
+
+        {attribute 'TcLinkTo' := 	'.i_iPRESS_R		:=	TIIB[qRIXS_PNL1_E6_EL3174-0002]^AI Standard Channel 2^Value;
+                                     .i_xHV_ON			:=	TIIB[qRIXS_PNL1_E8_EL1124]^Channel 3^Input;
+                                     .i_xDisc_Active	:=	TIIB[qRIXS_PNL1_E8_EL1124]^Channel 4^Input;
+                                     .q_xHV_DIS			:=	TIIB[qRIXS_PNL1_E4_EL2624]^Channel 2^Output
+        '}
+        {attribute 'pytmc' := '
+            pv: QRIXS:DET:GCC:01
+            io: io
+        '}
+        qRIXS_DET_GCC_01: FB_MKS500;
     END_VAR
 
 
@@ -649,24 +654,24 @@ GVL_Variables
 ::
 
     VAR_GLOBAL
-    		
+
     {attribute 'pytmc' := '
-    	pv: PLC:QRIXS:VAC:OVRDON
-    	io: io
+        pv: PLC:QRIXS:VAC:OVRDON
+        io: io
     '}
     xSystemOverrideMode	: BOOL := FALSE; (* Global system override for the qRIXS Vacuum System*)
 
 
     {attribute 'pytmc' := '
-    	pv: QRIXS:VAC:OVRDON
-    	io: io
+        pv: QRIXS:SA:OVRDON
+        io: io
     '}
-    xSystemOverrideMode_Valve	: BOOL := FALSE; (* Global system override for the qRIXS Vacuum System*)
+    xSAOverrideMode	: BOOL := FALSE;
 
-    {attribute 'pytmc' := ' pv: QRIXS:SA:VAC:SETUP_MODE'}
-    SetupMode_Valve	: BOOL := FALSE; 
-    	
-    	
+    {attribute 'pytmc' := ' pv: QRIXS:SA:SETUP_MODE'}
+    SetupMode	: BOOL := FALSE;
+
+
 
 
     END_VAR
@@ -685,21 +690,87 @@ FB_ChemRIXS_Turbo_ILK
 
     FUNCTION_BLOCK FB_ChemRIXS_Turbo_ILK
     VAR_INPUT
-    	i_stValve : ST_ValveBase;
-    	i_stPump : ST_PTM;
-    	tDelay : TIME;
+        i_stValve : ST_ValveBase;
+        i_stPump : ST_PTM;
+        tDelay : TIME;
     END_VAR
     VAR_OUTPUT
-    	bILK : BOOL;
+        bILK : BOOL;
     END_VAR
     VAR
-    	tofDelay : TOF;
+        tofDelay : TOF;
     END_VAR
     tofDelay.IN := i_stValve.i_xOpnLS OR (i_stPump.eState = pumpSTOPPED); // Start timer when valve closes (IN goes low)
     tofDelay.PT := tDelay;
     tofDelay();
     bILK := tofDelay.Q; // Assign turbopump output to timer output. When the valve is closed the turbo pump ILK will go False after time elapses.
-    			        // Intended to be connected to pump OK to run bit.
+                        // Intended to be connected to pump OK to run bit.
+
+    END_FUNCTION_BLOCK
+
+
+
+
+FB_PRO_ADS
+^^^^^^^^^^
+
+::
+
+    (* This function block is created for interface devices between different PLC*)
+    (* Not all the Variables in the original structure is required, just few signals *)
+    (* The variable values are read via ADS using the symbol name*)
+    FUNCTION_BLOCK FB_PRO_ADS Extends FB_ADS
+    VAR_INPUT
+        sNetId : String; //NetID of the Destination PLC controller
+        nPort : uint; // port number
+        sVarName : string;// the variable name of the declared gauge function block.
+        iWatchdog:UDINT;//The watchdog variable name written to by the remote plc
+    END_VAR
+    VAR_OUTPUT
+        {attribute 'pytmc' := 'pv:'}
+        stPump : ST_EbaraDryPump;
+        bError: BOOL;
+    END_VAR
+    VAR
+        fb_CheckWatchdog: FB_CheckWatchdog;
+        fb_Read_PRO: FB_ReadAdsSymByName;
+        ftReset: F_TRIG;
+        xFirstPass: BOOL:= true;
+    END_VAR
+    ftReset(CLK:= fb_Read_PRO.bBusy OR xFirstPass);
+    xFirstPass := false;
+    (*calling ADS read function*)
+
+    //IG.xPRESS_OK := false;
+
+    fb_Read_PRO(
+        bRead:=ftReset.Q ,
+        sNetId:= sNetId,
+        nPort:= nPort,
+        sVarName:= CONCAT(sVarName,'.stPump'),
+        nDestAddr:= ADR(stPump),
+        nLen:= SIZEOF(ST_EbaraDryPump),
+        tTimeout:= ,
+        eComMode:=eAdsComModeFastCom ,
+        bBusy=> ,
+        bError=> ,
+        nErrorId=> );
+
+
+    (*Error*)
+    fb_CheckWatchdog(
+        bEnable:= TRUE,
+        tWatchdogTime:= T#900ms,
+        nCnt:= iWatchdog ,
+        bWatchdog=> ,
+        nLastCnt=> );
+
+    bError:= fb_Read_PRO.bError OR fb_CheckWatchdog.bWatchdog;
+    tErrorPresent(CLK:=bError);
+
+    IF (fb_Read_PRO.bError OR fb_CheckWatchdog.bWatchdog) THEN
+    stPump.i_xAlarm:= TRUE;
+    END_IF;
 
     END_FUNCTION_BLOCK
 
@@ -715,9 +786,9 @@ MAIN
     VAR
     END_VAR
     ///Calling programs
-    PRG_Roughing();				
-    PRG_SampleChamber(); 
-    //PRG_SA_WINDOW();		
+    PRG_Roughing();
+    PRG_SampleChamber();
+    //PRG_SA_WINDOW();
     PRG_SDS();
     PRG_SPA();
     PRG_2_PMPS();
@@ -743,11 +814,22 @@ PRG_2_PMPS
 
     PROGRAM PRG_2_PMPS
     VAR
-    	fbArbiterIO: FB_SubSysToArbiter_IO;
+        fbArbiterIO: FB_SubSysToArbiter_IO;
     END_VAR
-    GVL_PMPS.fbFastFaultOutput1.Execute();
-    GVL_PMPS.fbFastFaultOutput2.Execute();
+    GVL_PMPS.fbFastFaultOutput1.Execute(i_xVeto := (PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_OUT]
+                                          AND NOT PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_IN])
+                                           OR PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.ST1K2]);
+    GVL_PMPS.fbFastFaultOutput2.Execute(i_xVeto := (PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_OUT]
+                                          AND NOT PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_IN])
+                                           OR PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.ST1K2]
+                                            OR TRUE); // Currenlty these valves are permenantly vetoed
+
+    //Code for Requesting full beam arbitration
+    fbArbiter.AddRequest(nReqID := 16#FAFA, stReqBp := PMPS_GVL.cstFullBeam, sDevName := 'plc-qrix-vac');
     fbArbiterIO(
+        i_bVeto := (PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_OUT]
+                                          AND NOT PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_IN])
+                                           OR PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.ST1K2],
         Arbiter:=GVL_PMPS.fbArbiter,
         fbFFHWO:=GVL_PMPS.fbFastFaultOutput1);
 
@@ -765,7 +847,7 @@ PRG_3_LOG
 
     PROGRAM PRG_3_LOG
     VAR
-    	  fbLogHandler: FB_LogHandler;
+          fbLogHandler: FB_LogHandler;
     END_VAR
     fbLogHandler();
 
@@ -783,16 +865,16 @@ PRG_COM
     VAR
     END_VAR
     //PTM_10, PTM_20 and PTM_30
-    (*Instanitate Serial port com function *) 
+    (*Instanitate Serial port com function *)
     E14_fbSerialLineControl(
-    	Mode:= SERIALLINEMODE_EL6_22B,
-    	pComIn:= ADR(E2_stComIn),
-    	pComOut:=ADR(E2_stComOut),
-    	SizeComIn:= SIZEOF(E2_stComIn),
-    	TxBuffer:= E2_SerialTXBuffer,
-    	RxBuffer:= E2_SerialRXBuffer,
-    	Error=> ,
-    	ErrorID=> );
+        Mode:= SERIALLINEMODE_EL6_22B,
+        pComIn:= ADR(E2_stComIn),
+        pComOut:=ADR(E2_stComOut),
+        SizeComIn:= SIZEOF(E2_stComIn),
+        TxBuffer:= E2_SerialTXBuffer,
+        RxBuffer:= E2_SerialRXBuffer,
+        Error=> ,
+        ErrorID=> );
 
     END_PROGRAM
 
@@ -806,33 +888,46 @@ PRG_Roughing
 
     PROGRAM PRG_Roughing
     VAR
+
     END_VAR
     // Roughing devices
     //MKS 275 Gauges
-    qRIXS_ROUGH_GPI_01.M_SetBits(30518);
-    qRIXS_ROUGH_GPI_01();			// Roughing guage near pro
+    //qRIXS_ROUGH_GPI_01.M_SetBits(30518); moved to pax
+    //qRIXS_ROUGH_GPI_01();			// Roughing guage near pro moved to pax
+    //qRIXS_PRO_01(i_stBPGauge := qRIXS_ROUGH_GPI_01.PG, i_xVlvOpn := TRUE, i_xExtIlkOK := TRUE); //moved to pax
+
+    //Reading the roughing valve, gauge and pump from RIX beamline vac plc
+    qRIXS_ROUGH_GPI_01(
+        sNetId:= '172.21.140.69.1.1',
+        nPort:= 851,
+        sVarName:= 'GVL_KFE_RIX_VAC.RIXS_ROUGH_GPI_01',
+        iWatchdog:= PRG_SampleChamber.iWatchdog ,
+        IG=> ,
+        bError=> );
+    qRIXS_PRO_01(
+        sNetId:= '172.21.140.69.1.1',
+        nPort:= 851,
+        sVarName:= 'GVL_KFE_RIX_VAC.RIXS_PRO_01',
+        iWatchdog:= PRG_SampleChamber.iWatchdog ,
+        stPump=> ,
+        bError=> );
+
+
+
+    // roughing gauge and valves in the hutch
     qRIXS_ROUGH_GPI_02.M_SetBits(30518);
-    qRIXS_ROUGH_GPI_02();			// Roughing guage near BL 
-
-
+    qRIXS_ROUGH_GPI_02();			// Roughing guage near BL
     //VRC 02	backing Main Sample Chamber
     qRIXS_ROUGH_VRC_02(i_xExtILK_OK :=  qRIXS_PRO_01.stPump.eState = E_PumpState.pumpRUNNING, i_xOverrideMode := xSystemOverrideMode, iq_stValve => );
 
     //VRC 01 backing Sample Delivery Chamber
     qRIXS_ROUGH_VRC_01(i_xExtILK_OK := qRIXS_PRO_01.stPump.eState = E_PumpState.pumpRUNNING, i_xOverrideMode := xSystemOverrideMode, iq_stValve => );
 
-
-    qRIXS_PRO_01(i_stBPGauge := qRIXS_ROUGH_GPI_01.PG, i_xVlvOpn := TRUE, i_xExtIlkOK := TRUE);
-
-
-    if( qRIXS_PRO_01.stPump.eState = pumpSTARTING ) OR ( qRIXS_PRO_01.stPump.eState = pumpRUNNING )
-     THEN QRIX_ROUGH_VRO_01.M_Open(TRUE); 
-    END_IF
-    QRIX_ROUGH_VRO_01(i_xExtILK_OK:= (qRIXS_PRO_01.stPump.eState = pumpRUNNING  OR  qRIXS_PRO_01.stPump.eState = pumpSTARTING ), i_xOverrideMode:= , iq_stValve=> );
-
     END_PROGRAM
 
 
+Related:
+    * `PRG_SampleChamber`_
 
 
 PRG_SA_WINDOW
@@ -842,24 +937,24 @@ PRG_SA_WINDOW
 
     PROGRAM PRG_SA_WINDOW
     VAR
-    		xFirstPass		: BOOL;
-    	fbFSInit		: R_TRIG;
-    	
-    	state			: E_STATES;
+        xFirstPass		: BOOL;
+        fbFSInit		: R_TRIG;
 
-    	bExtPress : BOOL;
+        state			: E_STATES;
 
-    	g_FastFaultOutputNA: FB_HardwareFFOutput;
-    	g_fbArbiterNA: FB_Arbiter(2);
+        bExtPress : BOOL;
 
-    	xExtILK_OK_BLW: INT;
+        xExtILK_OK_BLW: INT;
+
+        g_FastFaultOutputNA: FB_HardwareFFOutput;
+        g_fbArbiterNA: FB_Arbiter(3);
     END_VAR
     fbFSInit( CLK := TRUE, Q => xFirstPass);
     (* On first PLC pass, put valve into init state*)
     IF xFirstPass THEN
-    	state:= E_STATES.INIT;
-    	xSystemOverrideMode_Valve := FALSE;
-    	SetupMode_Valve := FALSE;
+        state:= E_STATES.INIT;
+        xSAOverrideMode := FALSE;
+        SetupMode := FALSE;
     END_IF
     bExtPress:= qRIXS_SA_GCP_01.PG.xAT_VAC;
 
@@ -867,103 +962,97 @@ PRG_SA_WINDOW
     //STATE ACTIONS
     CASE state OF
 
-     E_STATES.INIT: 
-    		qRIXS_SC_VGC_04.M_Set_OPN_SW(FALSE); //Isolation Valve closed
-    		qRIXS_SA_VRC_01.M_Set_CLS_SW(FALSE); // Window valve OPEN
-    		qRIXS_SC_VGC_04.i_xOverrideMode := qRIXS_SA_VRC_01.i_xOverrideMode := FALSE;
-    		//Transition
-    		if (qRIXS_SC_VGC_04.M_IsClosed() AND qRIXS_SA_VRC_01.M_IsOpen()) THEN
-    			state:= E_STATES.NOT_SAFE;
-    		END_IF
-    		
-    E_STATES.NOT_SAFE: // System is not allowed to actuate, i.e all interlocks are in effect
-    	qRIXS_SC_VGC_04.M_Set_OPN_SW(qRIXS_SC_VGC_04.iq_stValve.q_xOPN_DO );
-     	//C_1.i_xExt_OK := VGC_1.i_xEPS_OPN_OK := VGC_1.i_xEPS_CLS_OK:= FALSE; 
-    	qRIXS_SA_VRC_01.i_xExtILK_OK:= FALSE; 
-    	qRIXS_SC_VGC_04.i_xOverrideMode := qRIXS_SA_VRC_01.i_xOverrideMode := FALSE;
+     E_STATES.INIT:
+            qRIXS_SC_VGC_04.M_Set_OPN_SW(FALSE); //Isolation Valve closed
+            qRIXS_SA_VRC_01.M_Set_CLS_SW(FALSE); // Window valve OPEN
+            qRIXS_SC_VGC_04.i_xOverrideMode := qRIXS_SA_VRC_01.i_xOverrideMode := FALSE;
+            //Transition
+            if (qRIXS_SC_VGC_04.M_IsClosed() AND qRIXS_SA_VRC_01.M_IsOpen()) THEN
+                state:= E_STATES.NOT_SAFE;
+            END_IF
 
-    	//Transition
-    	//IF (US_GCC.IG.xAT_VAC AND DS_GCC.IG.xAT_VAC) THEN state:= E_STATES.READY; END_IF
-    	IF (bExtPress AND qRIXS_SC_GCC_01.IG.xAT_VAC) THEN state:= E_STATES.READY; END_IF
-    	
-    	
-    	
+    E_STATES.NOT_SAFE: // System is not allowed to actuate, i.e all interlocks are in effect
+        qRIXS_SC_VGC_04.M_Set_OPN_SW(qRIXS_SC_VGC_04.iq_stValve.q_xOPN_DO );
+         //C_1.i_xExt_OK := VGC_1.i_xEPS_OPN_OK := VGC_1.i_xEPS_CLS_OK:= FALSE;
+        qRIXS_SA_VRC_01.i_xExtILK_OK:= FALSE;
+        qRIXS_SC_VGC_04.i_xOverrideMode := qRIXS_SA_VRC_01.i_xOverrideMode := FALSE;
+
+        //Transition
+        //IF (US_GCC.IG.xAT_VAC AND DS_GCC.IG.xAT_VAC) THEN state:= E_STATES.READY; END_IF
+        IF (bExtPress AND qRIXS_SC_GCC_01.IG.xAT_VAC) THEN state:= E_STATES.READY; END_IF
+
+
+
      E_STATES.READY: // OK to MOVE
-     	// Release the external interlock so the differential pressure inlk is in effect
-     	qRIXS_SC_VGC_04.i_xExt_OK:= qRIXS_SC_VGC_04.i_xEPS_OK :=TRUE;
-    	//permission to insert window valve only when US vacuum is good??
-    	qRIXS_SA_VRC_01.i_xExtILK_OK:= bExtPress;
-    	// Valves  alternate positions.
-    	If (qRIXS_SA_VRC_01.M_IsClosed()) THEN  qRIXS_SC_VGC_04.M_Set_OPN_SW(TRUE);
-    	ELSIF (qRIXS_SA_VRC_01.M_IsOpen()) THEN qRIXS_SC_VGC_04.M_Set_OPN_SW(FALSE);
-    	END_IF
-    	
+         // Release the external interlock so the differential pressure inlk is in effect
+         qRIXS_SC_VGC_04.i_xExt_OK:= qRIXS_SC_VGC_04.i_xEPS_OK :=TRUE;
+        //permission to insert window valve only when US vacuum is good??
+        qRIXS_SA_VRC_01.i_xExtILK_OK:= bExtPress;
+        // Valves  alternate positions.
+        If (qRIXS_SA_VRC_01.M_IsClosed()) THEN  qRIXS_SC_VGC_04.M_Set_OPN_SW(TRUE);
+        ELSIF (qRIXS_SA_VRC_01.M_IsOpen()) THEN qRIXS_SC_VGC_04.M_Set_OPN_SW(FALSE);
+        END_IF
+
     // bOverride := TRUE;
-     E_STATES.OVERRIDE: 
-    	// Override Mode is enabled for all valves
-     	qRIXS_SC_VGC_04.i_xOverrideMode :=qRIXS_SA_VRC_01.i_xOverrideMode := TRUE;
-    	// Exit of Override mode always goes back to init
-     	IF NOT(xSystemOverrideMode_Valve) THEN state:= E_STATES.INIT; END_IF
-    	
-    	
-     E_STATES.SETUP: 
-    	// Window valve remains retracted
-     	qRIXS_SA_VRC_01.i_xExtILK_OK := FALSE; 
-    	// Isolation valves operates like standard gate valves 
-    	qRIXS_SC_VGC_04.i_xExt_OK := TRUE;
-    	// exit to init just to be safe?
-    	IF NOT(SetupMode_Valve) THEN state:= E_STATES.INIT; END_IF
+     E_STATES.OVERRIDE:
+        // Override Mode is enabled for all valves
+         qRIXS_SC_VGC_04.i_xOverrideMode :=qRIXS_SA_VRC_01.i_xOverrideMode := TRUE;
+        // Exit of Override mode always goes back to init
+         IF NOT(xSAOverrideMode) THEN state:= E_STATES.INIT; END_IF
+
+
+     E_STATES.SETUP:
+        // Window valve remains retracted
+         qRIXS_SA_VRC_01.i_xExtILK_OK := FALSE;
+        // Isolation valves operates like standard gate valves
+        qRIXS_SC_VGC_04.i_xExt_OK := TRUE;
+        // exit to init just to be safe?
+        IF NOT(SetupMode) THEN state:= E_STATES.INIT; END_IF
     END_CASE
 
 
     // STATE TRANSITIONS
     // the system can go to setup state from any other state except override
-    IF (SetupMode_Valve) AND (state<>E_STATES.OVERRIDE) THEN state:= E_STATES.SETUP; 
+    IF (SetupMode) AND (state<>E_STATES.OVERRIDE) THEN state:= E_STATES.SETUP;
     // the system can go to override state from any other state except setup
-    ELSIF (xSystemOverrideMode_Valve) AND (state<>E_STATES.SETUP) THEN state:= E_STATES.OVERRIDE;
+    ELSIF (xSAOverrideMode) AND (state<>E_STATES.SETUP) THEN state:= E_STATES.OVERRIDE;
     //Loss of at vac signal makes the system go to init/not safe to move state
     ELSIF (NOT bExtPress) OR (NOT qRIXS_SC_GCC_01.IG.xAT_VAC) THEN state:= E_STATES.INIT;
     //ELSIF (NOT US_GCC.IG.xAT_VAC) OR (NOT DS_GCC.IG.xAT_VAC) THEN state:= E_STATES.INIT;
-    END_IF 
+    END_IF
 
 
 
 
     qRIXS_SC_VGC_04(
-    	i_stUSG:= qRIXS_SC_GCC_01.IG , 
-    	i_stDSG:= qRIXS_OPT_GCC_01.IG , 
-    	i_xDis_DPIlk:= FALSE , 
-    	i_xPMPS_OK:= TRUE , 
-    	i_xEPS_OK:= , 
-    	i_xExt_OK:= , 
-    	i_xOverrideMode:= , 
-    	i_xReset:= , 
-    	i_xIsAperture:= TRUE, 
-    	i_sDevName:= , 
-    	i_nTransitionRootID:= ,
-    	iq_stValve=> , 
-    	xMPS_OK=> , 
-    	io_fbFFHWO:=g_FastFaultOutputNA , 
-    	fbArbiter:= g_fbArbiterNA
+        i_stUSG:= qRIXS_SC_GCC_01.IG ,
+        i_stDSG:= qRIXS_SA_GCP_02.PG ,
+        i_xDis_DPIlk:= FALSE ,
+        i_xPMPS_OK:= TRUE ,
+        i_xEPS_OK:= ,
+        i_xExt_OK:= ,
+        i_xOverrideMode:= ,
+        i_xReset:= ,
+        i_xIsAperture:= TRUE,
+        i_sDevName:= ,
+        i_nTransitionRootID:= ,
+        iq_stValve=> ,
+        xMPS_OK=> ,
+        io_fbFFHWO:=g_FastFaultOutputNA,
+        fbArbiter:= g_fbArbiterNA
     );
 
 
-    qRIXS_SC_VGC_05(
-    	i_xExtILK_OK:= , 
-    	i_xOverrideMode:= , 
-    	iq_stValve=> , 
-    	io_fbFFHWO:= g_FastFaultOutputNA , 
-    	fbArbiter:= g_fbArbiterNA, 
-    	i_xPMPS_OK:= TRUE, 
-    	i_xIsAperture:= TRUE , 
-    	i_sDevName:= , 
-    	i_nTransitionRootID:=,
-    	i_xPMPS_OK:= TRUE );
-    	
-    	
-    //VGC_W(i_xExtILK_OK:= , 
-    //	i_xOverrideMode:= ,
-     //   iq_stValve=> );
+    qRIXS_SA_VRC_01(
+        i_xExtILK_OK:= ,
+        i_xOverrideMode:= ,
+        iq_stValve=> ,
+        io_fbFFHWO:= g_FastFaultOutputNA,
+        fbArbiter:= g_fbArbiterNA ,
+        i_xPMPS_OK:= TRUE,
+        i_xIsAperture:= TRUE ,
+        i_sDevName:= ,
+        i_nTransitionRootID:= );
 
     END_PROGRAM
 
@@ -983,7 +1072,7 @@ PRG_SampleChamber
         iWatchdog: UDINT;
         RIX_TV4K2_GFS_1:FB_TGCC_ADS;
         RIX_IM5K2_PPM_GCC_1:FB_TGCC_ADS;
-    	RIX_VAC_WD: FB_ADS_WATCHDOG;
+        RIX_VAC_WD: FB_ADS_WATCHDOG;
 
         //PTM interlocks
         qRIXS_SC_PTM_10_ILK : FB_ChemRIXS_Turbo_ILK;
@@ -1005,9 +1094,9 @@ PRG_SampleChamber
         iWatchdog:= iWatchdog ,
         IG=> ,
         bError=> );
-    	
-    RIX_VAC_WD(sNetId:= '172.21.140.69.1.1', nPort:=851 , sVarName:= 'PRG_KFE_RIX_VAC.iWatchdog', bError=> );	
-    	
+
+    RIX_VAC_WD(sNetId:= '172.21.140.69.1.1', nPort:=851 , sVarName:= 'PRG_KFE_RIX_VAC.iWatchdog', bError=> );
+
 
     //MKS 275 Gauges
     qRIXS_SC_GPI_01.M_SetBits(30518);
@@ -1146,8 +1235,8 @@ PRG_SDS
 
     PROGRAM PRG_SDS
     VAR
-    	QRIX_MOT_SDS_MMS_H_BACKWARD_EN: INT;
-    	rPressSP : REAL :=  0.0001;
+        QRIX_MOT_SDS_MMS_H_BACKWARD_EN: INT;
+        rPressSP : REAL :=  0.0001;
     END_VAR
     //MKS  Gauges
     qRIXS_SDS_GCP_01(PG=>);
@@ -1161,17 +1250,17 @@ PRG_SDS
 
     *)
 
-    qRIXS_SDS_PTM_10(i_xExtIlkOK:= qRIXS_ROUGH_VRC_01.M_IsOpen() 
-    	AND F_TurboExtILKLogic_2(Turbo:=qRIXS_SDS_PTM_10.iq_stPTM,BackingGauge:=qRIXS_ROUGH_GPI_02.PG, InletGauge:=qRIXS_SDS_GCP_01.PG, ScrollPump:= qRIXS_PRO_01.stPump) );
+    qRIXS_SDS_PTM_10(i_xExtIlkOK:= qRIXS_ROUGH_VRC_01.M_IsOpen()
+        AND F_TurboExtILKLogic_2(Turbo:=qRIXS_SDS_PTM_10.iq_stPTM,BackingGauge:=qRIXS_ROUGH_GPI_02.PG, InletGauge:=qRIXS_SDS_GCP_01.PG, ScrollPump:= qRIXS_PRO_01.stPump) );
 
 
 
     qRIXS_SC_VGC_03(
-    	i_OPN_OK:= qRIXS_SDS_GCP_01.PG.rPRESS > rPressSP, // need to get requirements on this interlock
-    	i_CLS_OK:= GVL_Interface.QRIX_MOT_SDS_MMS_H_BACKWARD_EN AND NOT (GVL_Interface.QRIX_MOT_SDS_MMS_H_FORWARD_EN ), 
-    	ibCntrlHold:= , 
-    	i_xOverrideMode:= , 
-    	iq_stValve=> );
+        i_OPN_OK:= qRIXS_SDS_GCP_01.PG.rPRESS < rPressSP, // need to get requirements on this interlock
+        i_CLS_OK:= NOT GVL_Interface.QRIX_MOT_SDS_MMS_H_BACKWARD_EN AND (GVL_Interface.QRIX_MOT_SDS_MMS_H_FORWARD_EN ),
+        ibCntrlHold:= ,
+        i_xOverrideMode:= ,
+        iq_stValve=> );
 
     END_PROGRAM
 
@@ -1187,76 +1276,73 @@ PRG_SPA
 
     PROGRAM PRG_SPA
     VAR
-    	xExtILK_OK_OPT : BOOL := True;
-    	xExtILK_OK_BLW : BOOL;
-    	xExtILK_OK_DET : BOOL;
-    	iPressTorrerance : REAL := 1.0; // Torr
-    	stUSG_dummy : ST_VG;
+        xExtILK_OK_OPT : BOOL := True;
+        xExtILK_OK_BLW : BOOL;
+        xExtILK_OK_DET : BOOL;
+        iPressTorrerance : REAL := 1.0; // Torr
+        stUSG_dummy : ST_VG;
     END_VAR
     (* Gamma Ion Pump *)
-    	qRIXS_OPT_PIP_01(i_stGauge:=qRIXS_OPT_GCC_01.IG, i_xOverrideMode:= xSystemOverrideMode);
-    	qRIXS_DET_PIP_01(i_stGauge:=qRIXS_DET_GCC_01.IG, i_xOverrideMode:= xSystemOverrideMode);
+        qRIXS_OPT_PIP_01(i_stGauge:=qRIXS_OPT_GCC_01.IG, i_xOverrideMode:= xSystemOverrideMode);
+        qRIXS_DET_PIP_01(i_stGauge:=qRIXS_DET_GPI_01.PG, i_xOverrideMode:= xSystemOverrideMode);
 
     (* Pirani MKS 275 Gauges *)
-    	qRIXS_OPT_GPI_01(PG=>);	
-    	qRIXS_DET_GPI_01(PG=>);
+        qRIXS_OPT_GPI_01(PG=>);
+        qRIXS_DET_GPI_01(PG=>);
 
     (* Full Range Gauges *)
-    	qRIXS_SA_GCP_01(PG=>);
+        qRIXS_SA_GCP_01(PG=>);
 
     (* Cold Cathode Gauges *)
-    	qRIXS_OPT_GCC_01.M_SetBits(30518);
-    	qRIXS_OPT_GCC_01(PG:=qRIXS_OPT_GPI_01.PG, IG=>, bEP:=TRUE);
-    	qRIXS_DET_GCC_01.M_SetBits(30518);
-    	qRIXS_DET_GCC_01(PG:=qRIXS_DET_GPI_01.PG, IG=>, bEP:=TRUE);
-    	
+        qRIXS_OPT_GCC_01.M_SetBits(30518);
+        qRIXS_OPT_GCC_01(PG:=qRIXS_OPT_GPI_01.PG, IG=>, bEP:=TRUE);
+        qRIXS_DET_GCC_01.M_SetBits(30518);
+        qRIXS_DET_GCC_01(PG:=qRIXS_DET_GPI_01.PG, IG=>, bEP:=TRUE);
+
     (* Normally Closed Vate Valve *)
-    //(*
-    	stUSG_dummy := qRIXS_OPT_GCC_01.IG;
-    	qRIXS_OPT_VGC_01(
-    		i_stUSG := stUSG_dummy,
-    		i_stDSG := qRIXS_OPT_GCC_01.IG,
-    		i_xExt_OK := xExtILK_OK_OPT,
-    		i_xOverrideMode:=xSystemOverrideMode,
-    		io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1,
-    		fbArbiter := GVL_PMPS.fbArbiter,
-    		iq_stValve =>,
-    	);
-    // *)
-    // (*
+        qRIXS_OPT_VGC_01(
+            i_stUSG := qRIXS_SA_GCP_02.PG,
+            i_stDSG := qRIXS_OPT_GCC_01.IG,
+            i_xExt_OK := xExtILK_OK_OPT,
+            i_xPMPS_OK:= TRUE ,
+            i_xOverrideMode:=xSystemOverrideMode,
+            io_fbFFHWO := GVL_PMPS.fbFastFaultOutput2,
+            fbArbiter := GVL_PMPS.fbArbiter2,
+            iq_stValve =>,
+        );
+
+
     // Calc pressure Difference
-    xExtILK_OK_BLW := 	( qRIXS_OPT_VGC_01.iq_stValve.i_xClsLS AND qRIXS_OPT_GPI_01.PG.xPRESS_OK AND qRIXS_SA_GCP_01.PG.xPRESS_OK AND (qRIXS_OPT_GPI_01.PG.rPRESS - qRIXS_SA_GCP_01.PG.rPRESS) < iPressTorrerance)
-    				OR (qRIXS_OPT_GCC_01.IG.xPRESS_OK AND qRIXS_SA_GCP_01.PG.xPRESS_OK AND (qRIXS_OPT_GCC_01.IG.rPRESS - qRIXS_SA_GCP_01.PG.rPRESS) < iPressTorrerance);
 
     qRIXS_SA_VWC_01(
-    	i_stUSG:= qRIXS_SA_GCP_01.PG , 
-    	i_stDSG:= qRIXS_OPT_GCC_01.IG , 
-    	i_xDis_DPIlk:= FALSE , 
-    	i_xPMPS_OK:= TRUE , 
-    	i_xEPS_OK:= , 
-    	i_xExt_OK:= xExtILK_OK_BLW , 
-    	i_xOverrideMode:= , 
-    	i_xReset:= , 
-    	i_xIsAperture:= TRUE, 
-    	i_sDevName:= , 
-    	i_nTransitionRootID:= ,
-    	iq_stValve=> , 
-    	xMPS_OK=> , 
-    	io_fbFFHWO:=GVL_PMPS.fbFastFaultOutput1 , 
-    	fbArbiter:= GVL_PMPS.fbArbiter
-    	);
-    // *)
-    // (*
-    	qRIXS_DET_VRC_01(
-    		i_xExtILK_OK := xExtILK_OK_DET,
-    		i_xOverrideMode:=xSystemOverrideMode,
-    		iq_stValve =>,
-    	);
-    // *)
+        i_stUSG:= qRIXS_SA_GCP_01.PG ,
+        i_stDSG:= qRIXS_OPT_GCC_01.IG ,
+        i_xDis_DPIlk:= FALSE ,
+        i_xPMPS_OK:= TRUE ,
+        i_xEPS_OK:= ,
+        i_xExt_OK:= TRUE ,
+        i_xOverrideMode:= ,
+        i_xReset:= ,
+        i_xIsAperture:= TRUE,
+        i_sDevName:= ,
+        i_nTransitionRootID:= ,
+        iq_stValve=> ,
+        xMPS_OK=> ,
+        io_fbFFHWO:=GVL_PMPS.fbFastFaultOutput2 ,
+        fbArbiter:= GVL_PMPS.fbArbiter2
+        );
 
 
-    xExtILK_OK_DET := 	(qRIXS_DET_GPI_01.PG.xPRESS_OK AND qRIXS_SA_GCP_01.PG.xPRESS_OK AND (qRIXS_DET_GPI_01.PG.rPRESS - qRIXS_SA_GCP_01.PG.rPRESS) < iPressTorrerance)
-    					OR (qRIXS_DET_GCC_01.IG.xPRESS_OK AND qRIXS_SA_GCP_01.PG.xPRESS_OK AND (qRIXS_DET_GCC_01.IG.rPRESS - qRIXS_SA_GCP_01.PG.rPRESS) < iPressTorrerance);
+    qRIXS_DET_VGC_01(
+            i_stUSG := qRIXS_SA_GCP_01.PG,
+            i_stDSG := qRIXS_DET_PIP_01.q_IG,
+            i_xExt_OK := xExtILK_OK_OPT,
+            i_xPMPS_OK:= TRUE ,
+            i_xOverrideMode:=xSystemOverrideMode,
+            io_fbFFHWO := GVL_PMPS.fbFastFaultOutput2,
+            fbArbiter := GVL_PMPS.fbArbiter2,
+            iq_stValve =>,
+     );
 
     END_PROGRAM
 
