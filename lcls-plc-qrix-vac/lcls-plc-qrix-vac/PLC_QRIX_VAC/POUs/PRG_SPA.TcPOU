@@ -36,7 +36,7 @@ END_VAR
         i_stUSG := stUSG_dummy,
         i_stDSG := qRIXS_OPT_GCC_01.IG,
         i_xExt_OK := xExtILK_OK_OPT,
-		i_xPMPS_OK:= TRUE ,
+        i_xPMPS_OK:= TRUE ,
         i_xOverrideMode:=xSystemOverrideMode,
         io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1,
         fbArbiter := GVL_PMPS.fbArbiter,

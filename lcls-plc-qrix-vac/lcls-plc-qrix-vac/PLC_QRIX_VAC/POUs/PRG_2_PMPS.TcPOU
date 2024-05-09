@@ -15,7 +15,7 @@ GVL_PMPS.fbFastFaultOutput2.Execute();
 //Code for Requesting full beam arbitration
 fbArbiter.AddRequest(nReqID := 16#FAFA, stReqBp := PMPS_GVL.cstFullBeam, sDevName := 'plc-qrix-vac');
 fbArbiterIO(
-	i_bVeto := (PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_OUT]
+    i_bVeto := (PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_OUT]
                                       AND NOT PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_IN])
                                        OR PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.ST1K2],
     Arbiter:=GVL_PMPS.fbArbiter,
