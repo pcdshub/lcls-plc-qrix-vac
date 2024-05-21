@@ -14,7 +14,7 @@ xSystemOverrideMode	: BOOL := FALSE; (* Global system override for the qRIXS Vac
     pv: QRIXS:SA:OVRDON
     io: io
 '}
-xSAOverrideMode	: BOOL := FALSE; 
+xSAOverrideMode	: BOOL := FALSE;
 
 {attribute 'pytmc' := ' pv: QRIXS:SA:SETUP_MODE'}
 SetupMode	: BOOL := FALSE;

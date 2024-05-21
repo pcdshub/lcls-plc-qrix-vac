@@ -11,8 +11,8 @@ VAR
     bExtPress : BOOL;
 
     xExtILK_OK_BLW: INT;
-	
-	g_FastFaultOutputNA: FB_HardwareFFOutput;
+
+    g_FastFaultOutputNA: FB_HardwareFFOutput;
     g_fbArbiterNA: FB_Arbiter(3);
 END_VAR
 ]]></Declaration>
@@ -112,15 +112,15 @@ qRIXS_SC_VGC_04(
 
 
 qRIXS_SA_VRC_01(
-	i_xExtILK_OK:= , 
-	i_xOverrideMode:= , 
-	iq_stValve=> , 
-	io_fbFFHWO:= g_FastFaultOutputNA, 
-	fbArbiter:= g_fbArbiterNA , 
-	i_xPMPS_OK:= TRUE, 
-	i_xIsAperture:= TRUE , 
-	i_sDevName:= , 
-	i_nTransitionRootID:= );
+    i_xExtILK_OK:= ,
+    i_xOverrideMode:= ,
+    iq_stValve=> ,
+    io_fbFFHWO:= g_FastFaultOutputNA,
+    fbArbiter:= g_fbArbiterNA ,
+    i_xPMPS_OK:= TRUE,
+    i_xIsAperture:= TRUE ,
+    i_sDevName:= ,
+    i_nTransitionRootID:= );
 
 
 ]]></ST>
