@@ -11,13 +11,13 @@ xSystemOverrideMode	: BOOL := FALSE; (* Global system override for the qRIXS Vac
 
 
 {attribute 'pytmc' := '
-    pv: QRIXS:VAC:OVRDON
+    pv: QRIXS:SA:OVRDON
     io: io
 '}
-xSystemOverrideMode_Valve	: BOOL := FALSE; (* Global system override for the qRIXS Vacuum System*)
+xSAOverrideMode	: BOOL := FALSE; 
 
-{attribute 'pytmc' := ' pv: QRIXS:SA:VAC:SETUP_MODE'}
-SetupMode_Valve	: BOOL := FALSE;
+{attribute 'pytmc' := ' pv: QRIXS:SA:SETUP_MODE'}
+SetupMode	: BOOL := FALSE;
 
 
 

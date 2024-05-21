@@ -30,23 +30,19 @@ END_VAR
     qRIXS_DET_GCC_01(PG:=qRIXS_DET_GPI_01.PG, IG=>, bEP:=TRUE);
 
 (* Normally Closed Vate Valve *)
-//(*
-    stUSG_dummy := qRIXS_OPT_GCC_01.IG;
     qRIXS_OPT_VGC_01(
-        i_stUSG := stUSG_dummy,
+        i_stUSG := qRIXS_SA_GCP_02.PG,
         i_stDSG := qRIXS_OPT_GCC_01.IG,
         i_xExt_OK := xExtILK_OK_OPT,
         i_xPMPS_OK:= TRUE ,
         i_xOverrideMode:=xSystemOverrideMode,
-        io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1,
-        fbArbiter := GVL_PMPS.fbArbiter,
+        io_fbFFHWO := GVL_PMPS.fbFastFaultOutput2,
+        fbArbiter := GVL_PMPS.fbArbiter2,
         iq_stValve =>,
     );
-// *)
-// (*
+
+
 // Calc pressure Difference
-xExtILK_OK_BLW := 	( qRIXS_OPT_VGC_01.iq_stValve.i_xClsLS AND qRIXS_OPT_GPI_01.PG.xPRESS_OK AND qRIXS_SA_GCP_01.PG.xPRESS_OK AND (qRIXS_OPT_GPI_01.PG.rPRESS - qRIXS_SA_GCP_01.PG.rPRESS) < iPressTorrerance)
-                OR (qRIXS_OPT_GCC_01.IG.xPRESS_OK AND qRIXS_SA_GCP_01.PG.xPRESS_OK AND (qRIXS_OPT_GCC_01.IG.rPRESS - qRIXS_SA_GCP_01.PG.rPRESS) < iPressTorrerance);
 
 qRIXS_SA_VWC_01(
     i_stUSG:= qRIXS_SA_GCP_01.PG ,
@@ -54,7 +50,7 @@ qRIXS_SA_VWC_01(
     i_xDis_DPIlk:= FALSE ,
     i_xPMPS_OK:= TRUE ,
     i_xEPS_OK:= ,
-    i_xExt_OK:= xExtILK_OK_BLW ,
+    i_xExt_OK:= TRUE ,
     i_xOverrideMode:= ,
     i_xReset:= ,
     i_xIsAperture:= TRUE,
@@ -62,21 +58,22 @@ qRIXS_SA_VWC_01(
     i_nTransitionRootID:= ,
     iq_stValve=> ,
     xMPS_OK=> ,
-    io_fbFFHWO:=GVL_PMPS.fbFastFaultOutput1 ,
-    fbArbiter:= GVL_PMPS.fbArbiter
+    io_fbFFHWO:=GVL_PMPS.fbFastFaultOutput2 ,
+    fbArbiter:= GVL_PMPS.fbArbiter2
     );
-// *)
-// (*
-    qRIXS_DET_VRC_01(
-        i_xExtILK_OK := xExtILK_OK_DET,
+
+
+qRIXS_DET_VGC_01(
+        i_stUSG := qRIXS_SA_GCP_01.PG,
+        i_stDSG := qRIXS_DET_PIP_01.q_IG,
+        i_xExt_OK := xExtILK_OK_OPT,
+        i_xPMPS_OK:= TRUE ,
         i_xOverrideMode:=xSystemOverrideMode,
+        io_fbFFHWO := GVL_PMPS.fbFastFaultOutput2,
+        fbArbiter := GVL_PMPS.fbArbiter2,
         iq_stValve =>,
-    );
-// *)
+ );
 
-
-xExtILK_OK_DET := 	(qRIXS_DET_GPI_01.PG.xPRESS_OK AND qRIXS_SA_GCP_01.PG.xPRESS_OK AND (qRIXS_DET_GPI_01.PG.rPRESS - qRIXS_SA_GCP_01.PG.rPRESS) < iPressTorrerance)
-                    OR (qRIXS_DET_GCC_01.IG.xPRESS_OK AND qRIXS_SA_GCP_01.PG.xPRESS_OK AND (qRIXS_DET_GCC_01.IG.rPRESS - qRIXS_SA_GCP_01.PG.rPRESS) < iPressTorrerance);
 
 
 ]]></ST>

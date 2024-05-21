@@ -31,10 +31,10 @@ VAR_GLOBAL
                                  .q_xOPN_DO	:=	TIIB[qRIXS_PNL1_E3_EL2004]^Channel 3^Output
     '}
     {attribute 'pytmc' := '
-        pv: QRIXS:DET:VRC:01
+        pv: QRIXS:DET:VGC:01
         io: io
     '}
-    qRIXS_DET_VRC_01: FB_VRC;
+    qRIXS_DET_VGC_01: FB_VGC;
 
 
     (* MKS275 - Pirani *)

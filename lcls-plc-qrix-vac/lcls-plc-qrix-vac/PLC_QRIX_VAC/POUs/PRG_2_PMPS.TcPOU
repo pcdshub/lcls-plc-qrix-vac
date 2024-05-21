@@ -10,7 +10,10 @@ END_VAR
       <ST><![CDATA[GVL_PMPS.fbFastFaultOutput1.Execute(i_xVeto := (PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_OUT]
                                       AND NOT PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_IN])
                                        OR PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.ST1K2]);
-GVL_PMPS.fbFastFaultOutput2.Execute();
+GVL_PMPS.fbFastFaultOutput2.Execute(i_xVeto := (PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_OUT]
+                                      AND NOT PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_IN])
+                                       OR PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.ST1K2]
+										OR TRUE); // Currenlty these valves are permenantly vetoed
 
 //Code for Requesting full beam arbitration
 fbArbiter.AddRequest(nReqID := 16#FAFA, stReqBp := PMPS_GVL.cstFullBeam, sDevName := 'plc-qrix-vac');

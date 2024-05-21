@@ -2,15 +2,15 @@
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
   <GVL Name="GVL_PMPS" Id="{3a21f405-831e-4bf0-92c1-62f30c7f9e94}">
     <Declaration><![CDATA[VAR_GLOBAL
-    {attribute 'pytmc' := 'pv: PLC:QRIX:VAC:ARB'}
+    {attribute 'pytmc' := 'pv: PLC:QRIX:VAC:ARB:01'}
     fbArbiter: FB_Arbiter(1);
+    fbArbiter2: FB_Arbiter(2);// no pytmc pv because it is not used
     {attribute 'pytmc' := 'pv: PLC:QRIX:VAC:FFO:01'}
     {attribute 'TcLinkTo' := '.q_xFastFaultOut:=TIIB[PMPS_FFO]^Channel 1^Output'}
     {attribute 'TcLinkTo' := '.q_xFastFaultOut:=TIIB[PMPS_PRE]^IO Outputs^FFO'}
     fbFastFaultOutput1: FB_HardwareFFOutput := (bAutoReset := TRUE, i_sNetID:='172.21.92.73.1.1');
-    {attribute 'pytmc' := 'pv: PLC:QRIX:VAC:FFO:02'}
     {attribute 'TcLinkTo' := '.q_xFastFaultOut:=TIIB[PMPS_FFO]^Channel 2^Output'}
-    fbFastFaultOutput2: FB_HardwareFFOutput := (bAutoReset := TRUE, i_sNetID:='172.21.92.73.1.1');
+    fbFastFaultOutput2: FB_HardwareFFOutput := (bAutoReset := TRUE, i_sNetID:='172.21.92.73.1.1');//no pytmc pv because it is not needed for P/MPS
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>
