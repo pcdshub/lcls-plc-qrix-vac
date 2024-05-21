@@ -3,17 +3,17 @@
   <POU Name="PRG_SA_WINDOW" Id="{7abc0b72-bfc7-40b5-9fc5-6d9e0631f363}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_SA_WINDOW
 VAR
-        xFirstPass		: BOOL;
+    xFirstPass		: BOOL;
     fbFSInit		: R_TRIG;
 
     state			: E_STATES;
 
     bExtPress : BOOL;
 
-    g_FastFaultOutputNA: FB_HardwareFFOutput;
-    g_fbArbiterNA: FB_Arbiter(2);
-
     xExtILK_OK_BLW: INT;
+
+    g_FastFaultOutputNA: FB_HardwareFFOutput;
+    g_fbArbiterNA: FB_Arbiter(3);
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -21,8 +21,8 @@ END_VAR
 (* On first PLC pass, put valve into init state*)
 IF xFirstPass THEN
     state:= E_STATES.INIT;
-    xSystemOverrideMode_Valve := FALSE;
-    SetupMode_Valve := FALSE;
+    xSAOverrideMode := FALSE;
+    SetupMode := FALSE;
 END_IF
 bExtPress:= qRIXS_SA_GCP_01.PG.xAT_VAC;
 
@@ -66,7 +66,7 @@ E_STATES.NOT_SAFE: // System is not allowed to actuate, i.e all interlocks are i
     // Override Mode is enabled for all valves
      qRIXS_SC_VGC_04.i_xOverrideMode :=qRIXS_SA_VRC_01.i_xOverrideMode := TRUE;
     // Exit of Override mode always goes back to init
-     IF NOT(xSystemOverrideMode_Valve) THEN state:= E_STATES.INIT; END_IF
+     IF NOT(xSAOverrideMode) THEN state:= E_STATES.INIT; END_IF
 
 
  E_STATES.SETUP:
@@ -75,15 +75,15 @@ E_STATES.NOT_SAFE: // System is not allowed to actuate, i.e all interlocks are i
     // Isolation valves operates like standard gate valves
     qRIXS_SC_VGC_04.i_xExt_OK := TRUE;
     // exit to init just to be safe?
-    IF NOT(SetupMode_Valve) THEN state:= E_STATES.INIT; END_IF
+    IF NOT(SetupMode) THEN state:= E_STATES.INIT; END_IF
 END_CASE
 
 
 // STATE TRANSITIONS
 // the system can go to setup state from any other state except override
-IF (SetupMode_Valve) AND (state<>E_STATES.OVERRIDE) THEN state:= E_STATES.SETUP;
+IF (SetupMode) AND (state<>E_STATES.OVERRIDE) THEN state:= E_STATES.SETUP;
 // the system can go to override state from any other state except setup
-ELSIF (xSystemOverrideMode_Valve) AND (state<>E_STATES.SETUP) THEN state:= E_STATES.OVERRIDE;
+ELSIF (xSAOverrideMode) AND (state<>E_STATES.SETUP) THEN state:= E_STATES.OVERRIDE;
 //Loss of at vac signal makes the system go to init/not safe to move state
 ELSIF (NOT bExtPress) OR (NOT qRIXS_SC_GCC_01.IG.xAT_VAC) THEN state:= E_STATES.INIT;
 //ELSIF (NOT US_GCC.IG.xAT_VAC) OR (NOT DS_GCC.IG.xAT_VAC) THEN state:= E_STATES.INIT;
@@ -94,7 +94,7 @@ END_IF
 
 qRIXS_SC_VGC_04(
     i_stUSG:= qRIXS_SC_GCC_01.IG ,
-    i_stDSG:= qRIXS_OPT_GCC_01.IG ,
+    i_stDSG:= qRIXS_SA_GCP_02.PG ,
     i_xDis_DPIlk:= FALSE ,
     i_xPMPS_OK:= TRUE ,
     i_xEPS_OK:= ,
@@ -106,27 +106,21 @@ qRIXS_SC_VGC_04(
     i_nTransitionRootID:= ,
     iq_stValve=> ,
     xMPS_OK=> ,
-    io_fbFFHWO:=g_FastFaultOutputNA ,
+    io_fbFFHWO:=g_FastFaultOutputNA,
     fbArbiter:= g_fbArbiterNA
 );
 
 
-qRIXS_SC_VGC_05(
+qRIXS_SA_VRC_01(
     i_xExtILK_OK:= ,
     i_xOverrideMode:= ,
     iq_stValve=> ,
-    io_fbFFHWO:= g_FastFaultOutputNA ,
-    fbArbiter:= g_fbArbiterNA,
+    io_fbFFHWO:= g_FastFaultOutputNA,
+    fbArbiter:= g_fbArbiterNA ,
     i_xPMPS_OK:= TRUE,
     i_xIsAperture:= TRUE ,
     i_sDevName:= ,
-    i_nTransitionRootID:=,
-    i_xPMPS_OK:= TRUE );
-
-
-//VGC_W(i_xExtILK_OK:= ,
-//	i_xOverrideMode:= ,
- //   iq_stValve=> );
+    i_nTransitionRootID:= );
 
 
 ]]></ST>

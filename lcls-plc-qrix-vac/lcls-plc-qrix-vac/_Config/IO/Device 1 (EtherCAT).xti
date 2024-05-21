@@ -53,9 +53,11 @@
 		<Box File="qRIXS_PNL1_E0_EK1100.xti" Id="105">
 			<EtherCAT PortABoxInfo="#x02000038"/>
 		</Box>
-		<EtherCAT EnableVirtualSwitch="true" MaxSwitchPorts="3" MaxSwitchFrames="140">
+		<EtherCAT EnableVirtualSwitch="true" MaxSwitchPorts="4" MaxSwitchFrames="160">
 			<SyncUnit Name="Sample Chamber" NoDeleteIfUnused="true"/>
 			<SyncUnit Name="Spectrometer Arm" NoDeleteIfUnused="true"/>
+			<SyncUnit Name="pmps" NoDeleteIfUnused="true"/>
+			<SyncUnit Name="qrix-motion" NoDeleteIfUnused="true"/>
 		</EtherCAT>
 	</Device>
 	<Mappings>
