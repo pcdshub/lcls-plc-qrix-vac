@@ -935,6 +935,23 @@ PRG_3_LOG
         PRG_3_LOG.fbLogHandler, FB_LogHandler, 635005504 (5784896)
 
 
+PRG_SA_WINDOW
+^^^^^^^^^^^^^
+
+.. csv-table::
+    :header: Symbol, Type, Offset/Size
+    :align: center
+
+        PRG_SA_WINDOW.bExtPress, BOOL, 652585624 (8)
+        PRG_SA_WINDOW.fbFSInit, R_TRIG, 653323520 (64)
+        PRG_SA_WINDOW.g_FastFaultOutputNA, FB_HardwareFFOutput, 653323584 (495296)
+        PRG_SA_WINDOW.g_FastFaultOutputNA.q_xFastFaultOut, BOOL, 653323848 (8)
+        PRG_SA_WINDOW.g_fbArbiterNA, FB_Arbiter, 653818880 (474624)
+        PRG_SA_WINDOW.state, E_STATES, 652585632 (16)
+        PRG_SA_WINDOW.xExtILK_OK_BLW, INT, 652585648 (16)
+        PRG_SA_WINDOW.xFirstPass, BOOL, 652585616 (8)
+
+
 PRG_SampleChamber
 ^^^^^^^^^^^^^^^^^
 
