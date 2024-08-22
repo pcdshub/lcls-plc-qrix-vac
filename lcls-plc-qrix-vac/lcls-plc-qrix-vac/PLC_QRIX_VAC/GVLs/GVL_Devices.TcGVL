@@ -91,11 +91,11 @@ qRIXS_ROUGH_VRC_01: FB_VRC;
         io: io
     '}
 qRIXS_ROUGH_VRC_02: FB_VRC;
-{attribute 'pytmc' := '
+(*{attribute 'pytmc' := '
     pv: QRIXS:SA:VRC:01
 '}
 qRIXS_SA_VRC_01 : FB_VRC_NO_FFO; // Is the Window valve NO
-
+*)
 (* MOved to PAX
 //// Connected to B950-310-WALL-W-DRL-02 (Mechanical Room )
 {attribute 'pytmc' := ' pv: QRIXS:PRO:01 '}
@@ -183,7 +183,7 @@ qRIXS_SC_VGC_04 : FB_VGC;
                              .i_xClsLS	:=	TIIB[EL1004_01_05]^Channel 4^Input;
                              .q_xCLS_DO	:=	TIIB[EL2004_01_04]^Channel 2^Output
     '}
-qRIXS_SC_VGC_05 : FB_VRC_NO;
+qRIXS_SC_VGC_05 : FB_VRC_NO; // AL foil valve
 
 //PTM
 {attribute 'TcLinkTo' := 	'.i_xAtSpd			:=	TIIB[EL1004_01_13]^Channel 1^Input;
