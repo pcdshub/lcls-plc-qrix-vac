@@ -365,11 +365,11 @@
         <span class="n">io</span><span class="p">:</span> <span class="n">io</span>
     <span class="s1">&#39;}</span>
 <span class="n">qRIXS_ROUGH_VRC_02</span><span class="p">:</span> <span class="n">FB_VRC</span><span class="p">;</span>
-<span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+<span class="p">(</span><span class="o">*</span><span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
     <span class="n">pv</span><span class="p">:</span> <span class="n">QRIXS</span><span class="p">:</span><span class="n">SA</span><span class="p">:</span><span class="n">VRC</span><span class="p">:</span><span class="mi">01</span>
 <span class="s1">&#39;}</span>
 <span class="n">qRIXS_SA_VRC_01</span> <span class="p">:</span> <span class="n">FB_VRC_NO_FFO</span><span class="p">;</span> <span class="o">//</span> <span class="n">Is</span> <span class="n">the</span> <span class="n">Window</span> <span class="n">valve</span> <span class="n">NO</span>
-
+<span class="o">*</span><span class="p">)</span>
 <span class="p">(</span><span class="o">*</span> <span class="n">MOved</span> <span class="n">to</span> <span class="n">PAX</span>
 <span class="o">////</span> <span class="n">Connected</span> <span class="n">to</span> <span class="n">B950</span><span class="o">-</span><span class="mi">310</span><span class="o">-</span><span class="n">WALL</span><span class="o">-</span><span class="n">W</span><span class="o">-</span><span class="n">DRL</span><span class="o">-</span><span class="mi">02</span> <span class="p">(</span><span class="n">Mechanical</span> <span class="n">Room</span> <span class="p">)</span>
 <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39; pv: QRIXS:PRO:01 &#39;</span><span class="p">}</span>
@@ -457,7 +457,7 @@
                              <span class="o">.</span><span class="n">i_xClsLS</span>      <span class="o">:=</span>      <span class="n">TIIB</span><span class="p">[</span><span class="n">EL1004_01_05</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">4</span><span class="o">^</span><span class="n">Input</span><span class="p">;</span>
                              <span class="o">.</span><span class="n">q_xCLS_DO</span>     <span class="o">:=</span>      <span class="n">TIIB</span><span class="p">[</span><span class="n">EL2004_01_04</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">Output</span>
     <span class="s1">&#39;}</span>
-<span class="n">qRIXS_SC_VGC_05</span> <span class="p">:</span> <span class="n">FB_VRC_NO</span><span class="p">;</span>
+<span class="n">qRIXS_SC_VGC_05</span> <span class="p">:</span> <span class="n">FB_VRC_NO</span><span class="p">;</span> <span class="o">//</span> <span class="n">AL</span> <span class="n">foil</span> <span class="n">valve</span>
 
 <span class="o">//</span><span class="n">PTM</span>
 <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span>    <span class="s1">&#39;.i_xAtSpd                      :=      TIIB[EL1004_01_13]^Channel 1^Input;</span>
@@ -593,6 +593,28 @@
                              <span class="o">.</span><span class="n">i_xSP_DI</span>              <span class="o">:=</span>      <span class="n">TIIB</span><span class="p">[</span><span class="n">EL1004_00_05</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">4</span><span class="o">^</span><span class="n">Input</span>
 <span class="s1">&#39;}</span>
 <span class="n">qRIXS_DET_PIP_01</span><span class="p">:</span> <span class="n">FB_PIP_Gamma</span><span class="p">;</span>
+
+
+<span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+    <span class="n">pv</span><span class="p">:</span> <span class="n">QRIXS</span><span class="p">:</span><span class="n">CRYO</span><span class="p">:</span><span class="n">PIP</span><span class="p">:</span><span class="mi">01</span>
+    <span class="n">io</span><span class="p">:</span> <span class="n">io</span>
+<span class="s1">&#39;}</span>
+<span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span>    <span class="s1">&#39;.q_xHVEna_DO   :=      TIIB[EL2794_00_07]^Channel 3^Output;</span>
+                             <span class="o">.</span><span class="n">i_iPRESS</span>              <span class="o">:=</span>      <span class="n">TIIB</span><span class="p">[</span><span class="n">EL3064_00_06</span><span class="p">]</span><span class="o">^</span><span class="n">AI</span> <span class="n">Standard</span> <span class="n">Channel</span> <span class="mi">3</span><span class="o">^</span><span class="n">Value</span><span class="p">;</span>
+                             <span class="o">.</span><span class="n">i_xSP_DI</span>              <span class="o">:=</span>      <span class="n">TIIB</span><span class="p">[</span><span class="n">EL1004_00_08</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">3</span><span class="o">^</span><span class="n">Input</span>
+<span class="s1">&#39;}</span>
+
+<span class="n">qRIXS_CRYO_PIP_01</span><span class="p">:</span> <span class="n">FB_PIP_Gamma</span><span class="p">;</span>
+
+<span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+    <span class="n">pv</span><span class="p">:</span> <span class="n">QRIXS</span><span class="p">:</span><span class="n">DET</span><span class="p">:</span><span class="n">PIP</span><span class="p">:</span><span class="mi">03</span>
+    <span class="n">io</span><span class="p">:</span> <span class="n">io</span>
+<span class="s1">&#39;}</span>
+<span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span>    <span class="s1">&#39;.q_xHVEna_DO   :=      TIIB[EL2794_00_07]^Channel 4^Output;</span>
+                             <span class="o">.</span><span class="n">i_iPRESS</span>              <span class="o">:=</span>      <span class="n">TIIB</span><span class="p">[</span><span class="n">EL3064_00_06</span><span class="p">]</span><span class="o">^</span><span class="n">AI</span> <span class="n">Standard</span> <span class="n">Channel</span> <span class="mi">4</span><span class="o">^</span><span class="n">Value</span><span class="p">;</span>
+                             <span class="o">.</span><span class="n">i_xSP_DI</span>              <span class="o">:=</span>      <span class="n">TIIB</span><span class="p">[</span><span class="n">EL1004_00_08</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">4</span><span class="o">^</span><span class="n">Input</span>
+<span class="s1">&#39;}</span>
+<span class="n">qRIXS_DET_PIP_03</span><span class="p">:</span> <span class="n">FB_PIP_Gamma</span><span class="p">;</span>
 
 
 
@@ -1036,18 +1058,18 @@ CASE state OF
 
  E_STATES.INIT:
         qRIXS_SC_VGC_04.M_Set_OPN_SW(FALSE); //Isolation Valve closed
-        qRIXS_SA_VRC_01.M_Set_CLS_SW(FALSE); // Window valve OPEN
-        qRIXS_SC_VGC_04.i_xOverrideMode := qRIXS_SA_VRC_01.i_xOverrideMode := FALSE;
+        qRIXS_SC_VGC_05.M_Set_CLS_SW(FALSE); // Window valve OPEN
+        qRIXS_SC_VGC_04.i_xOverrideMode := qRIXS_SC_VGC_05.i_xOverrideMode := FALSE;
         //Transition
-        if (qRIXS_SC_VGC_04.M_IsClosed() AND qRIXS_SA_VRC_01.M_IsOpen()) THEN
+        if (qRIXS_SC_VGC_04.M_IsClosed() AND qRIXS_SC_VGC_05.M_IsOpen()) THEN
             state:= E_STATES.NOT_SAFE;
         END_IF
 
 E_STATES.NOT_SAFE: // System is not allowed to actuate, i.e all interlocks are in effect
     qRIXS_SC_VGC_04.M_Set_OPN_SW(qRIXS_SC_VGC_04.iq_stValve.q_xOPN_DO );
      //C_1.i_xExt_OK := VGC_1.i_xEPS_OPN_OK := VGC_1.i_xEPS_CLS_OK:= FALSE;
-    qRIXS_SA_VRC_01.i_xExtILK_OK:= FALSE;
-    qRIXS_SC_VGC_04.i_xOverrideMode := qRIXS_SA_VRC_01.i_xOverrideMode := FALSE;
+    qRIXS_SC_VGC_05.i_xExtILK_OK:= FALSE;
+    qRIXS_SC_VGC_04.i_xOverrideMode := qRIXS_SC_VGC_05.i_xOverrideMode := FALSE;
 
     //Transition
     //IF (US_GCC.IG.xAT_VAC AND DS_GCC.IG.xAT_VAC) THEN state:= E_STATES.READY; END_IF
@@ -1059,23 +1081,23 @@ E_STATES.NOT_SAFE: // System is not allowed to actuate, i.e all interlocks are i
      // Release the external interlock so the differential pressure inlk is in effect
      qRIXS_SC_VGC_04.i_xExt_OK:= qRIXS_SC_VGC_04.i_xEPS_OK :=TRUE;
     //permission to insert window valve only when US vacuum is good??
-    qRIXS_SA_VRC_01.i_xExtILK_OK:= bExtPress;
+    qRIXS_SC_VGC_05.i_xExtILK_OK:= bExtPress;
     // Valves  alternate positions.
-    If (qRIXS_SA_VRC_01.M_IsClosed()) THEN  qRIXS_SC_VGC_04.M_Set_OPN_SW(TRUE);
-    ELSIF (qRIXS_SA_VRC_01.M_IsOpen()) THEN qRIXS_SC_VGC_04.M_Set_OPN_SW(FALSE);
+    If (qRIXS_SC_VGC_05.M_IsClosed()) THEN  qRIXS_SC_VGC_04.M_Set_OPN_SW(TRUE);
+    ELSIF (qRIXS_SC_VGC_05.M_IsOpen()) THEN qRIXS_SC_VGC_04.M_Set_OPN_SW(FALSE);
     END_IF
 
 // bOverride := TRUE;
  E_STATES.OVERRIDE:
     // Override Mode is enabled for all valves
-     qRIXS_SC_VGC_04.i_xOverrideMode :=qRIXS_SA_VRC_01.i_xOverrideMode := TRUE;
+     qRIXS_SC_VGC_04.i_xOverrideMode :=qRIXS_SC_VGC_05.i_xOverrideMode := TRUE;
     // Exit of Override mode always goes back to init
      IF NOT(xSAOverrideMode) THEN state:= E_STATES.INIT; END_IF
 
 
  E_STATES.SETUP:
     // Window valve remains retracted
-     qRIXS_SA_VRC_01.i_xExtILK_OK := FALSE;
+     qRIXS_SC_VGC_05.i_xExtILK_OK := FALSE;
     // Isolation valves operates like standard gate valves
     qRIXS_SC_VGC_04.i_xExt_OK := TRUE;
     // exit to init just to be safe?
@@ -1115,16 +1137,10 @@ qRIXS_SC_VGC_04(
 );
 
 
-qRIXS_SA_VRC_01(
+qRIXS_SC_VGC_05(
     i_xExtILK_OK:= ,
     i_xOverrideMode:= ,
-    iq_stValve=&gt; ,
-    io_fbFFHWO:= g_FastFaultOutputNA,
-    fbArbiter:= g_fbArbiterNA ,
-    i_xPMPS_OK:= TRUE,
-    i_xIsAperture:= TRUE ,
-    i_sDevName:= ,
-    i_nTransitionRootID:= );
+    iq_stValve=&gt;  );
 
 END_PROGRAM
 </pre></div>
@@ -1191,8 +1207,9 @@ END_PROGRAM
 <span class="o">//</span><span class="n">ION</span> <span class="n">Pumps</span>
 <span class="n">qRIXS_SC_PIP_01</span><span class="p">(</span><span class="n">i_stGauge</span><span class="o">:=</span><span class="n">qRIXS_SC_GPI_01</span><span class="o">.</span><span class="n">PG</span><span class="p">,</span> <span class="n">i_xOverrideMode</span><span class="o">:=</span> <span class="n">xSystemOverrideMode</span><span class="p">);</span>
 <span class="n">qRIXS_SC_PIP_02</span><span class="p">(</span><span class="n">i_stGauge</span><span class="o">:=</span><span class="n">qRIXS_SC_GPI_01</span><span class="o">.</span><span class="n">PG</span><span class="p">,</span> <span class="n">i_xOverrideMode</span><span class="o">:=</span> <span class="n">xSystemOverrideMode</span><span class="p">);</span>
+<span class="n">qRIXS_CRYO_PIP_01</span><span class="p">(</span><span class="n">i_stGauge</span><span class="o">:=</span><span class="n">qRIXS_SC_GPI_01</span><span class="o">.</span><span class="n">PG</span><span class="p">,</span> <span class="n">i_xOverrideMode</span><span class="o">:=</span> <span class="n">xSystemOverrideMode</span><span class="p">);</span>
 
-<span class="o">//</span><span class="n">Pfiffer</span> <span class="n">Turbo</span>
+
 
 
 
@@ -1257,6 +1274,8 @@ END_PROGRAM
 
 <span class="n">qRIXS_SC_VRC_30</span><span class="p">(</span><span class="n">i_xOverrideMode</span><span class="o">:=</span><span class="n">xSystemOverrideMode</span> <span class="p">,</span> <span class="n">iq_stValve</span><span class="o">=&gt;</span> <span class="p">);</span>
 
+
+<span class="o">//</span><span class="n">Pfiffer</span> <span class="n">Turbo</span>
 <span class="o">//</span><span class="n">PTM</span> <span class="n">ILK</span>
 <span class="o">//</span><span class="n">qRIXS_SC_PTM_10_ILK</span><span class="p">(</span><span class="n">i_stValve</span><span class="o">:=</span><span class="n">qRIXS_ROUGH_VRC_02</span><span class="o">.</span><span class="n">iq_stValve</span><span class="p">,</span> <span class="n">i_stPump</span><span class="o">:=</span><span class="n">qRIXS_SC_PTM_10</span><span class="o">.</span><span class="n">iq_stPTM</span><span class="p">,</span> <span class="n">tDelay</span><span class="o">:=</span><span class="n">T</span><span class="c1">#200S, bILK=&gt;);</span>
 <span class="n">qRIXS_SC_PTM_10</span><span class="p">(</span><span class="n">i_xExtIlkOK</span><span class="o">:=</span> <span class="n">qRIXS_ROUGH_VRC_02</span><span class="o">.</span><span class="n">M_IsOpen</span><span class="p">()</span>
@@ -1357,6 +1376,7 @@ END_PROGRAM
 <span class="p">(</span><span class="o">*</span> <span class="n">Gamma</span> <span class="n">Ion</span> <span class="n">Pump</span> <span class="o">*</span><span class="p">)</span>
     <span class="n">qRIXS_OPT_PIP_01</span><span class="p">(</span><span class="n">i_stGauge</span><span class="o">:=</span><span class="n">qRIXS_OPT_GCC_01</span><span class="o">.</span><span class="n">IG</span><span class="p">,</span> <span class="n">i_xOverrideMode</span><span class="o">:=</span> <span class="n">xSystemOverrideMode</span><span class="p">);</span>
     <span class="n">qRIXS_DET_PIP_01</span><span class="p">(</span><span class="n">i_stGauge</span><span class="o">:=</span><span class="n">qRIXS_DET_GPI_01</span><span class="o">.</span><span class="n">PG</span><span class="p">,</span> <span class="n">i_xOverrideMode</span><span class="o">:=</span> <span class="n">xSystemOverrideMode</span><span class="p">);</span>
+    <span class="n">qRIXS_DET_PIP_03</span><span class="p">(</span><span class="n">i_stGauge</span><span class="o">:=</span><span class="n">qRIXS_DET_GPI_01</span><span class="o">.</span><span class="n">PG</span><span class="p">,</span> <span class="n">i_xOverrideMode</span><span class="o">:=</span> <span class="n">xSystemOverrideMode</span><span class="p">);</span>
 
 <span class="p">(</span><span class="o">*</span> <span class="n">Pirani</span> <span class="n">MKS</span> <span class="mi">275</span> <span class="n">Gauges</span> <span class="o">*</span><span class="p">)</span>
     <span class="n">qRIXS_OPT_GPI_01</span><span class="p">(</span><span class="n">PG</span><span class="o">=&gt;</span><span class="p">);</span>
