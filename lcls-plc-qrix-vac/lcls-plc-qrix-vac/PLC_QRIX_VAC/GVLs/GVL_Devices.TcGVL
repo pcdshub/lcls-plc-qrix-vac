@@ -321,6 +321,28 @@ qRIXS_OPT_PIP_01: FB_PIP_Gamma;
 qRIXS_DET_PIP_01: FB_PIP_Gamma;
 
 
+{attribute 'pytmc' := '
+    pv: QRIXS:CRYO:PIP:01
+    io: io
+'}
+{attribute 'TcLinkTo' := 	'.q_xHVEna_DO	:=	TIIB[EL2794_00_07]^Channel 3^Output;
+                             .i_iPRESS		:=	TIIB[EL3064_00_06]^AI Standard Channel 3^Value;
+                             .i_xSP_DI		:=	TIIB[EL1004_00_08]^Channel 3^Input
+'}
+
+qRIXS_CRYO_PIP_01: FB_PIP_Gamma;
+
+{attribute 'pytmc' := '
+    pv: QRIXS:DET:PIP:03
+    io: io
+'}
+{attribute 'TcLinkTo' := 	'.q_xHVEna_DO	:=	TIIB[EL2794_00_07]^Channel 4^Output;
+                             .i_iPRESS		:=	TIIB[EL3064_00_06]^AI Standard Channel 4^Value;
+                             .i_xSP_DI		:=	TIIB[EL1004_00_08]^Channel 4^Input
+'}
+qRIXS_DET_PIP_03: FB_PIP_Gamma;
+
+
 
 END_VAR]]></Declaration>
   </GVL>

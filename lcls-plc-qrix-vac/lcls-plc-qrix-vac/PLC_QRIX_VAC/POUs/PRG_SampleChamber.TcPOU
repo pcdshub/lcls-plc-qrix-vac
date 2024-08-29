@@ -56,8 +56,9 @@ qRIXS_SA_GCP_02();
 //ION Pumps
 qRIXS_SC_PIP_01(i_stGauge:=qRIXS_SC_GPI_01.PG, i_xOverrideMode:= xSystemOverrideMode);
 qRIXS_SC_PIP_02(i_stGauge:=qRIXS_SC_GPI_01.PG, i_xOverrideMode:= xSystemOverrideMode);
+qRIXS_CRYO_PIP_01(i_stGauge:=qRIXS_SC_GPI_01.PG, i_xOverrideMode:= xSystemOverrideMode);
 
-//Pfiffer Turbo
+
 
 
 
@@ -122,6 +123,8 @@ qRIXS_SC_VRC_30.i_xExtILK_OK :=  qRIXS_SC_PTM_30.iq_stPTM.eState = E_PumpState.p
 
 qRIXS_SC_VRC_30(i_xOverrideMode:=xSystemOverrideMode , iq_stValve=> );
 
+
+//Pfiffer Turbo
 //PTM ILK
 //qRIXS_SC_PTM_10_ILK(i_stValve:=qRIXS_ROUGH_VRC_02.iq_stValve, i_stPump:=qRIXS_SC_PTM_10.iq_stPTM, tDelay:=T#200S, bILK=>);
 qRIXS_SC_PTM_10(i_xExtIlkOK:= qRIXS_ROUGH_VRC_02.M_IsOpen()
