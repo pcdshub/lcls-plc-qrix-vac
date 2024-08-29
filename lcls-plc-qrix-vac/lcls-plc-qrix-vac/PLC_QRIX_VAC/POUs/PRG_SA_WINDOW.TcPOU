@@ -32,18 +32,18 @@ CASE state OF
 
  E_STATES.INIT:
         qRIXS_SC_VGC_04.M_Set_OPN_SW(FALSE); //Isolation Valve closed
-        qRIXS_SA_VRC_01.M_Set_CLS_SW(FALSE); // Window valve OPEN
-        qRIXS_SC_VGC_04.i_xOverrideMode := qRIXS_SA_VRC_01.i_xOverrideMode := FALSE;
+        qRIXS_SC_VGC_05.M_Set_CLS_SW(FALSE); // Window valve OPEN
+        qRIXS_SC_VGC_04.i_xOverrideMode := qRIXS_SC_VGC_05.i_xOverrideMode := FALSE;
         //Transition
-        if (qRIXS_SC_VGC_04.M_IsClosed() AND qRIXS_SA_VRC_01.M_IsOpen()) THEN
+        if (qRIXS_SC_VGC_04.M_IsClosed() AND qRIXS_SC_VGC_05.M_IsOpen()) THEN
             state:= E_STATES.NOT_SAFE;
         END_IF
 
 E_STATES.NOT_SAFE: // System is not allowed to actuate, i.e all interlocks are in effect
     qRIXS_SC_VGC_04.M_Set_OPN_SW(qRIXS_SC_VGC_04.iq_stValve.q_xOPN_DO );
      //C_1.i_xExt_OK := VGC_1.i_xEPS_OPN_OK := VGC_1.i_xEPS_CLS_OK:= FALSE;
-    qRIXS_SA_VRC_01.i_xExtILK_OK:= FALSE;
-    qRIXS_SC_VGC_04.i_xOverrideMode := qRIXS_SA_VRC_01.i_xOverrideMode := FALSE;
+    qRIXS_SC_VGC_05.i_xExtILK_OK:= FALSE;
+    qRIXS_SC_VGC_04.i_xOverrideMode := qRIXS_SC_VGC_05.i_xOverrideMode := FALSE;
 
     //Transition
     //IF (US_GCC.IG.xAT_VAC AND DS_GCC.IG.xAT_VAC) THEN state:= E_STATES.READY; END_IF
@@ -55,23 +55,23 @@ E_STATES.NOT_SAFE: // System is not allowed to actuate, i.e all interlocks are i
      // Release the external interlock so the differential pressure inlk is in effect
      qRIXS_SC_VGC_04.i_xExt_OK:= qRIXS_SC_VGC_04.i_xEPS_OK :=TRUE;
     //permission to insert window valve only when US vacuum is good??
-    qRIXS_SA_VRC_01.i_xExtILK_OK:= bExtPress;
+    qRIXS_SC_VGC_05.i_xExtILK_OK:= bExtPress;
     // Valves  alternate positions.
-    If (qRIXS_SA_VRC_01.M_IsClosed()) THEN  qRIXS_SC_VGC_04.M_Set_OPN_SW(TRUE);
-    ELSIF (qRIXS_SA_VRC_01.M_IsOpen()) THEN qRIXS_SC_VGC_04.M_Set_OPN_SW(FALSE);
+    If (qRIXS_SC_VGC_05.M_IsClosed()) THEN  qRIXS_SC_VGC_04.M_Set_OPN_SW(TRUE);
+    ELSIF (qRIXS_SC_VGC_05.M_IsOpen()) THEN qRIXS_SC_VGC_04.M_Set_OPN_SW(FALSE);
     END_IF
 
 // bOverride := TRUE;
  E_STATES.OVERRIDE:
     // Override Mode is enabled for all valves
-     qRIXS_SC_VGC_04.i_xOverrideMode :=qRIXS_SA_VRC_01.i_xOverrideMode := TRUE;
+     qRIXS_SC_VGC_04.i_xOverrideMode :=qRIXS_SC_VGC_05.i_xOverrideMode := TRUE;
     // Exit of Override mode always goes back to init
      IF NOT(xSAOverrideMode) THEN state:= E_STATES.INIT; END_IF
 
 
  E_STATES.SETUP:
     // Window valve remains retracted
-     qRIXS_SA_VRC_01.i_xExtILK_OK := FALSE;
+     qRIXS_SC_VGC_05.i_xExtILK_OK := FALSE;
     // Isolation valves operates like standard gate valves
     qRIXS_SC_VGC_04.i_xExt_OK := TRUE;
     // exit to init just to be safe?
@@ -111,16 +111,10 @@ qRIXS_SC_VGC_04(
 );
 
 
-qRIXS_SA_VRC_01(
+qRIXS_SC_VGC_05(
     i_xExtILK_OK:= ,
     i_xOverrideMode:= ,
-    iq_stValve=> ,
-    io_fbFFHWO:= g_FastFaultOutputNA,
-    fbArbiter:= g_fbArbiterNA ,
-    i_xPMPS_OK:= TRUE,
-    i_xIsAperture:= TRUE ,
-    i_sDevName:= ,
-    i_nTransitionRootID:= );
+    iq_stValve=>  );
 
 
 ]]></ST>
